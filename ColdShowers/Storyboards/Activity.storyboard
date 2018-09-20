@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnj-st-z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="-20"/>
+            <point key="canvasLocation" x="1458" y="-20"/>
         </scene>
         <!--Post Activity View Controller-->
         <scene sceneID="nbm-4Q-HKy">
@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7K-3i-5TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2668" y="-20"/>
+            <point key="canvasLocation" x="2276" y="-20"/>
         </scene>
     </scenes>
 </document>

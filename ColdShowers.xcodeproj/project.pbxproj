@@ -15,6 +15,15 @@
 		A14F75F3215444E6005BDAF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F75F1215444E6005BDAF4 /* LaunchScreen.storyboard */; };
 		A14F75FE215444E6005BDAF4 /* ColdShowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F75FD215444E6005BDAF4 /* ColdShowersTests.swift */; };
 		A14F7609215444E6005BDAF4 /* ColdShowersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7608215444E6005BDAF4 /* ColdShowersUITests.swift */; };
+		A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F761621544683005BDAF4 /* LoginViewController.swift */; };
+		A14F7619215446DA005BDAF4 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7618215446DA005BDAF4 /* HomeScreenViewController.swift */; };
+		A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F761B215447C8005BDAF4 /* ActivityViewController.swift */; };
+		A14F761E215447ED005BDAF4 /* PostActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */; };
+		A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F761F2154480A005BDAF4 /* CalendarViewController.swift */; };
+		A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */; };
+		A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762321544EFA005BDAF4 /* Activity.storyboard */; };
+		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
+		A14F762921544FCE005BDAF4 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F762821544FCE005BDAF4 /* CalenderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		A14F7604215444E6005BDAF4 /* ColdShowersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColdShowersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14F7608215444E6005BDAF4 /* ColdShowersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdShowersUITests.swift; sourceTree = "<group>"; };
 		A14F760A215444E6005BDAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A14F761621544683005BDAF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A14F7618215446DA005BDAF4 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		A14F761B215447C8005BDAF4 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActivityViewController.swift; sourceTree = "<group>"; };
+		A14F761F2154480A005BDAF4 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		A14F762321544EFA005BDAF4 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		A14F762821544FCE005BDAF4 /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +119,9 @@
 			children = (
 				A14F75E5215444E4005BDAF4 /* AppDelegate.swift */,
 				A14F75E7215444E4005BDAF4 /* ViewController.swift */,
-				A14F75E9215444E4005BDAF4 /* Main.storyboard */,
+				A14F761A21544709005BDAF4 /* ViewControllers */,
 				A14F75EF215444E6005BDAF4 /* Assets.xcassets */,
-				A14F75F1215444E6005BDAF4 /* LaunchScreen.storyboard */,
+				A14F762521544F22005BDAF4 /* Storyboards */,
 				A14F75F4215444E6005BDAF4 /* Info.plist */,
 				A14F75EC215444E4005BDAF4 /* ColdShowers.xcdatamodeld */,
 			);
@@ -126,6 +144,31 @@
 				A14F760A215444E6005BDAF4 /* Info.plist */,
 			);
 			path = ColdShowersUITests;
+			sourceTree = "<group>";
+		};
+		A14F761A21544709005BDAF4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A14F762821544FCE005BDAF4 /* CalenderViewController.swift */,
+				A14F7618215446DA005BDAF4 /* HomeScreenViewController.swift */,
+				A14F761621544683005BDAF4 /* LoginViewController.swift */,
+				A14F761B215447C8005BDAF4 /* ActivityViewController.swift */,
+				A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */,
+				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
+				A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A14F762521544F22005BDAF4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A14F75F1215444E6005BDAF4 /* LaunchScreen.storyboard */,
+				A14F762621544F40005BDAF4 /* Login.storyboard */,
+				A14F75E9215444E4005BDAF4 /* Main.storyboard */,
+				A14F762321544EFA005BDAF4 /* Activity.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +278,8 @@
 				A14F75F3215444E6005BDAF4 /* LaunchScreen.storyboard in Resources */,
 				A14F75F0215444E6005BDAF4 /* Assets.xcassets in Resources */,
 				A14F75EB215444E4005BDAF4 /* Main.storyboard in Resources */,
+				A14F762721544F40005BDAF4 /* Login.storyboard in Resources */,
+				A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +304,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14F762921544FCE005BDAF4 /* CalenderViewController.swift in Sources */,
+				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
+				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
+				A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */,
+				A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */,
 				A14F75E8215444E4005BDAF4 /* ViewController.swift in Sources */,
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
 				A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */,
+				A14F7619215446DA005BDAF4 /* HomeScreenViewController.swift in Sources */,
+				A14F761E215447ED005BDAF4 /* PostActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
