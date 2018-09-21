@@ -105,6 +105,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B3n-ro-SNV"/>
                     </view>
+                    <connections>
+                        <outlet property="activityInstructionImage" destination="86g-7v-l6I" id="zF0-uV-vTs"/>
+                        <outlet property="activityNameLabel" destination="0Cc-bP-eLK" id="zAZ-1B-PPi"/>
+                        <outlet property="activityStartButton" destination="fgn-bu-5lH" id="Ra6-W5-cJx"/>
+                        <outlet property="estimatedTimeAmount" destination="jVt-nq-pjq" id="mdN-1t-Flm"/>
+                        <outlet property="estimatedTimeLabel" destination="9gr-fp-ygf" id="TeN-t3-MBj"/>
+                        <outlet property="timerOverlayButton" destination="XdM-an-JaN" id="Bk3-8y-aCe"/>
+                        <outlet property="timerOverlayView" destination="RMt-fT-nWP" id="Mp1-Jv-O6Q"/>
+                        <outlet property="timerOverlaylabel" destination="GdS-cY-3tX" id="WAm-5a-ynD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnj-st-z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,6 +215,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="igc-co-Lvq"/>
                     </view>
+                    <connections>
+                        <outlet property="activityButtonFinish" destination="kSA-xB-BaB" id="B6Z-bm-OHI"/>
+                        <outlet property="enjoymentButtonNo" destination="h0I-eH-KbO" id="ctF-0f-nTA"/>
+                        <outlet property="enjoymentButtonYes" destination="1hf-ey-ERe" id="qf4-ae-z57"/>
+                        <outlet property="enjoymentLabel" destination="Ywc-rl-aNC" id="zVo-ue-xiV"/>
+                        <outlet property="intensityButtonHigh" destination="1Qx-xy-oHH" id="y4M-he-MLH"/>
+                        <outlet property="intensityButtonLow" destination="mG7-qc-giK" id="o6h-Ks-Sox"/>
+                        <outlet property="intensityButtonMiddle" destination="EVu-nw-6pe" id="dPE-jO-uJT"/>
+                        <outlet property="intensityLabel" destination="0rN-AR-BZw" id="fhc-KJ-ybT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7K-3i-5TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

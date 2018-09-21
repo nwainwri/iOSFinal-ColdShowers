@@ -9,7 +9,26 @@
 import UIKit
 
 class ActivityViewController: UIViewController {
+  
+  //MARK: Timer Overlay Properties
+  @IBOutlet weak var timerOverlayView: UIView!
+  @IBOutlet weak var timerOverlaylabel: UILabel!
+  @IBOutlet weak var timerOverlayButton: UIButton!
+  
+  //MARK: ActivityView Properties
+  @IBOutlet weak var activityNameLabel: UILabel!
+  @IBOutlet weak var estimatedTimeLabel: UILabel!
+  @IBOutlet weak var estimatedTimeAmount: UILabel!
+  @IBOutlet weak var activityInstructionImage: UIImageView!
+  @IBOutlet weak var activityStartButton: UIButton!
+  
 
+  
+  
+  
+  
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

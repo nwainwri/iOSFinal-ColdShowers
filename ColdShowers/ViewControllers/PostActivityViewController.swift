@@ -9,6 +9,19 @@
 import UIKit
 
 class PostActivityViewController: UIViewController {
+  
+  //MARK: Post Actvity Properties
+  @IBOutlet weak var intensityLabel: UILabel!
+  @IBOutlet weak var intensityButtonLow: UIButton!
+  @IBOutlet weak var intensityButtonMiddle: UIButton!
+  @IBOutlet weak var intensityButtonHigh: UIButton!
+  
+  @IBOutlet weak var enjoymentLabel: UILabel!
+  @IBOutlet weak var enjoymentButtonYes: UIButton!
+  @IBOutlet weak var enjoymentButtonNo: UIButton!
+  
+  @IBOutlet weak var activityButtonFinish: UIButton!
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
