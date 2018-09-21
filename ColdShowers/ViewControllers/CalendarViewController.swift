@@ -20,7 +20,16 @@ class CalendarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+//    let notificationCenter = UNUserNotificationCenter.current()
+//    notificationCenter.requestAuthorization(options: [.alert, .sound])
+//    { (granted, error) in
+//    if granted {
+//    print("granted")
+//    }
+//    else {
+//    print("not granted")
+//    }
+//    }
 
     /*
     // MARK: - Navigation
@@ -36,9 +45,7 @@ class CalendarViewController: UIViewController {
     
     func setActivity(date: Date, repeats: Bool) {
         
-        let content = UNMutableNotificationContent()
-        content.title = "Time to go"
-        let startButton = UNNotificationAction(identifier: "goButton", title: "Go", options: [])
+        
         
         
         var myDateComponents = DateComponents()
@@ -50,5 +57,15 @@ class CalendarViewController: UIViewController {
     
         let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: repeats)
         let request = UNNotificationRequest(identifier: "uniqueID", content: <#T##UNNotificationContent#>, trigger: <#T##UNNotificationTrigger?#>)
+        let startButton = UNNotificationAction(identifier: "goButton", title: "Go", options: [])
     }
+    
+    // Create button
+    
+    func createButton() {
+    let content = UNMutableNotificationContent()
+    content.title = "Time to go"
+    let myStartButton = UIButton()
+         = myStartButton
+    myStartButton.accessibilityIdentifier = "goButton"
 }
