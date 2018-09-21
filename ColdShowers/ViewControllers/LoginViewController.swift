@@ -9,7 +9,14 @@
 import UIKit
 import UserNotifications
 class LoginViewController: UIViewController {
-
+  
+  // MARK: LoginView Properties
+  @IBOutlet weak var usernameLabel: UILabel!
+  @IBOutlet weak var usernameTextField: UITextField!
+  @IBOutlet weak var passwordLabel: UILabel!
+  @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var loginButton: UIButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

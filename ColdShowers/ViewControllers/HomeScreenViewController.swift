@@ -9,7 +9,14 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController {
-
+  
+  //MARK: HomeScreenView Properties
+  @IBOutlet weak var homeScreenSettingsButton: UIButton!
+  @IBOutlet weak var streakDaysLabel: UILabel!
+  @IBOutlet weak var streakDaysNumberLabel: UILabel!
+  @IBOutlet weak var setupAlarmButton: UIButton!
+  @IBOutlet weak var workoutButton: UIButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
