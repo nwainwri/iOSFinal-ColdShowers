@@ -18,19 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8GS-xU-uHk">
-                                <rect key="frame" x="93" y="318.5" width="189" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-Yi-Yfy">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
-                                        <state key="normal" title="Setup Alarm"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obs-v5-2L7">
-                                        <rect key="frame" x="89" y="0.0" width="100" height="30"/>
-                                        <state key="normal" title="Work Out Now"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac8-V6-TNP">
                                 <rect key="frame" x="294" y="29" width="65" height="30"/>
                                 <constraints>
@@ -38,11 +25,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="heI-tv-PQr"/>
                                 </constraints>
                                 <state key="normal" title="Settings"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbc-ya-TZq">
-                                <rect key="frame" x="292" y="152" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vH2-jf-3sp">
                                 <rect key="frame" x="117" y="198" width="140" height="50"/>
@@ -65,6 +47,24 @@
                                     <constraint firstAttribute="height" constant="50" id="ltV-d1-sog"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8GS-xU-uHk">
+                                <rect key="frame" x="93" y="318.5" width="189" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-Yi-Yfy">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                        <state key="normal" title="Setup Alarm"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obs-v5-2L7">
+                                        <rect key="frame" x="89" y="0.0" width="100" height="30"/>
+                                        <state key="normal" title="Work Out Now"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbc-ya-TZq">
+                                <rect key="frame" x="292" y="152" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,6 +79,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KRm-aJ-zwD"/>
                     </view>
+                    <connections>
+                        <outlet property="homeScreenSettingsButton" destination="ac8-V6-TNP" id="WzW-MP-31i"/>
+                        <outlet property="setupAlarmButton" destination="PWK-Yi-Yfy" id="GM5-TL-8Mf"/>
+                        <outlet property="streakDaysLabel" destination="PNr-M4-Wel" id="0vc-O9-dTY"/>
+                        <outlet property="streakDaysNumberLabel" destination="nha-kA-gh3" id="ds8-5c-l1W"/>
+                        <outlet property="workoutButton" destination="obs-v5-2L7" id="fqR-Je-7rL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2y-UJ-gfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,6 +118,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0Ok-vv-mWA"/>
                     </view>
+                    <connections>
+                        <outlet property="preferencesTableView" destination="4xF-tR-mmK" id="mfP-xU-bok"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgT-Nt-oKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +150,7 @@
                                     <!--2018-09-21 00:32:13 +0000-->
                                 </date>
                             </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-kE-U7h">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-kE-U7h" userLabel="Days of the Week Buttons">
                                 <rect key="frame" x="16" y="380" width="246" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-hi-C1K">
@@ -197,11 +207,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-e7-IMN">
+                                <rect key="frame" x="16" y="539" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QPe-aR-nBc"/>
+                                    <constraint firstAttribute="width" constant="44" id="qgg-EO-5Tg"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cgg-bg-dBa" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="4dq-Bx-RBl"/>
                             <constraint firstItem="VR7-dD-7dD" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="Hcp-NP-LO8"/>
+                            <constraint firstItem="1Tb-e7-IMN" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="Hta-6p-SsV"/>
                             <constraint firstItem="fZO-IP-Bvx" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="IjX-9Q-Cg9"/>
                             <constraint firstItem="Cgg-bg-dBa" firstAttribute="top" secondItem="cgb-kE-U7h" secondAttribute="bottom" constant="8" id="OSk-oj-Taw"/>
                             <constraint firstItem="cgb-kE-U7h" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="UQf-cw-xld"/>
@@ -209,11 +228,23 @@
                             <constraint firstItem="Yey-jp-0Pt" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="cTQ-R1-nad"/>
                             <constraint firstItem="PFL-0t-DA0" firstAttribute="trailing" secondItem="VR7-dD-7dD" secondAttribute="trailing" constant="16" id="cpu-HW-H1i"/>
                             <constraint firstItem="Yey-jp-0Pt" firstAttribute="top" secondItem="PFL-0t-DA0" secondAttribute="top" constant="78" id="iZj-63-su5"/>
+                            <constraint firstItem="1Tb-e7-IMN" firstAttribute="top" secondItem="Cgg-bg-dBa" secondAttribute="bottom" constant="8" id="khr-Kw-tbg"/>
                             <constraint firstItem="fZO-IP-Bvx" firstAttribute="top" secondItem="VR7-dD-7dD" secondAttribute="bottom" constant="8" id="p5m-Ux-gmL"/>
                             <constraint firstItem="VR7-dD-7dD" firstAttribute="top" secondItem="Yey-jp-0Pt" secondAttribute="bottom" constant="8" id="uC8-jZ-L1u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PFL-0t-DA0"/>
                     </view>
+                    <connections>
+                        <outlet property="calenderViewDoneButton" destination="1Tb-e7-IMN" id="Ldl-qm-Znl"/>
+                        <outlet property="fridayButton" destination="Oi1-uX-Irn" id="aqg-am-AGN"/>
+                        <outlet property="mondayButton" destination="I9U-RU-WtG" id="uFN-yb-5pX"/>
+                        <outlet property="saturdayButton" destination="UUh-mh-1Nf" id="gaK-Fz-BfI"/>
+                        <outlet property="sundayButton" destination="OgC-hi-C1K" id="8V7-W4-ybk"/>
+                        <outlet property="thursdayButton" destination="kfD-Py-S7P" id="Wgj-8t-E80"/>
+                        <outlet property="timePicker" destination="VR7-dD-7dD" id="rVV-UK-lm1"/>
+                        <outlet property="tuesdayButton" destination="AyO-fp-zgH" id="ekH-Wr-mkC"/>
+                        <outlet property="wednesdayButton" destination="UfQ-ge-76F" id="ELy-nx-mJW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fe-eY-3hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

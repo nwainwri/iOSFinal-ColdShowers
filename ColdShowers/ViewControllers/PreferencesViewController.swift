@@ -10,6 +10,9 @@ import UIKit
 
 class PreferencesViewController: UIViewController {
 
+  //MARK: PreferencesView Properties
+  @IBOutlet weak var preferencesTableView: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

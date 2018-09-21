@@ -9,7 +9,21 @@
 import UIKit
 import UserNotifications
 class CalendarViewController: UIViewController {
-
+  
+  //MARK: CalenderView Properties
+  @IBOutlet weak var timePicker: UIDatePicker!
+  
+  @IBOutlet weak var sundayButton: UIButton!
+  @IBOutlet weak var mondayButton: UIButton!
+  @IBOutlet weak var tuesdayButton: UIButton!
+  @IBOutlet weak var wednesdayButton: UIButton!
+  @IBOutlet weak var thursdayButton: UIButton!
+  @IBOutlet weak var fridayButton: UIButton!
+  @IBOutlet weak var saturdayButton: UIButton!
+  
+  @IBOutlet weak var calenderViewDoneButton: UIButton!
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
