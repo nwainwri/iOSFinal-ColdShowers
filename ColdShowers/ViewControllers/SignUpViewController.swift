@@ -1,36 +1,28 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  ColdShowers
 //
-//  Created by Kit Clark-O'Neil on 2018-09-20.
+//  Created by Nathan Wainwright on 2018-09-22.
 //  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
 //
 
 import UIKit
-import UserNotifications
-class LoginViewController: UIViewController {
+
+class SignUpViewController: UIViewController {
   
-  // MARK: LoginView Properties
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var passwordLabel: UILabel!
   @IBOutlet weak var passwordTextField: UITextField!
-  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var signUpButton: UIButton!
   
   let defaults = UserDefaults.standard
+
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.\
-      
-      
-      
-      
-      //MARK: Bug Testing
-      print(defaults.object(forKey: "Username") ?? "NO USERNAME")
-      print(defaults.object(forKey: "Password") ?? "NO PASSWORD")
-      
-      
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +30,9 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//
 
+  
     /*
     // MARK: - Navigation
 
@@ -49,18 +43,23 @@ class LoginViewController: UIViewController {
     }
     */
 
-  //MARK: Button Actions
+  // MARK: Button Actions
   
-  @IBAction func loginButtonPressed(_ sender: UIButton) {
-    if usernameTextField.text == defaults.string(forKey: "Username") && passwordTextField.text == defaults.string(forKey: "Password") {
-//      self.performSegue(withIdentifier: "NavigationLoginVC", sender: nil)
-      print("USER PASS RIGHT")
-    } else {
-      print("USER OR PASS WRONG")
-    }
+  
+  @IBAction func signUpButtonPressed(_ sender: UIButton) {
+    let username = usernameTextField.text
+    let password = passwordTextField.text
+    
+    defaults.set(username, forKey: "Username")
+    defaults.set(password, forKey: "Password")
+    
   }
   
-
+  
+  
+  
+  
+  
   
   
   
