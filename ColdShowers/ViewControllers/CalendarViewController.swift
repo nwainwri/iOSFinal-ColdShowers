@@ -27,6 +27,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,55 +35,7 @@ class CalendarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    let notificationCenter = UNUserNotificationCenter.current()
-//    notificationCenter.requestAuthorization(options: [.alert, .sound])
-//    { (granted, error) in
-//    if granted {
-//    print("granted")
-//    }
-//    else {
-//    print("not granted")
-//    }
-//    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: - Notification date setting
-
-    func setActivity(date: Date, repeats: Bool) {
-
-
-
-
-        var myDateComponents = DateComponents()
-        let calendar = Calendar.current
-
-        myDateComponents.hour = calendar.component(.hour, from: date)
-        myDateComponents.day = calendar.component(.day, from: date)
-        myDateComponents.minute = calendar.component(.minute, from: date)
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: repeats)
-        let request = UNNotificationRequest(identifier: "uniqueID", content: <#T##UNNotificationContent#>, trigger: <#T##UNNotificationTrigger?#>)
-        let startButton = UNNotificationAction(identifier: "goButton", title: "Go", options: [])
-    }
-
-    // Create button
-
-    func createButton() {
-    let content = UNMutableNotificationContent()
-    content.title = "Time to go"
-    let myStartButton = UIButton()
-         = myStartButton
-    myStartButton.accessibilityIdentifier = "goButton"
-}
 
 
 }
