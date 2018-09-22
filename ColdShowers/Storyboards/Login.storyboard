@@ -63,10 +63,10 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="QPD-oq-ko5" id="WjG-Vg-838"/>
-                        <outlet property="passWordLabel" destination="Fqt-oT-QU8" id="o0f-b8-3wD"/>
-                        <outlet property="passwordTextField" destination="je1-tm-f1s" id="OUI-O8-WjD"/>
-                        <outlet property="userNameLabel" destination="avn-J3-wJA" id="h4u-wW-ntu"/>
-                        <outlet property="userNameTextField" destination="jUp-CP-gfC" id="53L-tN-VWn"/>
+                        <outlet property="passwordLabel" destination="Fqt-oT-QU8" id="mv5-Px-GUG"/>
+                        <outlet property="passwordTextField" destination="je1-tm-f1s" id="bnN-Dq-meC"/>
+                        <outlet property="usernameLabel" destination="avn-J3-wJA" id="ATB-Ts-rrc"/>
+                        <outlet property="usernameTextField" destination="jUp-CP-gfC" id="15x-x8-kWL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVB-Lm-Pa9" sceneMemberID="firstResponder"/>

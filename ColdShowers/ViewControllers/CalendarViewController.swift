@@ -9,10 +9,10 @@
 import UIKit
 import UserNotifications
 class CalendarViewController: UIViewController {
-  
+
   //MARK: CalenderView Properties
   @IBOutlet weak var timePicker: UIDatePicker!
-  
+
   @IBOutlet weak var sundayButton: UIButton!
   @IBOutlet weak var mondayButton: UIButton!
   @IBOutlet weak var tuesdayButton: UIButton!
@@ -20,10 +20,10 @@ class CalendarViewController: UIViewController {
   @IBOutlet weak var thursdayButton: UIButton!
   @IBOutlet weak var fridayButton: UIButton!
   @IBOutlet weak var saturdayButton: UIButton!
-  
+
   @IBOutlet weak var calenderViewDoneButton: UIButton!
-  
-  
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,9 +54,9 @@ class CalendarViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     // MARK: - Notification date setting
-    
+
 //    func setActivity(date: Date, repeats: Bool) {
 //
 //
