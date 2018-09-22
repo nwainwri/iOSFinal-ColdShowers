@@ -58,24 +58,24 @@ class CalendarViewController: UIViewController {
     // MARK: - Notification date setting
     
     func setActivity(date: Date, repeats: Bool) {
-        
-        
-        
-        
+
+
+
+
         var myDateComponents = DateComponents()
         let calendar = Calendar.current
-        
+
         myDateComponents.hour = calendar.component(.hour, from: date)
         myDateComponents.day = calendar.component(.day, from: date)
         myDateComponents.minute = calendar.component(.minute, from: date)
-    
+
         let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: repeats)
         let request = UNNotificationRequest(identifier: "uniqueID", content: <#T##UNNotificationContent#>, trigger: <#T##UNNotificationTrigger?#>)
         let startButton = UNNotificationAction(identifier: "goButton", title: "Go", options: [])
     }
-    
+
     // Create button
-    
+
     func createButton() {
     let content = UNMutableNotificationContent()
     content.title = "Time to go"
@@ -83,3 +83,6 @@ class CalendarViewController: UIViewController {
          = myStartButton
     myStartButton.accessibilityIdentifier = "goButton"
 }
+
+}
+
