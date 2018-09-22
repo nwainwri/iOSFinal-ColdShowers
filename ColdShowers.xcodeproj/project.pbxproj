@@ -22,6 +22,8 @@
 		A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */; };
 		A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762321544EFA005BDAF4 /* Activity.storyboard */; };
 		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
+		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
+		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		A14F762321544EFA005BDAF4 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		F176BF7E2155D8EF00C0836B /* DefaultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A14F75E5215444E4005BDAF4 /* AppDelegate.swift */,
+				F176BF7D2155D74300C0836B /* Models */,
 				A14F761A21544709005BDAF4 /* ViewControllers */,
 				A14F75EF215444E6005BDAF4 /* Assets.xcassets */,
 				A14F762521544F22005BDAF4 /* Storyboards */,
@@ -163,6 +168,15 @@
 				A14F762321544EFA005BDAF4 /* Activity.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F176BF7D2155D74300C0836B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F176BF7B2155D73E00C0836B /* Activity.swift */,
+				F176BF7E2155D8EF00C0836B /* DefaultSet.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,12 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */,
 				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
 				A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */,
 				A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */,
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
 				A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */,
+				F176BF7C2155D73E00C0836B /* Activity.swift in Sources */,
 				A14F7619215446DA005BDAF4 /* HomeScreenViewController.swift in Sources */,
 				A14F761E215447ED005BDAF4 /* PostActivityViewController.swift in Sources */,
 			);

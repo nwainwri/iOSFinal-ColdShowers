@@ -19,6 +19,11 @@ class LoginViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      
+      let defaultSet = DefaultSet()
+      
+      defaultSet.activities.count
 
         // Do any additional setup after loading the view.
     }
