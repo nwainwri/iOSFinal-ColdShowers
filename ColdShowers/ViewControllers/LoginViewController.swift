@@ -24,6 +24,17 @@ class LoginViewController: UIViewController {
       let defaultSet = DefaultSet()
       
       defaultSet.activities.count
+      
+      print(defaultSet.activities)
+      
+      let firstOne = defaultSet.activities[0]
+      print(firstOne.name)
+      print(firstOne.areaOfBody)
+      print(firstOne.settings)
+      print(firstOne.category)
+      
+      
+
 
         // Do any additional setup after loading the view.
     }

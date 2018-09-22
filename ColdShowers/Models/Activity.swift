@@ -9,19 +9,34 @@
 import UIKit
 
 class Activity: NSObject {
-  
-  var name: String?
-  var areaOfBody: Array<String>?
-  var instructPhoto: String?
-  var category: String?
-  
-  init(name: String, areaOfBody: Array<String>, instructPhoto: String, category: String) {
-    self.name = name
-    self.areaOfBody = areaOfBody
-    self.instructPhoto = instructPhoto
-    self.category = category
+  enum category {
+    case strength
+    case mindfull
+    case yoga
   }
   
+  let name: String // "pushups"
+  let areaOfBody: Array<String> // ["arms","back"]
+  let instructions: String // "pushups"
+  let photo: UIImage // image name
+  let category: category
+  var settings: Bool // used for preferences screen
+  var occurance: Int // for algorithm
+  var intensity: Int // for algorithm
+  
+  
+  
+  
+  init(name: String, areaOfBody: Array<String>, instructions: String, category: category, photo: UIImage) {
+    self.name = name
+    self.areaOfBody = areaOfBody
+    self.instructions = instructions
+    self.settings = true
+    self.occurance = 0
+    self.intensity = 0
+    self.category = category
+    self.photo = photo
+  }
 }
 
 //
