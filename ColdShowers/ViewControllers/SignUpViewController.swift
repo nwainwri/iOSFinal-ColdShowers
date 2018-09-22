@@ -18,10 +18,8 @@ class SignUpViewController: UIViewController {
   
   let defaults = UserDefaults.standard
 
-  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -29,10 +27,7 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//
 
-  
     /*
     // MARK: - Navigation
 
@@ -44,28 +39,11 @@ class SignUpViewController: UIViewController {
     */
 
   // MARK: Button Actions
-  
-  
   @IBAction func signUpButtonPressed(_ sender: UIButton) {
     let username = usernameTextField.text
     let password = passwordTextField.text
-    
     defaults.set(username, forKey: "Username")
     defaults.set(password, forKey: "Password")
-    
+    self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }

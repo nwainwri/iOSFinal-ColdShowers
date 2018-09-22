@@ -48,12 +48,9 @@ let yogaEight = Activity(name: "Cobbler’s Pose", areaOfBody: ["legs"], instruc
 let yogaNine = Activity(name: "Corpose Pose", areaOfBody: ["body","mind"], instructions: "", category: .yoga, photo:#imageLiteral(resourceName: "corpse"))
 
 class DefaultSet: NSObject {
-  
   let activities: [Activity]
   
   override init() {
     self.activities = [strengthOne, strengthTwo, strengthThree, strengthFour, strengthFive, strengthSix, strengthSeven, strengthEight, strengthNine, mindZero, mindTwo, mindThree, mindFour, mindFive, mindSix, mindSeven, mindEight, mindNine, yogaZero, yogaTwo, yogaThree, yogaFour, yogaFive, yogaSix, yogaSeven, yogaEight, yogaNine]
-
   }
-  
 }

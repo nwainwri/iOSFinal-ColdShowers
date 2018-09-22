@@ -23,10 +23,7 @@ class Activity: NSObject {
   var settings: Bool // used for preferences screen
   var occurance: Int // for algorithm
   var intensity: Int // for algorithm
-  
-  
-  
-  
+
   init(name: String, areaOfBody: Array<String>, instructions: String, category: category, photo: UIImage) {
     self.name = name
     self.areaOfBody = areaOfBody

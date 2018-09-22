@@ -89,11 +89,20 @@
                         <outlet property="passwordTextField" destination="je1-tm-f1s" id="bnN-Dq-meC"/>
                         <outlet property="usernameLabel" destination="avn-J3-wJA" id="ATB-Ts-rrc"/>
                         <outlet property="usernameTextField" destination="jUp-CP-gfC" id="15x-x8-kWL"/>
+                        <segue destination="KpK-Mc-rsI" kind="show" identifier="LoginSegue" id="d19-rF-6bm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVB-Lm-Pa9" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-839" y="612"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="Anq-9V-INq">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Main" referencedIdentifier="HomeVC" id="KpK-Mc-rsI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbi-FR-W8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="953"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="URj-fJ-ypN">
@@ -173,6 +182,7 @@
                         <outlet property="signUpButton" destination="Dh3-uV-co7" id="GoT-DL-SR2"/>
                         <outlet property="usernameLabel" destination="QKe-UT-UaU" id="3Z2-en-tAz"/>
                         <outlet property="usernameTextField" destination="1Os-Il-lKy" id="gIM-FF-ZKP"/>
+                        <segue destination="KpK-Mc-rsI" kind="show" identifier="SignUpSegue" id="Doi-2w-0Q1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09Z-4D-JIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,4 +190,7 @@
             <point key="canvasLocation" x="-839.20000000000005" y="1334.4827586206898"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Doi-2w-0Q1"/>
+    </inferredMetricsTieBreakers>
 </document>
