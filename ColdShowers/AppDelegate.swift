@@ -18,6 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
+      
+      // MARK: allows choice between login or sign up screen, depending if app used before
+      let storyboard = UIStoryboard(name: "Login", bundle: nil)
+      self.window = UIWindow()
+      
+      if UserDefaults.standard.value(forKey: "Username") == nil {
+        let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
+        self.window?.rootViewController = signupViewCon
+        
+      } else {
+        let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+        self.window?.rootViewController = loginViewCon
+      }
+      self.window?.makeKeyAndVisible()
+      
+      
+      
+      
+      
        
         return true
     }

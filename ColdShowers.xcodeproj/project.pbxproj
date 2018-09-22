@@ -24,6 +24,7 @@
 		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
 		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
+		F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF842156F3AF00C0836B /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F176BF7E2155D8EF00C0836B /* DefaultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSet.swift; sourceTree = "<group>"; };
+		F176BF842156F3AF00C0836B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A14F761621544683005BDAF4 /* LoginViewController.swift */,
+				F176BF842156F3AF00C0836B /* SignUpViewController.swift */,
 				A14F7618215446DA005BDAF4 /* HomeScreenViewController.swift */,
 				A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */,
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */,
 				F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */,
 				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
