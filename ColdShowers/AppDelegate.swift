@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.rootViewController = loginViewCon
     }
     self.window?.makeKeyAndVisible()
+    
+    
+    
+    
     return true
   }
   

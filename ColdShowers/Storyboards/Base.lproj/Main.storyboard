@@ -143,17 +143,44 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGj-AZ-fPX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avo-CV-w5N">
+                                        <rect key="frame" x="315" y="21" width="44" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="VtM-82-cXl"/>
+                                            <constraint firstAttribute="width" constant="44" id="apd-pu-B5C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="kqX-l1-1QY" eventType="touchUpInside" id="1rs-hm-iiM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="avo-CV-w5N" firstAttribute="top" secondItem="tGj-AZ-fPX" secondAttribute="top" constant="21" id="8kk-kx-HqJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="avo-CV-w5N" secondAttribute="trailing" constant="16" id="Qss-8P-FAn"/>
+                                    <constraint firstAttribute="height" constant="84" id="yN8-uv-3Ml"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0Ok-vv-mWA" firstAttribute="trailing" secondItem="4xF-tR-mmK" secondAttribute="trailing" id="3zH-sJ-B06"/>
                             <constraint firstItem="0Ok-vv-mWA" firstAttribute="bottom" secondItem="4xF-tR-mmK" secondAttribute="bottom" id="GfD-gu-YV5"/>
+                            <constraint firstItem="0Ok-vv-mWA" firstAttribute="trailing" secondItem="tGj-AZ-fPX" secondAttribute="trailing" id="I7R-wq-Qpt"/>
                             <constraint firstItem="4xF-tR-mmK" firstAttribute="leading" secondItem="0Ok-vv-mWA" secondAttribute="leading" id="IHu-1L-5cw"/>
+                            <constraint firstItem="tGj-AZ-fPX" firstAttribute="leading" secondItem="0Ok-vv-mWA" secondAttribute="leading" id="Mvc-Hi-fRb"/>
                             <constraint firstItem="4xF-tR-mmK" firstAttribute="top" secondItem="0Ok-vv-mWA" secondAttribute="top" constant="63" id="XFq-rL-7qD"/>
+                            <constraint firstItem="0Ok-vv-mWA" firstAttribute="top" secondItem="tGj-AZ-fPX" secondAttribute="top" constant="20" id="pwc-Xm-Zkm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Ok-vv-mWA"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="avo-CV-w5N" id="4NG-QR-gQT"/>
                         <outlet property="preferencesTableView" destination="4xF-tR-mmK" id="mfP-xU-bok"/>
                     </connections>
                 </viewController>
@@ -257,6 +284,9 @@
                                     <constraint firstAttribute="width" constant="44" id="qgg-EO-5Tg"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="y9o-1f-9ao"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,7 +308,7 @@
                         <viewLayoutGuide key="safeArea" id="PFL-0t-DA0"/>
                     </view>
                     <connections>
-                        <outlet property="calenderViewDoneButton" destination="1Tb-e7-IMN" id="Ldl-qm-Znl"/>
+                        <outlet property="doneButton" destination="1Tb-e7-IMN" id="YUL-zl-lxf"/>
                         <outlet property="fridayButton" destination="Oi1-uX-Irn" id="aqg-am-AGN"/>
                         <outlet property="mondayButton" destination="I9U-RU-WtG" id="uFN-yb-5pX"/>
                         <outlet property="saturdayButton" destination="UUh-mh-1Nf" id="gaK-Fz-BfI"/>

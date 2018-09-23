@@ -23,38 +23,35 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.\
     
-    //MARK: Bug Testing
-    print(defaults.object(forKey: "Username") ?? "NO USERNAME")
-    print(defaults.object(forKey: "Password") ?? "NO PASSWORD")
-    
-    let defaultSet = DefaultSet()
-    
-    let first = defaultSet.activities[0].category.rawValue
-    var counter = 0
-    for item in defaultSet.activities {
-      counter = item.category.rawValue
-      if item.category.rawValue == 0 {
-        print("NAME: \(item.name)")
-      }
-    }
-    print(first)
-    
-    let testThis = defaultSet.retAmounts(category: .mindfull)
-    
-    print("THIS HERE \(defaultSet.activities.filter{$0.category.rawValue == 2})")
-    let testArr = defaultSet.activities.filter{$0.category.rawValue == 2}
-    for item in testArr {
-      print("this one maybe: \(item.name)")
-    }
-    
-    
+//    //MARK: Bug Testing
+//    print(defaults.object(forKey: "Username") ?? "NO USERNAME")
+//    print(defaults.object(forKey: "Password") ?? "NO PASSWORD")
+//
+//    let defaultSet = DefaultSet()
+//
+//    let first = defaultSet.activities[0].category.rawValue
+//    var counter = 0
+//    for item in defaultSet.activities {
+//      counter = item.category.rawValue
+//      if item.category.rawValue == 0 {
+//        print("NAME: \(item.name)")
+//      }
+//    }
+//    print(first)
+//
+//    let testThis = defaultSet.retAmounts(category: .mindfull)
+//
+//    print("THIS HERE \(defaultSet.activities.filter{$0.category.rawValue == 2})")
+//    let testArr = defaultSet.activities.filter{$0.category.rawValue == 2}
+//    for item in testArr {
+//      print("this one maybe: \(item.name)")
+//    }
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
   
   /*
    // MARK: - Navigation

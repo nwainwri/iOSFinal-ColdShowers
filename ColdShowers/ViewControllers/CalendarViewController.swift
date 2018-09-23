@@ -21,13 +21,11 @@ class CalendarViewController: UIViewController {
   @IBOutlet weak var fridayButton: UIButton!
   @IBOutlet weak var saturdayButton: UIButton!
 
-  @IBOutlet weak var calenderViewDoneButton: UIButton!
+  @IBOutlet weak var doneButton: UIButton!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         // Do any additional setup after loading the view.
     }
 
@@ -35,36 +33,49 @@ class CalendarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  
+  // MARK: Button Actions
+  
+  @IBAction func doneButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+  }
+  
+  
+  
+  
+  
+  
 
 // MARK: - Notification date setting
 
-    func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
-            if let error = error {
-                print("Request Authorization Failed (\(error)")
-            }
-            completionHandler(success)
-        }
-        
-    }
-    func checkUserPermission () {
-        UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
-            switch notificationSettings.authorizationStatus {
-            case .notDetermined:
-                self.requestUserPermission(completionHandler: { _ in
-                        self.checkUserPermission()
-    
-                })
-                
-            case .authorized:
-                
-                
-            case .denied:
-                
-            }
-        }
-    }
+//    func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
+//        
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+//            if let error = error {
+//                print("Request Authorization Failed (\(error)")
+//            }
+//            completionHandler(success)
+//        }
+//        
+//    }
+//    func checkUserPermission () {
+//        UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
+//            switch notificationSettings.authorizationStatus {
+//            case .notDetermined:
+//                self.requestUserPermission(completionHandler: { _ in
+//                        self.checkUserPermission()
+//    
+//                })
+//                
+//            case .authorized:
+//                
+//                
+//            case .denied:
+//                
+//            }
+//        }
+//    }
 //  func setActivity(date: Date, repeats: Bool) {
 //    
 //    
