@@ -47,11 +47,6 @@ class CalendarViewController: UIViewController {
             completionHandler(success)
         }
         
-        
-        
-        
-        
-        
     }
     func checkUserPermission () {
         UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
