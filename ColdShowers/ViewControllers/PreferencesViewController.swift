@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PreferencesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PreferencesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PreferencesTableViewCellDelegate {
+  
+  
   let defaultSet = DefaultSet()
   var currectionSection:Int = 0
   
@@ -25,6 +27,10 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     //      defaultSet.activities[0]
     preferencesTableView.delegate = self
     preferencesTableView.dataSource = self
+    
+    
+    
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -76,8 +82,11 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     //    }
     //      cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
     //      cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
+    cell.delegate = self
     cell.preferenceNameLabel.text = currentActivities[indexPath.row].name
     cell.preferenceSettingSwitch.isOn = currentActivities[indexPath.row].settings
+    cell.activityOriginalIndex = currentActivities[indexPath.row].originalIndex
+//    print(cell.activityOriginalIndex)
     return cell
   }
   
@@ -92,9 +101,35 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   
   //MARK: Button Actions
   @IBAction func doneButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
   
-  
-  
+  //MARK: Delegation Functions
+  func didTapSwitch(_ sender: PreferencesTableViewCell) {
+    guard let tappedIndexPath = preferencesTableView.indexPath(for: sender) else { return }
+//    print("Cell Tapped", sender, tappedIndexPath)
+    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) WAS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
+//    sender.preferenceSettingSwitch.isOn != defaultSet.activities[tappedIndexPath.row].settings
+//    if (defaultSet.activities[tappedIndexPath.row].settings == sender.preferenceSettingSwitch.isOn) {
+//      defaultSet.activities[tappedIndexPath.row].settings != sender.preferenceSettingSwitch.isOn
+//    }
+    
+//    defaultSet.activities[tappedIndexPath.row].category
+//    var originalIndex = defaultSet.activities[tappedIndexPath.row].originalIndex
+    
+    
+    defaultSet.activities[sender.activityOriginalIndex].settings = sender.preferenceSettingSwitch.isOn
+    
+    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) IS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
+    
+//    tappedIndexPath.row
+//    tappedIndexPath.section
+//    print("LOCATION: TEST BUTTON:\(sender.preferenceSettingSwitch.isOn)")
+    
+    
+    // "Love" this item
+    //    items[tappedIndexPath.row].love()
+    
+    
+  }
 }

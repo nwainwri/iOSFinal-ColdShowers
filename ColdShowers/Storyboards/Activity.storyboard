@@ -45,15 +45,22 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="86g-7v-l6I">
-                                        <rect key="frame" x="0.0" y="61" width="256" height="221"/>
+                                        <rect key="frame" x="0.0" y="61" width="256" height="181"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-bu-5lH">
-                                        <rect key="frame" x="0.0" y="292" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="KDv-GL-Vt0"/>
                                             <constraint firstAttribute="width" constant="44" id="Obl-f8-vkw"/>
                                         </constraints>
                                         <state key="normal" title="Start"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Nu-4Lu">
+                                        <rect key="frame" x="0.0" y="306" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="activityCancelButtonPressed:" destination="I7O-jL-Gvc" eventType="touchUpInside" id="uSc-dh-Fjr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -106,6 +113,7 @@
                         <viewLayoutGuide key="safeArea" id="B3n-ro-SNV"/>
                     </view>
                     <connections>
+                        <outlet property="activityCancelButton" destination="VgJ-Nu-4Lu" id="5Am-eh-nWS"/>
                         <outlet property="activityInstructionImage" destination="86g-7v-l6I" id="zF0-uV-vTs"/>
                         <outlet property="activityNameLabel" destination="0Cc-bP-eLK" id="zAZ-1B-PPi"/>
                         <outlet property="activityStartButton" destination="fgn-bu-5lH" id="Ra6-W5-cJx"/>
