@@ -49,32 +49,43 @@ let yogaNine = Activity(name: "Corpose Pose", areaOfBody: ["body","mind"], instr
 
 class DefaultSet: NSObject {
   let activities: [Activity]
-  
-  enum category:Int {
-    case strength = 1
-    case mindfull
-    case yoga
-    case noOption
-    func getTitle() -> String {
-      switch self {
-      case .strength:
-        return "Strength"
-      case .mindfull:
-        return "Mindful"
-      case .yoga:
-        return "Yoga"
-      case .noOption:
-        return "NO TITLE"
-      }
-    }
+  let categories: [category]
+  enum category:String {
+    case strength = "Strength"
+    case mindfull = "Mindful"
+    case yoga = "Yoga"
+    case noOption = "No Option"
+//    func getTitle() -> String {
+//      switch self {
+//      case .strength:
+//        return "Strength"
+//      case .mindfull:
+//        return "Mindful"
+//      case .yoga:
+//        return "Yoga"
+//      case .noOption:
+//        return "NO TITLE"
+//      }
+//    }
   }
-
   override init() {
     self.activities = [strengthOne, strengthTwo, strengthThree, strengthFour, strengthFive, strengthSix, strengthSeven, strengthEight, strengthNine, mindZero, mindTwo, mindThree, mindFour, mindFive, mindSix, mindSeven, mindEight, mindNine, yogaZero, yogaTwo, yogaThree, yogaFour, yogaFive, yogaSix, yogaSeven, yogaEight, yogaNine]
     
-    
+    self.categories = [.strength, .mindfull, .yoga]
+  }
+}
+
+extension DefaultSet {
+  func retAmounts(category: category) -> Int {
+    var innerCount = 1
+    for item in self.activities {
+      if item.category.rawValue == category.hashValue {
+        innerCount += 1
+      }
+    }
+    return innerCount
   }
   
-  
-  
 }
+
+
