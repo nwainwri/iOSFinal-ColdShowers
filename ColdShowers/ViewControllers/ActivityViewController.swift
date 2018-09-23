@@ -27,6 +27,14 @@ class ActivityViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      timerOverlayView.isHidden = true
+      timerOverlayView.alpha = 0.0
+      
+      let defaultSet = DefaultSet()
+      
+      activityNameLabel.text = defaultSet.activities[0].name
+      activityInstructionImage.image = defaultSet.activities[0].photo
+      
 
         // Do any additional setup after loading the view.
     }
@@ -48,10 +56,29 @@ class ActivityViewController: UIViewController {
   
   //MARK: Button Actions
   
+  @IBAction func activityStartButtonPressed(_ sender: UIButton) {
+    
+    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
+      self.timerOverlayView.alpha = 1.0
+      
+    }, completion: nil)
+    timerOverlayView.isHidden = false
+    
+  }
+  
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
   }
   
+  //MARK: does not animate at all?
+  @IBAction func timerOverlayButtonPressed(_ sender: UIButton) {
+    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseIn, animations: {
+      self.timerOverlayView.alpha = 0.0
+      self.timerOverlayView.isHidden = true
+    }, completion: nil)
+    
+
+  }
   
 
 }
