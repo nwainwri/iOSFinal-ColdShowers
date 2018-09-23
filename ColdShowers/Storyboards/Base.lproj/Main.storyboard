@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w9t-ZA-WkR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,6 +25,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="heI-tv-PQr"/>
                                 </constraints>
                                 <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="preferencesButtonAction:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="JoP-sU-hqg"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vH2-jf-3sp">
                                 <rect key="frame" x="117" y="198" width="140" height="50"/>
@@ -53,10 +56,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-Yi-Yfy">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                         <state key="normal" title="Setup Alarm"/>
+                                        <connections>
+                                            <action selector="setupScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="L4d-zY-EQJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obs-v5-2L7">
                                         <rect key="frame" x="89" y="0.0" width="100" height="30"/>
                                         <state key="normal" title="Work Out Now"/>
+                                        <connections>
+                                            <action selector="setupWorkoutButtonAction:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="4Y7-Nc-CXy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -85,11 +94,14 @@
                         <outlet property="streakDaysLabel" destination="PNr-M4-Wel" id="0vc-O9-dTY"/>
                         <outlet property="streakDaysNumberLabel" destination="nha-kA-gh3" id="ds8-5c-l1W"/>
                         <outlet property="workoutButton" destination="obs-v5-2L7" id="fqR-Je-7rL"/>
+                        <segue destination="kqX-l1-1QY" kind="show" identifier="PrefSegue" id="aNz-Sl-nSo"/>
+                        <segue destination="PY9-VP-PkX" kind="show" identifier="CalenderSegue" id="jV9-V8-07o"/>
+                        <segue destination="AYF-XS-WRE" kind="show" identifier="ActivitySegue" id="fck-vQ-SNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2y-UJ-gfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="-62"/>
+            <point key="canvasLocation" x="-514" y="-63"/>
         </scene>
         <!--Preferences View Controller-->
         <scene sceneID="2yn-Ek-qKJ">
@@ -110,6 +122,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lj7-KH-uZq" id="Cwt-PQ-HP3">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLW-bo-Y5v">
+                                                    <rect key="frame" x="15" y="6" width="225" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-Kb-e31">
+                                                    <rect key="frame" x="279" y="6" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -124,7 +149,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgT-Nt-oKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637.60000000000002" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="354" y="-426"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="Ogb-Wb-5ja">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Activity" storyboardName="Activity" id="AYF-XS-WRE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhW-H0-QIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="-64"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Rxg-GN-RD0">
@@ -248,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fe-eY-3hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400.8" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="353" y="305"/>
         </scene>
     </scenes>
 </document>

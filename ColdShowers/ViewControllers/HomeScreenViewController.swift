@@ -38,5 +38,32 @@ class HomeScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+  
+  // MARK: Button Actions
+  
+  @IBAction func preferencesButtonAction(_ sender: UIButton) {
+    //PrefSegue
+    self.performSegue(withIdentifier: "PrefSegue", sender: nil)
+  }
+  
+  @IBAction func setupScheduleButtonPressed(_ sender: UIButton) {
+    
+    self.performSegue(withIdentifier: "CalenderSegue", sender: nil)
+  }
+  
+  
+  
+  
+  
+  @IBAction func setupWorkoutButtonAction(_ sender: UIButton) {
+    self.performSegue(withIdentifier: "ActivitySegue", sender: nil)
+    //  ActivitySegue
+    
+  }
+  
+  
+  
+  
+  
+  
 }
