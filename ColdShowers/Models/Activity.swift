@@ -9,10 +9,10 @@
 import UIKit
 
 class Activity: NSObject {
-  enum category {
-    case strength
-    case mindfull
-    case yoga
+  enum category:Int {
+    case strength = 0
+    case mindfull = 1
+    case yoga = 2
   }
   
   let name: String // "pushups"
