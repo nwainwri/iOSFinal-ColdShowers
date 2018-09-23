@@ -46,6 +46,44 @@ class LoginViewController: UIViewController {
 //    for item in testArr {
 //      print("this one maybe: \(item.name)")
 //    }
+    
+//    for item in defaultSet.activities {
+//      print("INDEX: \(String(describing: defaultSet.activities.index(of: item)!)) NAME: \(item.name) CATEGORY: \(item.category)")
+//    }
+//
+//    var counter = 0
+//    while counter < defaultSet.activities.count {
+//      var innerCounter = 0
+//      if defaultSet.activities[counter].category.hashValue == 0 {
+//        innerCounter = 0
+////        print(innerCounter)
+//      } else if defaultSet.activities[counter].category.hashValue == 1 {
+//        innerCounter = 1
+////        print(innerCounter)
+//      } else if defaultSet.activities[counter].category.hashValue == 2 {
+//        innerCounter = 2
+////        print(innerCounter)
+//      } else {
+//        print("ERROR WITH DEFAULT SET CATEGORY COUNTER")
+//      }
+//      // i only want to print items that have a category that match inner counter
+////      print(innerCounter)
+//      print("ORIGINAL INDEX: \(defaultSet.activities[counter].originalIndex) INDEX: \(String(describing: defaultSet.activities.index(of: defaultSet.activities[counter])!)) NAME: \(defaultSet.activities[counter].name) CATEGORY: \(defaultSet.activities[counter].category)")
+//      counter += 1
+//    }
+    
+//    for item in defaultSet.activities {
+//      var counter = 0
+//      while item.category.rawValue == counter{
+//        print("INDEX: \(String(describing: defaultSet.activities[0])) NAME: \(item.name) CATEGORY: \(item.category)")
+//      }
+//
+//    }
+//
+    
+    
+    
+    
   }
   
   override func didReceiveMemoryWarning() {

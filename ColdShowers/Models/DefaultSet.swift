@@ -70,7 +70,11 @@ class DefaultSet: NSObject {
   }
   override init() {
     self.activities = [strengthOne, strengthTwo, strengthThree, strengthFour, strengthFive, strengthSix, strengthSeven, strengthEight, strengthNine, mindZero, mindTwo, mindThree, mindFour, mindFive, mindSix, mindSeven, mindEight, mindNine, yogaZero, yogaTwo, yogaThree, yogaFour, yogaFive, yogaSix, yogaSeven, yogaEight, yogaNine]
-    
+    for item in self.activities {
+      var counter = 0
+      item.originalIndex = self.activities.index(of: item)!
+      counter += 1
+    }
     self.categories = [.strength, .mindfull, .yoga]
   }
 }
@@ -80,6 +84,16 @@ extension DefaultSet {
     var innerCount = 1
     for item in self.activities {
       if item.category.rawValue == category.hashValue {
+        innerCount += 1
+      }
+    }
+    return innerCount
+  }
+  
+  func retAmountsInt(category: Int) -> Int {
+    var innerCount = 1
+    for item in self.activities {
+      if item.category.rawValue == category {
         innerCount += 1
       }
     }

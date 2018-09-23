@@ -21,6 +21,9 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var estimatedTimeAmount: UILabel!
   @IBOutlet weak var activityInstructionImage: UIImageView!
   @IBOutlet weak var activityStartButton: UIButton!
+  @IBOutlet weak var activityCancelButton: UIButton!
+  
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,5 +45,13 @@ class ActivityViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+  
+  //MARK: Button Actions
+  
+  @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+  }
+  
+  
 
 }
