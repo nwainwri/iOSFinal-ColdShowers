@@ -26,45 +26,41 @@ class ActivityViewController: UIViewController {
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<Activity>()
+  let activityManager = ActivityListManager()
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      timerOverlayView.isHidden = true
-      timerOverlayView.alpha = 0.0
-      
-//      let defaultSet = DefaultSet()
-      
-      let activityManager = ActivityListManager()
-      
-      activityList = activityManager.getNewList()
-      
-      activityNameLabel.text = activityList[currentActivity].name
-      activityInstructionImage.image = activityList[currentActivity].photo
-      
-      estimatedTimeAmount.text = activityManager.generateTime()
-      
-      
-      
-//      need a worklist manager that will intake default data set; and generate a basic workout list.defaultSet
-      
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    timerOverlayView.isHidden = true
+    timerOverlayView.alpha = 0.0
+    activityList = activityManager.getNewList()
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //      activityNameLabel.text = activityList[currentActivity].name
+    //      activityInstructionImage.image = activityList[currentActivity].photo
+    //
+    //      estimatedTimeAmount.text = activityManager.generateTime()
+    
+    loadData()
+    
+    //      need a worklist manager that will intake default data set; and generate a basic workout list.defaultSet
+    
+    
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
   
   //MARK: Button Actions
   
@@ -76,7 +72,7 @@ class ActivityViewController: UIViewController {
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
   
   //MARK: does not animate at all?
@@ -88,16 +84,20 @@ class ActivityViewController: UIViewController {
     if currentActivity < (activityList.count - 1) {
       currentActivity += 1
       print(currentActivity)
-      self.view.reloadInputViews()
-      self.view.setNeedsDisplay()
-      self.activityInstructionImage.reloadInputViews()
-      self.activityInstructionImage.setNeedsDisplay()
-      
+      loadData()
     } else {
       performSegue(withIdentifier: "postActivitySegue", sender: self)
     }
-
   }
   
-
+  
+  //MARK: Load Data for Labels
+  func loadData() {
+    activityNameLabel.text = activityList[currentActivity].name
+    activityInstructionImage.image = activityList[currentActivity].photo
+    estimatedTimeAmount.text = activityManager.generateTime()
+  }
+  
+  
+  
 }
