@@ -43,5 +43,12 @@ class PostActivityViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+  // MARK: Button Actions
+  @IBAction func activityButtonFinishPressed(_ sender: UIButton) {
+    performSegue(withIdentifier: "backHomeSegue", sender: self)
+  }
+  
+  
+  // performSegue(withIdentifier: "postActivitySegue", sender: self)
 
 }

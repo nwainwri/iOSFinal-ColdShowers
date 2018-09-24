@@ -23,17 +23,27 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityStartButton: UIButton!
   @IBOutlet weak var activityCancelButton: UIButton!
   
-  
+  //MARK: Varible Properties
+  var currentActivity:Int = 0
+  var activityList = Array<Activity>()
   
     override func viewDidLoad() {
         super.viewDidLoad()
       timerOverlayView.isHidden = true
       timerOverlayView.alpha = 0.0
       
-      let defaultSet = DefaultSet()
+//      let defaultSet = DefaultSet()
       
-      activityNameLabel.text = defaultSet.activities[0].name
-      activityInstructionImage.image = defaultSet.activities[0].photo
+      let activityManager = ActivityListManager()
+      
+      activityList = activityManager.getNewList()
+      
+      activityNameLabel.text = activityList[currentActivity].name
+      activityInstructionImage.image = activityList[currentActivity].photo
+      
+      estimatedTimeAmount.text = activityManager.generateTime()
+      
+      
       
 //      need a worklist manager that will intake default data set; and generate a basic workout list.defaultSet
       
@@ -59,13 +69,10 @@ class ActivityViewController: UIViewController {
   //MARK: Button Actions
   
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
-    
     UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
-      
     }, completion: nil)
     timerOverlayView.isHidden = false
-    
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
@@ -78,7 +85,17 @@ class ActivityViewController: UIViewController {
       self.timerOverlayView.alpha = 0.0
       self.timerOverlayView.isHidden = true
     }, completion: nil)
-    
+    if currentActivity < (activityList.count - 1) {
+      currentActivity += 1
+      print(currentActivity)
+      self.view.reloadInputViews()
+      self.view.setNeedsDisplay()
+      self.activityInstructionImage.reloadInputViews()
+      self.activityInstructionImage.setNeedsDisplay()
+      
+    } else {
+      performSegue(withIdentifier: "postActivitySegue", sender: self)
+    }
 
   }
   

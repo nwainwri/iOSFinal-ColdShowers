@@ -134,6 +134,7 @@
                         <outlet property="timerOverlayButton" destination="XdM-an-JaN" id="Bk3-8y-aCe"/>
                         <outlet property="timerOverlayView" destination="RMt-fT-nWP" id="Mp1-Jv-O6Q"/>
                         <outlet property="timerOverlaylabel" destination="GdS-cY-3tX" id="WAm-5a-ynD"/>
+                        <segue destination="BaE-Uw-NHh" kind="show" identifier="postActivitySegue" id="GQw-sC-NfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnj-st-z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -217,6 +218,9 @@
                                     <constraint firstAttribute="height" constant="35" id="eA4-I3-8Kb"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="activityButtonFinishPressed:" destination="BaE-Uw-NHh" eventType="touchUpInside" id="z5f-pK-c3j"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,11 +248,20 @@
                         <outlet property="intensityButtonLow" destination="mG7-qc-giK" id="o6h-Ks-Sox"/>
                         <outlet property="intensityButtonMiddle" destination="EVu-nw-6pe" id="dPE-jO-uJT"/>
                         <outlet property="intensityLabel" destination="0rN-AR-BZw" id="fhc-KJ-ybT"/>
+                        <segue destination="eSy-hz-7Cm" kind="show" identifier="backHomeSegue" id="Uyx-Zs-Bkp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7K-3i-5TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="-20"/>
+            <point key="canvasLocation" x="2641" y="-20"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="BGI-Pg-SPo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Main" id="eSy-hz-7Cm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adx-Rb-u71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3434" y="-17"/>
         </scene>
     </scenes>
 </document>
