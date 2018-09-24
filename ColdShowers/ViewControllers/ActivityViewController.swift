@@ -35,6 +35,8 @@ class ActivityViewController: UIViewController {
       activityNameLabel.text = defaultSet.activities[0].name
       activityInstructionImage.image = defaultSet.activities[0].photo
       
+//      need a worklist manager that will intake default data set; and generate a basic workout list.defaultSet
+      
 
         // Do any additional setup after loading the view.
     }

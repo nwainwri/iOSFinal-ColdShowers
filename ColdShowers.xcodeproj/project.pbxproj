@@ -129,6 +129,7 @@
 				F176BF7D2155D74300C0836B /* Models */,
 				A14F761A21544709005BDAF4 /* ViewControllers */,
 				A14F75EF215444E6005BDAF4 /* Assets.xcassets */,
+				F10DDD152158634900576F8D /* Cells */,
 				F10DDD12215822F900576F8D /* Protocols */,
 				F10DDD0D21580DBC00576F8D /* Local Data */,
 				A14F762521544F22005BDAF4 /* Storyboards */,
@@ -166,7 +167,6 @@
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
 				A14F761B215447C8005BDAF4 /* ActivityViewController.swift */,
 				A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */,
-				F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +196,14 @@
 				F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F10DDD152158634900576F8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F176BF7D2155D74300C0836B /* Models */ = {
