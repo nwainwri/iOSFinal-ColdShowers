@@ -22,7 +22,7 @@
 		A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */; };
 		A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762321544EFA005BDAF4 /* Activity.storyboard */; };
 		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
-		F10DDD0F21580DEF00576F8D /* currentDataSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* currentDataSet.plist */; };
+		F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* DashHistory.plist */; };
 		F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */; };
 		F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD1721586A6F00576F8D /* ActivityListManager.swift */; };
 		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
@@ -70,7 +70,7 @@
 		A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		A14F762321544EFA005BDAF4 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		F10DDD0E21580DEF00576F8D /* currentDataSet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = currentDataSet.plist; sourceTree = "<group>"; };
+		F10DDD0E21580DEF00576F8D /* DashHistory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DashHistory.plist; sourceTree = "<group>"; };
 		F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F10DDD1721586A6F00576F8D /* ActivityListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListManager.swift; sourceTree = "<group>"; };
 		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 		F10DDD0D21580DBC00576F8D /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
-				F10DDD0E21580DEF00576F8D /* currentDataSet.plist */,
+				F10DDD0E21580DEF00576F8D /* DashHistory.plist */,
 			);
 			path = "Local Data";
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A14F75F3215444E6005BDAF4 /* LaunchScreen.storyboard in Resources */,
-				F10DDD0F21580DEF00576F8D /* currentDataSet.plist in Resources */,
+				F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */,
 				A14F75F0215444E6005BDAF4 /* Assets.xcassets in Resources */,
 				A14F75EB215444E4005BDAF4 /* Main.storyboard in Resources */,
 				A14F762721544F40005BDAF4 /* Login.storyboard in Resources */,

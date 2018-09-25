@@ -2,7 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
-	<array/>
+	<key>currentDash</key>
+	<integer>5</integer>
+	<key>previousDashes</key>
+	<array>
+		<integer>1</integer>
+	</array>
 </dict>
 </plist>

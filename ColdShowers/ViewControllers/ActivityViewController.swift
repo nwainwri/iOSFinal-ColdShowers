@@ -30,21 +30,11 @@ class ActivityViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Do any additional setup after loading the view.
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
     activityList = activityManager.getNewList()
-    
-    //      activityNameLabel.text = activityList[currentActivity].name
-    //      activityInstructionImage.image = activityList[currentActivity].photo
-    //
-    //      estimatedTimeAmount.text = activityManager.generateTime()
-    
     loadData()
-    
-    //      need a worklist manager that will intake default data set; and generate a basic workout list.defaultSet
-    
-    
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
@@ -97,6 +87,10 @@ class ActivityViewController: UIViewController {
     activityInstructionImage.image = activityList[currentActivity].photo
     estimatedTimeAmount.text = activityManager.generateTime()
   }
+  
+  
+  
+  
   
   
   
