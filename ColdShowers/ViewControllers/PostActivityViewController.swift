@@ -5,12 +5,11 @@
 //  Created by Kit Clark-O'Neil on 2018-09-20.
 //  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
 //
-
 import UIKit
 
 class PostActivityViewController: UIViewController {
   
-  //MARK: PostActivityView Properties
+  //MARK: Storyboard Properties
   @IBOutlet weak var intensityLabel: UILabel!
   @IBOutlet weak var intensityButtonLow: UIButton!
   @IBOutlet weak var intensityButtonMiddle: UIButton!
@@ -22,33 +21,67 @@ class PostActivityViewController: UIViewController {
   
   @IBOutlet weak var activityButtonFinish: UIButton!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  //MARK: properties
+  let defaults = UserDefaults.standard
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
+  
   // MARK: Button Actions
   @IBAction func activityButtonFinishPressed(_ sender: UIButton) {
+    addNewDashDate()
     performSegue(withIdentifier: "backHomeSegue", sender: self)
   }
   
-  
-  // performSegue(withIdentifier: "postActivitySegue", sender: self)
-
+  //MARK: Dash Handling
+  func addNewDashDate() {
+    let formatter1 = DateFormatter()
+    formatter1.dateFormat = "yyyy-MM-dd"
+    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
+    
+    let todayDateString = formatter1.string(from: Date())
+    guard let todayDate = formatter1.date(from: todayDateString) else {
+      fatalError("WAS NOT ABLE TO GET TODAYS DATE")
+      
+    }
+    
+    let calendar = NSCalendar.current
+    
+    let lastDateString = defaults.string(forKey: "lastActivityListDone")
+    guard let lastDate = formatter1.date(from: lastDateString ?? "NO DATE") else {
+      // if error triggered; check data
+      fatalError("NO DATE WAS FOUND")
+    }
+    
+    var currentStreak = defaults.integer(forKey: "currentStreak")
+    
+    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
+    
+    let dateBool = calendar.isDate(todayDate, inSameDayAs: lastDate)
+    if dateBool == false {
+      userActivityHistory.append(todayDateString)
+      currentStreak += 1
+      
+      defaults.set(todayDateString, forKey: "lastActivityListDone")
+      defaults.set(userActivityHistory, forKey: "userActivityHistory")
+      defaults.set(currentStreak, forKey: "currentStreak")
+    }
+  }
 }

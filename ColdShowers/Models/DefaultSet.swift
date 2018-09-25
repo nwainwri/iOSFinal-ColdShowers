@@ -54,7 +54,7 @@ class DefaultSet: NSObject {
     case strength = "Strength"
     case mindfull = "Mindful"
     case yoga = "Yoga"
-    case noOption = "No Option"
+//    case noOption = "No Option"
 //    func getTitle() -> String {
 //      switch self {
 //      case .strength:
@@ -69,7 +69,7 @@ class DefaultSet: NSObject {
 //    }
   }
   override init() {
-    self.activities = [strengthOne, strengthTwo, strengthThree, strengthFour, strengthFive, strengthSix, strengthSeven, strengthEight, strengthNine, mindZero, mindTwo, mindThree, mindFour, mindFive, mindSix, mindSeven, mindEight, mindNine, yogaZero, yogaTwo, yogaThree, yogaFour, yogaFive, yogaSix, yogaSeven, yogaEight, yogaNine]
+    self.activities = [strengthZero, strengthOne, strengthTwo, strengthThree, strengthFour, strengthFive, strengthSix, strengthSeven, strengthEight, strengthNine, mindZero, mindOne, mindTwo, mindThree, mindFour, mindFive, mindSix, mindSeven, mindEight, mindNine, yogaZero, yogaOne, yogaTwo, yogaThree, yogaFour, yogaFive, yogaSix, yogaSeven, yogaEight, yogaNine]
     for item in self.activities {
       var counter = 0
       item.originalIndex = self.activities.index(of: item)!
@@ -99,6 +99,8 @@ extension DefaultSet {
     }
     return innerCount
   }
+  
+  
   
 }
 

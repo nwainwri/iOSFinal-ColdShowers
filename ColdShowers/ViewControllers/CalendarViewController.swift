@@ -9,17 +9,22 @@
 import UIKit
 import UserNotifications
 class CalendarViewController: UIViewController {
-
+  
   //MARK: CalenderView Properties
   @IBOutlet weak var timePicker: UIDatePicker!
 
-@IBOutlet weak var sundayButton: UIButton!
+
+
+
+  
+  @IBOutlet weak var sundayButton: UIButton!
   @IBOutlet weak var mondayButton: UIButton!
   @IBOutlet weak var tuesdayButton: UIButton!
   @IBOutlet weak var wednesdayButton: UIButton!
   @IBOutlet weak var thursdayButton: UIButton!
   @IBOutlet weak var fridayButton: UIButton!
   @IBOutlet weak var saturdayButton: UIButton!
+
 
 
   @IBOutlet weak var doneButton: UIButton!
@@ -31,62 +36,37 @@ class CalendarViewController: UIViewController {
 
 
     var daysOfTheWeek = [Int]()
-    //    var time = DateComponents()
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         daysOfTheWeek.removeAll()
-        
-
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-  
   
   // MARK: Button Actions
   
   @IBAction func doneButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
-  
-  
-  
-  
-  
-  
 
-// MARK: - Notification date setting
-
-
-    
-    
     
     // MARK: - Notification date setting
     
 
     func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
-      
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
             if let error = error {
                 print("Request Authorization Failed (\(error)")
             }
             completionHandler(success)
         }
-
-      
-
-
     }
+    
     func checkUserPermission(request: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
             switch notificationSettings.authorizationStatus {
@@ -137,6 +117,9 @@ class CalendarViewController: UIViewController {
             }
         }
     }
+
+  
+ 
     // MARK: - Button operation
     
     
@@ -239,16 +222,14 @@ class CalendarViewController: UIViewController {
             if let date = Calendar.current.date(from: newDate) {
                 input.0.append(date)
             }
-            
-            
         }
-        
         setActivity(dates: input)
-        
+      }
     }
-    
-    
-}
+
+
+
+
 
 
 

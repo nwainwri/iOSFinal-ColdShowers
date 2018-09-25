@@ -17,7 +17,12 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var signUpButton: UIButton!
   
   let defaults = UserDefaults.standard
-
+  
+  
+  
+  
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
