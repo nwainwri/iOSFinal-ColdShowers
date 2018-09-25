@@ -48,61 +48,61 @@ class CalendarViewController: UIViewController {
   
   
   
-//  // MARK: - Notification date setting
-//  
-//  func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
-//    
-//    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
-//      if let error = error {
-//        print("Request Authorization Failed (\(error)")
-//      }
-//      completionHandler(success)
-//    }
-//    
-//  }
-//  func checkUserPermission(request: @escaping (_ request:Bool) -> Bool) {
-//    UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
-//      switch notificationSettings.authorizationStatus {
-//      case .notDetermined:
-//        self.requestUserPermission(completionHandler: { _ in
-//          self.checkUserPermission(request: request)
-//        })
-//        
-//      case .authorized:
-//        
-//        
-//        func setActivity(dates: [Date], repeats: Bool) {
-//          
-//          checkUserPermission { (res) -> Bool in
-//            if res {
-//              for date in dates {
-//                let notificationContent = UNMutableNotificationContent()
-//                notificationContent.title = "Wake up"
-//                notificationContent.body = "Jump in?"
-//                
-//                var myDateComponents = DateComponents()
-//                let calendar = Calendar.current
-//                
-//                myDateComponents.hour = calendar.component(.hour, from: date)
-//                myDateComponents.day = calendar.component(.day, from: date)
-//                myDateComponents.minute = calendar.component(.minute, from: date)
-//                
-//                let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: repeats)
-//                let request = UNNotificationRequest(identifier: "uniqueID", content: notificationContent, trigger: trigger)
-//                UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
-//                  if let error = error {
-//                    print(error)
-//                  }
-//                })
-//              }
-//            }
-//            else {
-//              return res
-//            }
-//          }
-//        }
-//      }
-//    }
-//    
-//    
+  // MARK: - Notification date setting
+  
+  func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
+    
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+      if let error = error {
+        print("Request Authorization Failed (\(error)")
+      }
+      completionHandler(success)
+    }
+    
+  }
+  func checkUserPermission(request: @escaping (_ request:Bool) -> Bool) {
+    UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
+      switch notificationSettings.authorizationStatus {
+      case .notDetermined:
+        self.requestUserPermission(completionHandler: { _ in
+          self.checkUserPermission(request: request)
+        })
+        
+      case .authorized:
+        
+        
+        func setActivity(dates: [Date], repeats: Bool) {
+          
+          checkUserPermission { (res) -> Bool in
+            if res {
+              for date in dates {
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = "Wake up"
+                notificationContent.body = "Jump in?"
+                
+                var myDateComponents = DateComponents()
+                let calendar = Calendar.current
+                
+                myDateComponents.hour = calendar.component(.hour, from: date)
+                myDateComponents.day = calendar.component(.day, from: date)
+                myDateComponents.minute = calendar.component(.minute, from: date)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: repeats)
+                let request = UNNotificationRequest(identifier: "uniqueID", content: notificationContent, trigger: trigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+                  if let error = error {
+                    print(error)
+                  }
+                })
+              }
+            }
+            else {
+              return res
+            }
+          }
+        }
+      }
+    }
+    
+    
 }

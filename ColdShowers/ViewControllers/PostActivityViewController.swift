@@ -26,7 +26,6 @@ class PostActivityViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     // Do any additional setup after loading the view.
   }
   
@@ -44,11 +43,13 @@ class PostActivityViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
+  
   // MARK: Button Actions
   @IBAction func activityButtonFinishPressed(_ sender: UIButton) {
     addNewDashDate()
     performSegue(withIdentifier: "backHomeSegue", sender: self)
   }
+  
   //MARK: Dash Handling
   func addNewDashDate() {
     let formatter1 = DateFormatter()
@@ -56,27 +57,24 @@ class PostActivityViewController: UIViewController {
     formatter1.timeZone = TimeZone(secondsFromGMT: 0)
     
     let todayDateString = formatter1.string(from: Date())
-    let todayDate = formatter1.date(from: todayDateString)
+    guard let todayDate = formatter1.date(from: todayDateString) else {
+      fatalError("WAS NOT ABLE TO GET TODAYS DATE")
+      
+    }
+    
     let calendar = NSCalendar.current
     
     let lastDateString = defaults.string(forKey: "lastActivityListDone")
-    let lastDate = formatter1.date(from: lastDateString!)
+    guard let lastDate = formatter1.date(from: lastDateString ?? "NO DATE") else {
+      // if error triggered; check data
+      fatalError("NO DATE WAS FOUND")
+    }
     
     var currentStreak = defaults.integer(forKey: "currentStreak")
     
     var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
     
-    // ERROR HANDLING -- KEEP FOR REFERENCE
-    //    if userActivityHistory.count < 1 {
-    //      defaults.set(newDate, forKey: "userActivityHistory")
-    //    } else {
-    //      let currentDateString = userActivityHistory.last
-    //      guard let currentDate = formatter1.date(from: currentDateString!) else {
-    //        fatalError()
-    //      }
-    //    }
-    
-    let dateBool = calendar.isDate(todayDate!, inSameDayAs: lastDate!)
+    let dateBool = calendar.isDate(todayDate, inSameDayAs: lastDate)
     if dateBool == false {
       userActivityHistory.append(todayDateString)
       currentStreak += 1
