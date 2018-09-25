@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -186,6 +187,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="559182733.28195">
                                     <!--2018-09-21 00:32:13 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="timePickedChanged:" destination="PY9-VP-PkX" eventType="valueChanged" id="zwD-aW-5lb"/>
+                                </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-kE-U7h" userLabel="Days of the Week Buttons">
                                 <rect key="frame" x="16" y="380" width="246" height="30"/>
@@ -193,30 +197,51 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-hi-C1K">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="S"/>
+                                        <connections>
+                                            <action selector="sundayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="GE0-cY-cQr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-RU-WtG">
                                         <rect key="frame" x="36" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="M"/>
+                                        <connections>
+                                            <action selector="mondayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="kt3-mB-Xtk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyO-fp-zgH">
                                         <rect key="frame" x="72" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="T"/>
+                                        <connections>
+                                            <action selector="tuesdayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="z23-fv-gib"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-ge-76F">
                                         <rect key="frame" x="108" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="W"/>
+                                        <connections>
+                                            <action selector="wednesdayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="3kY-wN-cw7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfD-Py-S7P">
                                         <rect key="frame" x="144" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="T"/>
+                                        <connections>
+                                            <action selector="thursdayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="io7-1B-8Db"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-uX-Irn">
                                         <rect key="frame" x="180" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="F"/>
+                                        <connections>
+                                            <action selector="fridayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="X6b-Pf-1cZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUh-mh-1Nf">
                                         <rect key="frame" x="216" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="S"/>
+                                        <connections>
+                                            <action selector="saturdayButtonPressed:" destination="PY9-VP-PkX" eventType="touchUpInside" id="28K-LO-CAH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -225,7 +250,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Note: This will not set an alarm, but just a notification reminder for you." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgg-bg-dBa">
-                                <rect key="frame" x="16" y="418" width="206" height="113"/>
+                                <rect key="frame" x="16" y="459" width="206" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="206" id="1uT-7Z-FIb"/>
                                     <constraint firstAttribute="height" constant="113" id="CRd-j6-GKo"/>
@@ -245,27 +270,50 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-e7-IMN">
-                                <rect key="frame" x="16" y="539" width="44" height="44"/>
+                                <rect key="frame" x="16" y="580" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="QPe-aR-nBc"/>
                                     <constraint firstAttribute="width" constant="44" id="qgg-EO-5Tg"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="PY9-VP-PkX" eventType="touchUpInside" id="xsZ-cc-wKl"/>
+                                </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xem-eC-NYH">
+                                <rect key="frame" x="98" y="418" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="LEY-Df-ghj"/>
+                                    <constraint firstAttribute="width" constant="47" id="lQu-lm-oH1"/>
+                                </constraints>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x11-fE-XKU">
+                                <rect key="frame" x="16" y="418" width="59" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Cgg-bg-dBa" firstAttribute="top" secondItem="xem-eC-NYH" secondAttribute="bottom" constant="10" id="1qb-zu-Ahk"/>
+                            <constraint firstItem="x11-fE-XKU" firstAttribute="height" secondItem="xem-eC-NYH" secondAttribute="height" id="2B2-KX-ipJ"/>
                             <constraint firstItem="Cgg-bg-dBa" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="4dq-Bx-RBl"/>
+                            <constraint firstItem="xem-eC-NYH" firstAttribute="leading" secondItem="x11-fE-XKU" secondAttribute="trailing" constant="23" id="F4S-lk-ihh"/>
                             <constraint firstItem="VR7-dD-7dD" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="Hcp-NP-LO8"/>
                             <constraint firstItem="1Tb-e7-IMN" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="Hta-6p-SsV"/>
                             <constraint firstItem="fZO-IP-Bvx" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="IjX-9Q-Cg9"/>
-                            <constraint firstItem="Cgg-bg-dBa" firstAttribute="top" secondItem="cgb-kE-U7h" secondAttribute="bottom" constant="8" id="OSk-oj-Taw"/>
                             <constraint firstItem="cgb-kE-U7h" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="UQf-cw-xld"/>
                             <constraint firstItem="cgb-kE-U7h" firstAttribute="top" secondItem="fZO-IP-Bvx" secondAttribute="bottom" constant="8" id="WZ1-jl-bQP"/>
+                            <constraint firstItem="PFL-0t-DA0" firstAttribute="trailing" secondItem="1Tb-e7-IMN" secondAttribute="trailing" constant="315" id="Zqt-Wh-o95"/>
+                            <constraint firstItem="x11-fE-XKU" firstAttribute="leading" secondItem="Yey-jp-0Pt" secondAttribute="leading" id="bE3-uL-5YK"/>
+                            <constraint firstItem="x11-fE-XKU" firstAttribute="top" secondItem="cgb-kE-U7h" secondAttribute="bottom" constant="8" id="cIi-Rh-Ei8"/>
                             <constraint firstItem="Yey-jp-0Pt" firstAttribute="leading" secondItem="PFL-0t-DA0" secondAttribute="leading" constant="16" id="cTQ-R1-nad"/>
                             <constraint firstItem="PFL-0t-DA0" firstAttribute="trailing" secondItem="VR7-dD-7dD" secondAttribute="trailing" constant="16" id="cpu-HW-H1i"/>
+                            <constraint firstItem="Cgg-bg-dBa" firstAttribute="top" secondItem="x11-fE-XKU" secondAttribute="bottom" constant="10" id="eBW-U0-6ar"/>
                             <constraint firstItem="Yey-jp-0Pt" firstAttribute="top" secondItem="PFL-0t-DA0" secondAttribute="top" constant="78" id="iZj-63-su5"/>
                             <constraint firstItem="1Tb-e7-IMN" firstAttribute="top" secondItem="Cgg-bg-dBa" secondAttribute="bottom" constant="8" id="khr-Kw-tbg"/>
+                            <constraint firstItem="x11-fE-XKU" firstAttribute="width" secondItem="xem-eC-NYH" secondAttribute="width" multiplier="1.25" id="lOz-Uc-iQn"/>
                             <constraint firstItem="fZO-IP-Bvx" firstAttribute="top" secondItem="VR7-dD-7dD" secondAttribute="bottom" constant="8" id="p5m-Ux-gmL"/>
                             <constraint firstItem="VR7-dD-7dD" firstAttribute="top" secondItem="Yey-jp-0Pt" secondAttribute="bottom" constant="8" id="uC8-jZ-L1u"/>
                         </constraints>
@@ -275,8 +323,9 @@
                         <outlet property="calenderViewDoneButton" destination="1Tb-e7-IMN" id="Ldl-qm-Znl"/>
                         <outlet property="fridayButton" destination="Oi1-uX-Irn" id="aqg-am-AGN"/>
                         <outlet property="mondayButton" destination="I9U-RU-WtG" id="uFN-yb-5pX"/>
+                        <outlet property="repeatSwitch" destination="xem-eC-NYH" id="vHB-01-iUD"/>
                         <outlet property="saturdayButton" destination="UUh-mh-1Nf" id="gaK-Fz-BfI"/>
-                        <outlet property="sundayButton" destination="OgC-hi-C1K" id="8V7-W4-ybk"/>
+                        <outlet property="sundayButton" destination="OgC-hi-C1K" id="pid-2x-x9D"/>
                         <outlet property="thursdayButton" destination="kfD-Py-S7P" id="Wgj-8t-E80"/>
                         <outlet property="timePicker" destination="VR7-dD-7dD" id="rVV-UK-lm1"/>
                         <outlet property="tuesdayButton" destination="AyO-fp-zgH" id="ekH-Wr-mkC"/>
@@ -285,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fe-eY-3hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="353" y="305"/>
+            <point key="canvasLocation" x="352.80000000000001" y="304.4977511244378"/>
         </scene>
     </scenes>
 </document>
