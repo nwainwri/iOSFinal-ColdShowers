@@ -5,7 +5,6 @@
 //  Created by Kit Clark-O'Neil on 2018-09-20.
 //  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
 //
-
 import UIKit
 
 class PostActivityViewController: UIViewController {
@@ -25,8 +24,6 @@ class PostActivityViewController: UIViewController {
   //MARK: properties
   let defaults = UserDefaults.standard
   
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -37,7 +34,6 @@ class PostActivityViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
   
   /*
    // MARK: - Navigation
@@ -51,93 +47,43 @@ class PostActivityViewController: UIViewController {
   // MARK: Button Actions
   @IBAction func activityButtonFinishPressed(_ sender: UIButton) {
     addNewDashDate()
-    
-    
     performSegue(withIdentifier: "backHomeSegue", sender: self)
   }
-  
-  
-  
   //MARK: Dash Handling
   func addNewDashDate() {
     let formatter1 = DateFormatter()
-    //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
     formatter1.dateFormat = "yyyy-MM-dd"
     formatter1.timeZone = TimeZone(secondsFromGMT: 0)
-    let today = formatter1.string(from: Date())
-    let newDate = [today]
-    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
     
-    
-    
-    if userActivityHistory.count < 1 {
-      defaults.set(newDate, forKey: "userActivityHistory")
-    } else {
-      let currentDateString = userActivityHistory.last
-      guard let currentDate = formatter1.date(from: currentDateString!) else {
-        fatalError()
-      }
-      if currentDate > Date() {
-        userActivityHistory.append(today)
-        // ADD STREAK HERE, BECAUSE THIS SHOULD ONLY HAPPEN IF TODAY IS GREATER THEN YESTERDAY?
-        
-        
-        //writes to UserDefault
-        defaults.set(userActivityHistory, forKey: "userActivityHistory")
-      } else {
-        print("DENIED AS : \(today) is the same as todays Date()")
-      }
-    }
-    
-    //read from "lastworkout complete"
-    // lastActivityListDone
-    
-    // if last == to yesterdays date OR nil
-    // currentStreak += 1
-    //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    let lastDateString = defaults.string(forKey: "lastActivityListDone")
-    
-    let lastDate = formatter1.date(from: lastDateString!)
-    let todayDate = Date()
+    let todayDateString = formatter1.string(from: Date())
+    let todayDate = formatter1.date(from: todayDateString)
     let calendar = NSCalendar.current
     
-    // MOVE TO APP LAUNCH, ON LAUNCH CHECK IF LAST WORKOUT WAS YESTERDAY
-    // IF YES, THEN LEAVE CURRENT STREAK ALONE
+    let lastDateString = defaults.string(forKey: "lastActivityListDone")
+    let lastDate = formatter1.date(from: lastDateString!)
     
-    // IF NO, RESET STREAK TO ZERO
-    if calendar.isDateInYesterday(lastDate!) {
-      print("YES \(todayDate) is after \(String(describing: lastDateString))")
-          // DO THIS ONCE WE CONFIRM TODFAY IS JUST AFTER LAST DATE
-            var newStreak = defaults.integer(forKey: "currentStreak")
-            newStreak += 1
-            defaults.set(newStreak, forKey: "currentStreak")
-    } else {
-      var newStreak = defaults.integer(forKey: "currentStreak")
-      newStreak = 1
-      defaults.set(newStreak, forKey: "currentStreak")
+    var currentStreak = defaults.integer(forKey: "currentStreak")
+    
+    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
+    
+    // ERROR HANDLING -- KEEP FOR REFERENCE
+    //    if userActivityHistory.count < 1 {
+    //      defaults.set(newDate, forKey: "userActivityHistory")
+    //    } else {
+    //      let currentDateString = userActivityHistory.last
+    //      guard let currentDate = formatter1.date(from: currentDateString!) else {
+    //        fatalError()
+    //      }
+    //    }
+    
+    let dateBool = calendar.isDate(todayDate!, inSameDayAs: lastDate!)
+    if dateBool == false {
+      userActivityHistory.append(todayDateString)
+      currentStreak += 1
+      
+      defaults.set(todayDateString, forKey: "lastActivityListDone")
+      defaults.set(userActivityHistory, forKey: "userActivityHistory")
+      defaults.set(currentStreak, forKey: "currentStreak")
     }
-    
-    
-//
-
-
-    
-    
-    
-    
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }

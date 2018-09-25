@@ -14,6 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
+  let defaults = UserDefaults.standard
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyboard = UIStoryboard(name: "Login", bundle: nil)
     self.window = UIWindow()
     
-    if UserDefaults.standard.value(forKey: "Username") == nil {
+    if defaults.value(forKey: "Username") == nil {
       let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
       self.window?.rootViewController = signupViewCon
       
@@ -33,6 +34,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window?.makeKeyAndVisible()
     
     
+    let formatter1 = DateFormatter()
+    //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter1.dateFormat = "yyyy-MM-dd"
+    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
+    let lastDateString = defaults.string(forKey: "lastActivityListDone")
+    let lastDate = formatter1.date(from: lastDateString!)
+    let todayDate = Date()
+    let calendar = NSCalendar.current
+    
+    // MOVE TO APP LAUNCH, ON LAUNCH CHECK IF LAST WORKOUT WAS YESTERDAY
+    // IF YES, THEN LEAVE CURRENT STREAK ALONE
+    
+    // IF NO, RESET STREAK TO ZERO
+    if calendar.isDateInYesterday(lastDate!) {
+//      print("YES \(todayDate) is after \(String(describing: lastDateString))")
+//      // DO THIS ONCE WE CONFIRM TODFAY IS JUST AFTER LAST DATE
+//      var newStreak = defaults.integer(forKey: "currentStreak")
+//      newStreak += 1
+//      defaults.set(newStreak, forKey: "currentStreak")
+    } else {
+      var newStreak = defaults.integer(forKey: "currentStreak")
+      newStreak = 0
+      defaults.set(newStreak, forKey: "currentStreak")
+    }
     
     
     return true
