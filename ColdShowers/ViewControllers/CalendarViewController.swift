@@ -9,54 +9,45 @@
 import UIKit
 import UserNotifications
 class CalendarViewController: UIViewController {
-  
-  //MARK: CalenderView Properties
-  @IBOutlet weak var timePicker: UIDatePicker!
-
-
-
-
-  
-  @IBOutlet weak var sundayButton: UIButton!
-  @IBOutlet weak var mondayButton: UIButton!
-  @IBOutlet weak var tuesdayButton: UIButton!
-  @IBOutlet weak var wednesdayButton: UIButton!
-  @IBOutlet weak var thursdayButton: UIButton!
-  @IBOutlet weak var fridayButton: UIButton!
-  @IBOutlet weak var saturdayButton: UIButton!
-
-
-
-  @IBOutlet weak var doneButton: UIButton!
-
+    
+    //MARK: CalenderView Properties
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
+    @IBOutlet weak var sundayButton: UIButton!
+    @IBOutlet weak var mondayButton: UIButton!
+    @IBOutlet weak var tuesdayButton: UIButton!
+    @IBOutlet weak var wednesdayButton: UIButton!
+    @IBOutlet weak var thursdayButton: UIButton!
+    @IBOutlet weak var fridayButton: UIButton!
+    @IBOutlet weak var saturdayButton: UIButton!
     
     @IBOutlet weak var repeatSwitch: UISwitch!
     
-  @IBOutlet weak var calenderViewDoneButton: UIButton!
-
-
+    @IBOutlet weak var calenderViewDoneButton: UIButton!
+    
     var daysOfTheWeek = [Int]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UNUserNotificationCenter.current().delegate = self
         daysOfTheWeek.removeAll()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        
+        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-
-  
-  // MARK: Button Actions
-  
-  @IBAction func doneButtonPressed(_ sender: UIButton) {
-    dismiss(animated: true, completion: nil)
-  }
-
+    
+    
     
     // MARK: - Notification date setting
     
-
     func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
@@ -66,7 +57,6 @@ class CalendarViewController: UIViewController {
             completionHandler(success)
         }
     }
-    
     func checkUserPermission(request: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
             switch notificationSettings.authorizationStatus {
@@ -74,7 +64,7 @@ class CalendarViewController: UIViewController {
                 self.requestUserPermission(completionHandler: { _ in
                     self.checkUserPermission(request: request)
                 })
-              
+                
             case .authorized:
                 request(true)
                 
@@ -89,39 +79,45 @@ class CalendarViewController: UIViewController {
             }
         }
     }
-    func setActivity(dates: ([Date], Bool)) {
+    func setActivity(dates: ([DateComponents], Bool)) {
         
         checkUserPermission { (res) in
             if res {
-                for date in dates.0 {
-
+                for dateComponents in dates.0 {
                     let notificationContent = UNMutableNotificationContent()
                     notificationContent.title = "Wake up"
                     notificationContent.body = "Jump in?"
+                    notificationContent.categoryIdentifier = "Actions"
                     
-                    var myDateComponents = DateComponents()
-                    let calendar = Calendar.current
-                    
-                    myDateComponents.hour = calendar.component(.hour, from: date)
-                    myDateComponents.day = calendar.component(.day, from: date)
-                    myDateComponents.minute = calendar.component(.minute, from: date)
-                    
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: myDateComponents, repeats: dates.1)
-                    let request = UNNotificationRequest(identifier: "UniqueID", content: notificationContent, trigger: trigger)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: dates.1)
+                    let request = UNNotificationRequest(identifier: "\(dateComponents)", content: notificationContent, trigger: trigger)
                     UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
                         if let error = error {
                             print(error)
                         }
                     })
+                    UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (request) in
+                        print("\(request)")
+                    })
+                    
                 }
             }
         }
     }
-
-  
- 
-    // MARK: - Button operation
     
+    func setUpNotificationCenter() {
+        let actionShowDetails = UNNotificationAction(identifier: "Go", title: "Jump In", options: [.foreground])
+        let notActionShowDetails = UNNotificationAction(identifier: "Don't", title: "Call it off", options: [])
+
+        // create category with the action
+        let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails, notActionShowDetails], intentIdentifiers: [], options: [])
+        
+        
+        
+        
+        UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
+    }
+    // MARK: - Button operation
     
     @IBAction func sundayButtonPressed(_ sender: UIButton) {
         sundayButton.isSelected = !sundayButton.isSelected
@@ -168,7 +164,7 @@ class CalendarViewController: UIViewController {
     }
     @IBAction func thursdayButtonPressed(_ sender: UIButton) {
         thursdayButton.isSelected = !thursdayButton.isSelected
-        if sundayButton.isSelected {
+        if thursdayButton.isSelected {
             daysOfTheWeek.append(5)
         }
         else {
@@ -178,7 +174,7 @@ class CalendarViewController: UIViewController {
     }
     @IBAction func fridayButtonPressed(_ sender: UIButton) {
         fridayButton.isSelected = !fridayButton.isSelected
-        if sundayButton.isSelected {
+        if fridayButton.isSelected {
             daysOfTheWeek.append(6)
         }
         else {
@@ -188,7 +184,7 @@ class CalendarViewController: UIViewController {
     }
     @IBAction func saturdayButtonPressed(_ sender: UIButton) {
         saturdayButton.isSelected = !saturdayButton.isSelected
-        if sundayButton.isSelected {
+        if saturdayButton.isSelected {
             daysOfTheWeek.append(7)
         }
         else {
@@ -199,34 +195,42 @@ class CalendarViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIButton) {
         
+        
+        
         let myTimePicker = DateFormatter()
         myTimePicker.dateFormat = "HH:mm"
         
         let timeString = myTimePicker.string(from: timePicker.date)
         let time = timeString.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
-        let minuteString = String(time[0])
+        let minuteString = String(time[1])
         let hourString = String(time[0])
         guard let minute = Int(minuteString), let hour = Int(hourString) else {
             fatalError()
         }
-        var input: ([Date], Bool)
-        input.0 = [Date]()
+        var input: ([DateComponents], Bool)
+        input.0 = [DateComponents]()
         input.1 = repeatSwitch.isOn
         
         for day in daysOfTheWeek {
             
             var newDate = DateComponents()
+            newDate.calendar = Calendar.current
             newDate.weekday = day
             newDate.minute = minute
             newDate.hour = hour
-            if let date = Calendar.current.date(from: newDate) {
-                input.0.append(date)
-            }
+            input.0.append(newDate)
+            print(daysOfTheWeek.count)
         }
         setActivity(dates: input)
-      }
     }
+}
 
+extension CalendarViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
+}
 
 
 
