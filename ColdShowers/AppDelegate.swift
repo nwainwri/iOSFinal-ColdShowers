@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier:
             print("Default action")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "NewController")
+            let vc = storyboard.instantiateViewController(withIdentifier: "ActivityVC")
             self.window?.rootViewController?.present(vc, animated: true, completion: nil)
         default:
             print("default case hit")
