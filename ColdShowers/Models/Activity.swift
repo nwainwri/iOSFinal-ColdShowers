@@ -18,7 +18,7 @@ class Activity: NSObject {
   let name: String // "pushups"
   let areaOfBody: Array<String> // ["arms","back"]
   let instructions: String // "pushups"
-  let photo: UIImage // image name
+  let photo: String // image name
   let category: category
   var settings: Bool // used for preferences screen
   var occurance: Int // for algorithm
@@ -26,7 +26,7 @@ class Activity: NSObject {
   
   var originalIndex: Int
 
-  init(name: String, areaOfBody: Array<String>, instructions: String, category: category, photo: UIImage) {
+  init(name: String, areaOfBody: Array<String>, instructions: String, category: category, photo: String) {
     self.name = name
     self.areaOfBody = areaOfBody
     self.instructions = instructions

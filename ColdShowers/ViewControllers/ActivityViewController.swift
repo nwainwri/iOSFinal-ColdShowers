@@ -30,6 +30,9 @@ class ActivityViewController: UIViewController {
   var currentActivity:Int = 0
   var activityList = Array<Activity>()
   let activityManager = ActivityListManager()
+  var minutes = 5
+  var timer = Timer()
+  var isTimerRunning = false // used to ensure only one timer running at any given time
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -86,7 +89,7 @@ class ActivityViewController: UIViewController {
   //MARK: Load Data for Labels
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
-    activityInstructionImage.image = activityList[currentActivity].photo
+    activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo) 
     estimatedTimeAmount.text = activityManager.generateTime()
   }
   
