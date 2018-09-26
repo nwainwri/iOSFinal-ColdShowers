@@ -11,13 +11,19 @@ import CoreData
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   
   var window: UIWindow?
   let defaults = UserDefaults.standard
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    setUpNotificationCenter()
+    UNUserNotificationCenter.current().delegate = self
+    
+    
+    
     
     // MARK: allows choice between login or sign up screen, depending if app used before
     let storyboard = UIStoryboard(name: "Login", bundle: nil)
@@ -130,6 +136,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
   }
+    // Mark: - Notification Setting
+    
+    // Responds to action response, opening activity view controller
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        switch response.actionIdentifier {
+        case "Snooze":
+            print ("Snooze case hit")
+            
+        case UNNotificationDismissActionIdentifier:
+            print("Needs cancel function")
+            
+        case UNNotificationDefaultActionIdentifier:
+            print("Default action")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NewController")
+            self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+        default:
+            print("default case hit")
+        }
+        
+        completionHandler()
   
 }
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
+    
+    func setUpNotificationCenter() {
+        let actionShowDetails = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
+        
+        // create category with the action
+        let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
+    }
+}
