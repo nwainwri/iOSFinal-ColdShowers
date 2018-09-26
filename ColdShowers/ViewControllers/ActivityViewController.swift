@@ -79,8 +79,7 @@ class ActivityViewController: UIViewController {
       performSegue(withIdentifier: "postActivitySegue", sender: self)
     }
   }
-  
-  
+
   //MARK: Load Data for Labels
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name

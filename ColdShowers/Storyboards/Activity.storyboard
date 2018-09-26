@@ -57,30 +57,30 @@
                                 <rect key="frame" x="16" y="20" width="256" height="336"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Activity Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-bP-eLK">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-iR-9nf">
-                                        <rect key="frame" x="0.0" y="30.5" width="184.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="34" width="184.5" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Estimated TIme&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-fp-ygf">
                                                 <rect key="frame" x="0.0" y="0.0" width="140.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVt-nq-pjq">
                                                 <rect key="frame" x="148.5" y="0.0" width="36" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="86g-7v-l6I">
-                                        <rect key="frame" x="0.0" y="61" width="256" height="167"/>
+                                        <rect key="frame" x="0.0" y="64.5" width="256" height="163.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-bu-5lH">
                                         <rect key="frame" x="0.0" y="238" width="64" height="44"/>
@@ -88,6 +88,7 @@
                                             <constraint firstAttribute="height" constant="44" id="KDv-GL-Vt0"/>
                                             <constraint firstAttribute="width" constant="64" id="Obl-f8-vkw"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="activityStartButtonPressed:" destination="I7O-jL-Gvc" eventType="touchUpInside" id="nft-jA-GXx"/>
@@ -99,6 +100,7 @@
                                             <constraint firstAttribute="height" constant="44" id="8qd-iH-F7t"/>
                                             <constraint firstAttribute="width" constant="64" id="WsQ-HX-eNW"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="activityCancelButtonPressed:" destination="I7O-jL-Gvc" eventType="touchUpInside" id="uSc-dh-Fjr"/>
@@ -113,7 +115,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RMt-fT-nWP" firstAttribute="leading" secondItem="dpt-Bk-jrY" secondAttribute="leading" constant="-16" id="Zqq-EN-vV2"/>
                             <constraint firstItem="RMt-fT-nWP" firstAttribute="centerY" secondItem="B3n-ro-SNV" secondAttribute="centerY" id="hcR-lf-oiE"/>
@@ -164,6 +166,7 @@
                                             <constraint firstAttribute="height" constant="35" id="9X9-Em-TdX"/>
                                             <constraint firstAttribute="width" constant="44" id="f2X-mq-liv"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Bad"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVu-nw-6pe">
@@ -172,6 +175,7 @@
                                             <constraint firstAttribute="height" constant="35" id="Bqo-Yt-xSQ"/>
                                             <constraint firstAttribute="width" constant="44" id="vSG-RQ-IRI"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Good"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qx-xy-oHH">
@@ -180,6 +184,7 @@
                                             <constraint firstAttribute="height" constant="35" id="Yeb-R8-CEr"/>
                                             <constraint firstAttribute="width" constant="44" id="gzb-bJ-qnl"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Great"/>
                                     </button>
                                 </subviews>
@@ -199,6 +204,7 @@
                                             <constraint firstAttribute="height" constant="35" id="Ele-U8-wjJ"/>
                                             <constraint firstAttribute="width" constant="44" id="sPR-nM-vpc"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Yes"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-eH-KbO">
@@ -207,6 +213,7 @@
                                             <constraint firstAttribute="width" constant="44" id="IPO-Qn-0cq"/>
                                             <constraint firstAttribute="height" constant="35" id="IdC-RH-wke"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="No"/>
                                     </button>
                                 </subviews>
@@ -217,13 +224,14 @@
                                     <constraint firstAttribute="width" constant="44" id="Cy0-MB-Zki"/>
                                     <constraint firstAttribute="height" constant="35" id="eA4-I3-8Kb"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="activityButtonFinishPressed:" destination="BaE-Uw-NHh" eventType="touchUpInside" id="z5f-pK-c3j"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0Yf-GP-6ZD" firstAttribute="leading" secondItem="igc-co-Lvq" secondAttribute="leading" constant="16" id="3Nt-Dx-cMQ"/>
                             <constraint firstItem="igc-co-Lvq" firstAttribute="trailing" secondItem="0rN-AR-BZw" secondAttribute="trailing" constant="282" id="3Tk-Qf-P1d"/>
@@ -264,4 +272,5 @@
             <point key="canvasLocation" x="3434" y="-17"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
