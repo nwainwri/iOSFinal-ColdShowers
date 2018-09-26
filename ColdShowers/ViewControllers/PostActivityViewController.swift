@@ -59,29 +59,33 @@ class PostActivityViewController: UIViewController {
     let todayDateString = formatter1.string(from: Date())
     guard let todayDate = formatter1.date(from: todayDateString) else {
       fatalError("WAS NOT ABLE TO GET TODAYS DATE")
-      
     }
     
     let calendar = NSCalendar.current
-    
+
     let lastDateString = defaults.string(forKey: "lastActivityListDone")
-    guard let lastDate = formatter1.date(from: lastDateString ?? "NO DATE") else {
+    
+    
+    guard let lastDate = formatter1.date(from: lastDateString ?? formatter1.string(from: Date(timeIntervalSinceReferenceDate:0))) else {
       // if error triggered; check data
       fatalError("NO DATE WAS FOUND")
     }
     
     var currentStreak = defaults.integer(forKey: "currentStreak")
+    var userActivityHistory = defaults.array(forKey: "userActivityHistory") as? [String] ?? []
     
-    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
+    defaults.set(todayDateString, forKey: "lastActivityListDone")
     
     let dateBool = calendar.isDate(todayDate, inSameDayAs: lastDate)
     if dateBool == false {
+      //update state
       userActivityHistory.append(todayDateString)
       currentStreak += 1
       
-      defaults.set(todayDateString, forKey: "lastActivityListDone")
-      defaults.set(userActivityHistory, forKey: "userActivityHistory")
+      //save state
       defaults.set(currentStreak, forKey: "currentStreak")
+      defaults.set(userActivityHistory, forKey: "userActivityHistory")
+
     }
   }
 }

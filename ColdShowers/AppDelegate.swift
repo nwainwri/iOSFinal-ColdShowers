@@ -29,13 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let storyboard = UIStoryboard(name: "Login", bundle: nil)
     self.window = UIWindow()
     
-    if defaults.value(forKey: "Username") == nil {
-      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
-      self.window?.rootViewController = signupViewCon
-      
-    } else {
+    if let _ = defaults.value(forKey: "Username") {
       let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
       self.window?.rootViewController = loginViewCon
+    } else {
+      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
+      self.window?.rootViewController = signupViewCon
     }
     self.window?.makeKeyAndVisible()
     
@@ -44,25 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
     formatter1.dateFormat = "yyyy-MM-dd"
     formatter1.timeZone = TimeZone(secondsFromGMT: 0)
-    let lastDateString = defaults.string(forKey: "lastActivityListDone")
-    let lastDate = formatter1.date(from: lastDateString!)
-    let todayDate = Date()
+    
+    guard let lastDateString = defaults.string(forKey: "lastActivityListDone"),
+      let lastDate = formatter1.date(from: lastDateString) else {
+        return true
+    }
+    
+//    let todayDate = Date()
     let calendar = NSCalendar.current
     
     // MOVE TO APP LAUNCH, ON LAUNCH CHECK IF LAST WORKOUT WAS YESTERDAY
     // IF YES, THEN LEAVE CURRENT STREAK ALONE
     
     // IF NO, RESET STREAK TO ZERO
-    if calendar.isDateInYesterday(lastDate!) {
+    if calendar.isDateInYesterday(lastDate) {
 //      print("YES \(todayDate) is after \(String(describing: lastDateString))")
 //      // DO THIS ONCE WE CONFIRM TODFAY IS JUST AFTER LAST DATE
 //      var newStreak = defaults.integer(forKey: "currentStreak")
 //      newStreak += 1
 //      defaults.set(newStreak, forKey: "currentStreak")
     } else {
-      var newStreak = defaults.integer(forKey: "currentStreak")
-      newStreak = 0
-      defaults.set(newStreak, forKey: "currentStreak")
+//      var newStreak = defaults.integer(forKey: "currentStreak")
+//      newStreak = 0
+      defaults.set(0, forKey: "currentStreak")
     }
     
     
