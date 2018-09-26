@@ -22,6 +22,9 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityInstructionImage: UIImageView!
   @IBOutlet weak var activityStartButton: UIButton!
   @IBOutlet weak var activityCancelButton: UIButton!
+  @IBOutlet weak var activityCurrentTimerLabel: UILabel!
+  
+  
   
   //MARK: Varible Properties
   var currentActivity:Int = 0
