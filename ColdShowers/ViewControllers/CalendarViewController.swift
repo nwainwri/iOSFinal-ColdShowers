@@ -31,7 +31,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().delegate = self
+//        UNUserNotificationCenter.current().delegate = self
         daysOfTheWeek.removeAll()
         
         
