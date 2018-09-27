@@ -28,7 +28,9 @@ class ActivityViewController: UIViewController {
   
   //MARK: Varible Properties
   var currentActivity:Int = 0
-  var activityList = Array<Activity>()
+  var activityList = Array<CoreActivity>()
+  
+  
   let activityManager = ActivityListManager()
   var minutes = 5
   var timer = Timer()
@@ -77,19 +79,30 @@ class ActivityViewController: UIViewController {
       self.timerOverlayView.alpha = 0.0
       self.timerOverlayView.isHidden = true
     }, completion: nil)
+    
+    activityList[currentActivity].occurance += 1
+    
     if currentActivity < (activityList.count - 1) {
       currentActivity += 1
       print(currentActivity)
+      
+      
+
+      
+      // somewhere in here, need to 'save' to occurance on that specific object
+
+      
       loadData()
     } else {
       performSegue(withIdentifier: "postActivitySegue", sender: self)
     }
+//    activityList[currentActivity].occurance += 1
   }
 
   //MARK: Load Data for Labels
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
-    activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo) 
+    activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!) 
     estimatedTimeAmount.text = activityManager.generateTime()
   }
   
