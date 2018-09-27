@@ -220,9 +220,6 @@
                                         <date key="date" timeIntervalSinceReferenceDate="559182733.28195">
                                             <!--2018-09-21 00:32:13 +0000-->
                                         </date>
-                                        <connections>
-                                            <action selector="timePickedChanged:" destination="PY9-VP-PkX" eventType="valueChanged" id="zwD-aW-5lb"/>
-                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days of the Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZO-IP-Bvx">
                                         <rect key="frame" x="0.0" y="252.5" width="145.5" height="21"/>
@@ -354,7 +351,6 @@
                         <viewLayoutGuide key="safeArea" id="PFL-0t-DA0"/>
                     </view>
                     <connections>
-                        <outlet property="doneButton" destination="1Tb-e7-IMN" id="YUL-zl-lxf"/>
                         <outlet property="fridayButton" destination="Oi1-uX-Irn" id="aqg-am-AGN"/>
                         <outlet property="mondayButton" destination="I9U-RU-WtG" id="uFN-yb-5pX"/>
                         <outlet property="repeatSwitch" destination="xem-eC-NYH" id="vHB-01-iUD"/>

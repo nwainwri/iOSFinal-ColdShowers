@@ -33,7 +33,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         UNUserNotificationCenter.current().delegate = self
         daysOfTheWeek.removeAll()
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
         
         
         // Do any additional setup after loading the view.
@@ -223,6 +223,8 @@ class CalendarViewController: UIViewController {
         }
         setActivity(dates: input)
     }
+   
+    
 }
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
