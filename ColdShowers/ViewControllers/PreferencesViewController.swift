@@ -10,16 +10,12 @@ import UIKit
 
 class PreferencesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PreferencesTableViewCellDelegate {
   
-  
-  let defaultSet = DefaultSet()
-  var currectionSection:Int = 0
-  
   //MARK: PreferencesView Properties
   @IBOutlet weak var preferencesTableView: UITableView!
   @IBOutlet weak var doneButton: UIButton!
   
-  
-  
+  let activityManager = ActivityListManager()
+  var currentSection:Int = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,9 +23,6 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     //      defaultSet.activities[0]
     preferencesTableView.delegate = self
     preferencesTableView.dataSource = self
-    
-    
-    
     
   }
   
@@ -40,55 +33,76 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   
   // MARK: preferencesTableView functions
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //    if section == 0 {
-    //      currectionSection = 0
-    //      return "Strength"
-    //    } else if section == 1 {
-    //      currectionSection = 1
-    //      return "Mindfull"
-    //    } else {
-    //      currectionSection = 2
-    //      return "Yoga"
-    //    }
-//    return defaultSet.categories[section].rawValue
-    return "Title"
+    switch section {
+    case 0:
+      currentSection = 0
+      return "Strength"
+    case 1:
+      currentSection = 1
+      return "Mindful"
+    case 2:
+      currentSection = 2
+      return "Yoga"
+    default:
+      return "OUT OF BOUNDS"
+    }
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-//    return defaultSet.categories.count
-    return 0
+    //    return defaultSet.categories.count
+    return 3
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var currentCount = 0
-//    for item in defaultSet.activities {
-//      if item.category.rawValue == currectionSection {
-//        currentCount += 1
-//      }
-//    }
-    return currentCount
+    
+    switch section {
+    case 0:
+      currentSection = 0
+      return activityManager.strength.count
+    case 1:
+      currentSection = 1
+      return activityManager.mindful.count
+    case 2:
+      currentSection = 2
+      return activityManager.yoga.count
+    default:
+      return 0
+    }
+
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! PreferencesTableViewCell
-    // MARK: NOT QUITE
-//    let currentActivities = defaultSet.activities.filter{$0.category.rawValue == indexPath.section}
-    //    for item in testArr {
-    ////      cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
-    ////      cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
-    ////      print("this one maybe: \(item.name)")
-    //    }
-    //    if defaultSet.activities[indexPath.row].category.rawValue == indexPath.section {
+    
+    //        let currentActivities = defaultSet.activities.filter{$0.category.rawValue == indexPath.section}
+    //        for item in testArr {
+    //    //      cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
+    //    //      cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
+    //    //      print("this one maybe: \(item.name)")
+    //        }
+    //        if defaultSet.activities[indexPath.row].category.rawValue == indexPath.section {
     //
-    //      print("NAME: \(defaultSet.activities[indexPath.row].name)")
-    //    }
-    //      cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
-    //      cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
+    //          print("NAME: \(defaultSet.activities[indexPath.row].name)")
+    //        }
+    //          cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
+    //          cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
+    
     cell.delegate = self
-//    cell.preferenceNameLabel.text = currentActivities[indexPath.row].name
-//    cell.preferenceSettingSwitch.isOn = currentActivities[indexPath.row].settings
-//    cell.activityOriginalIndex = currentActivities[indexPath.row].originalIndex
-////    print(cell.activityOriginalIndex)
+    
+    switch currentSection {
+    case 0:
+      cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
+      cell.preferenceSettingSwitch.isOn = activityManager.strength[indexPath.row].settings
+    case 1:
+      cell.preferenceNameLabel.text = activityManager.mindful[indexPath.row].name
+      cell.preferenceSettingSwitch.isOn = activityManager.mindful[indexPath.row].settings
+    case 2:
+      cell.preferenceNameLabel.text = activityManager.yoga[indexPath.row].name
+      cell.preferenceSettingSwitch.isOn = activityManager.yoga[indexPath.row].settings
+    default:
+      fatalError("currectionSection Value out of bounds.")
+    }
     return cell
   }
   
@@ -109,29 +123,41 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   //MARK: Delegation Functions
   func didTapSwitch(_ sender: PreferencesTableViewCell) {
     guard let tappedIndexPath = preferencesTableView.indexPath(for: sender) else { return }
-//    print("Cell Tapped", sender, tappedIndexPath)
-//    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) WAS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
     
-//    sender.preferenceSettingSwitch.isOn != defaultSet.activities[tappedIndexPath.row].settings
-//    if (defaultSet.activities[tappedIndexPath.row].settings == sender.preferenceSettingSwitch.isOn) {
-//      defaultSet.activities[tappedIndexPath.row].settings != sender.preferenceSettingSwitch.isOn
-//    }
+    switch tappedIndexPath.section {
+    case 0:
+      sender.preferenceSettingSwitch.isOn != activityManager.strength[tappedIndexPath.row].settings
+      if (activityManager.strength[tappedIndexPath.row].settings == sender.preferenceSettingSwitch.isOn) {
+        activityManager.strength[tappedIndexPath.row].settings != sender.preferenceSettingSwitch.isOn
+      }
+
+      
+    case 1:
+      currentSection = 1
+
+      
+    case 2:
+      currentSection = 2
+
+    default:
+      fatalError("why is this trying to do outside of sections")
+    }
+
+
     
-//    defaultSet.activities[tappedIndexPath.row].category
-//    var originalIndex = defaultSet.activities[tappedIndexPath.row].originalIndex
+    //    defaultSet.activities[tappedIndexPath.row].category
+    //    var originalIndex = defaultSet.activities[tappedIndexPath.row].originalIndex
     
     
-//    defaultSet.activities[sender.activityOriginalIndex].settings = sender.preferenceSettingSwitch.isOn
-//
-//    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) IS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
-//
-//    tappedIndexPath.row
-//    tappedIndexPath.section
-//    print("LOCATION: TEST BUTTON:\(sender.preferenceSettingSwitch.isOn)")
+    //    defaultSet.activities[sender.activityOriginalIndex].settings = sender.preferenceSettingSwitch.isOn
+    //
+    //    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) IS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
+    //
+    //    tappedIndexPath.row
+    //    tappedIndexPath.section
+    //    print("LOCATION: TEST BUTTON:\(sender.preferenceSettingSwitch.isOn)")
     
     
-    // "Love" this item
-    //    items[tappedIndexPath.row].love()
     
     
   }

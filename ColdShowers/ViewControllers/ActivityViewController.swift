@@ -24,12 +24,9 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityCancelButton: UIButton!
   @IBOutlet weak var activityCurrentTimerLabel: UILabel!
   
-  
-  
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()
-  
   
   let activityManager = ActivityListManager()
   var minutes = 5
@@ -61,7 +58,6 @@ class ActivityViewController: UIViewController {
    */
   
   //MARK: Button Actions
-  
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
     UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
@@ -84,19 +80,10 @@ class ActivityViewController: UIViewController {
     
     if currentActivity < (activityList.count - 1) {
       currentActivity += 1
-      print(currentActivity)
-      
-      
-
-      
-      // somewhere in here, need to 'save' to occurance on that specific object
-
-      
       loadData()
     } else {
       performSegue(withIdentifier: "postActivitySegue", sender: self)
     }
-//    activityList[currentActivity].occurance += 1
   }
 
   //MARK: Load Data for Labels
@@ -105,11 +92,5 @@ class ActivityViewController: UIViewController {
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!) 
     estimatedTimeAmount.text = activityManager.generateTime()
   }
-  
-  
-  
-  
-  
-  
   
 }
