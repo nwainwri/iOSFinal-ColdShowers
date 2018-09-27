@@ -163,7 +163,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Default action")
             let storyboard = UIStoryboard(name: "Activity", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ActivityVC")
-            self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
         default:
             print("default case hit")
         }
@@ -174,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert])
     }
-    
+
     func setUpNotificationCenter() {
         let actionShowDetails = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
         
