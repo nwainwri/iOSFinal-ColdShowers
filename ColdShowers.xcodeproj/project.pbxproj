@@ -25,6 +25,7 @@
 		F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* DashHistory.plist */; };
 		F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */; };
 		F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD1721586A6F00576F8D /* ActivityListManager.swift */; };
+		F11DA23E215C497B0066AEF8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA23D215C497B0066AEF8 /* Category.swift */; };
 		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
 		F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF842156F3AF00C0836B /* SignUpViewController.swift */; };
@@ -73,6 +74,7 @@
 		F10DDD0E21580DEF00576F8D /* DashHistory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DashHistory.plist; sourceTree = "<group>"; };
 		F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F10DDD1721586A6F00576F8D /* ActivityListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListManager.swift; sourceTree = "<group>"; };
+		F11DA23D215C497B0066AEF8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F176BF7E2155D8EF00C0836B /* DefaultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSet.swift; sourceTree = "<group>"; };
 		F176BF842156F3AF00C0836B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				F176BF7B2155D73E00C0836B /* Activity.swift */,
 				F176BF7E2155D8EF00C0836B /* DefaultSet.swift */,
+				F11DA23D215C497B0066AEF8 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */,
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
 				A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */,
+				F11DA23E215C497B0066AEF8 /* Category.swift in Sources */,
 				F176BF7C2155D73E00C0836B /* Activity.swift in Sources */,
 				A14F7619215446DA005BDAF4 /* HomeScreenViewController.swift in Sources */,
 				A14F761E215447ED005BDAF4 /* PostActivityViewController.swift in Sources */,

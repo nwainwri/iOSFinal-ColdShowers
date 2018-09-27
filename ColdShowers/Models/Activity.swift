@@ -13,6 +13,15 @@ class Activity: NSObject {
     case strength = 0
     case mindfull = 1
     case yoga = 2
+    
+    func toPrettyString() -> String {
+      switch self{
+      case .strength:
+        return "Stre"
+      default:
+        return "default"
+      }
+    }
   }
   
   let name: String // "pushups"
@@ -35,8 +44,7 @@ class Activity: NSObject {
     self.intensity = 0
     self.category = category
     self.photo = photo
-    
-    
+
     self.originalIndex = 0
   }
 }

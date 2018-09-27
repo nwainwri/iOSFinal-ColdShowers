@@ -22,8 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     setUpNotificationCenter()
     UNUserNotificationCenter.current().delegate = self
     
+    if let _ = defaults.value(forKey: "appHasLaunched") {
+      print("APP HAS LAUNCHED")
+    } else {
+       let _ = DefaultSet()
+      print("APP HAS NOT LAUNCHED")
+      defaults.set(true, forKey: "appHasLaunched")
+    }
     
-    
+//    let _ = DefaultSet()
     
     // MARK: allows choice between login or sign up screen, depending if app used before
     let storyboard = UIStoryboard(name: "Login", bundle: nil)
