@@ -25,26 +25,6 @@ class LoginViewController: UIViewController {
     
     let testManager = ActivityListManager()
     
-//    print("TEST: \(testManager.activities[0])")
-    
-    print("========================")
-    let sampleStr = testManager.strength[0]
-    print("sampleStr: \(sampleStr.name)")
-    print(sampleStr.photo)
-    
-    
-   
-    
-    print("========================")
-    let sampleMind = testManager.mindful[0]
-    print("sampleMind: \(sampleMind.name)")
-    print(sampleMind.photo)
-    
-    print("========================")
-    let sampleYoga = testManager.yoga[0]
-    print("sampleYoga: \(sampleYoga.name)")
-    print(sampleYoga.photo)
-    
     // Do any additional setup after loading the view.\
     
 //    //need to pull date history
