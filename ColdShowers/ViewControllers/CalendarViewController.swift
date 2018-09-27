@@ -48,34 +48,34 @@ class CalendarViewController: UIViewController {
   
 
 // MARK: - Notification date setting
-
-    func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
-      
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
-            if let error = error {
-                print("Request Authorization Failed (\(error)")
-            }
-            completionHandler(success)
-        }
-      
-    }
-    func checkUserPermission () {
-        UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
-            switch notificationSettings.authorizationStatus {
-            case .notDetermined:
-                self.requestUserPermission(completionHandler: { _ in
-                        self.checkUserPermission()
-    
-                })
-              
-            case .authorized:
-              
-              
-            case .denied:
-              
-            }
-        }
-    }
+//
+//    func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
+//      
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+//            if let error = error {
+//                print("Request Authorization Failed (\(error)")
+//            }
+//            completionHandler(success)
+//        }
+//      
+//    }
+//    func checkUserPermission () {
+//        UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
+//            switch notificationSettings.authorizationStatus {
+//            case .notDetermined:
+//                self.requestUserPermission(completionHandler: { _ in
+//                        self.checkUserPermission()
+//    
+//                })
+//              
+//            case .authorized:
+//              
+//              
+//            case .denied:
+//              
+//            }
+//        }
+//    }
 //  func setActivity(date: Date, repeats: Bool) {
 //    
 //    
