@@ -15,7 +15,8 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   @IBOutlet weak var doneButton: UIButton!
   
   let activityManager = ActivityListManager()
-  var currentSection:Int = 0
+  
+//  var currentSection:Int = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,13 +36,13 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      currentSection = 0
+ 
       return "Strength"
     case 1:
-      currentSection = 1
+
       return "Mindful"
     case 2:
-      currentSection = 2
+ 
       return "Yoga"
     default:
       return "OUT OF BOUNDS"
@@ -54,43 +55,28 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    var currentCount = 0
-    
+
     switch section {
     case 0:
-      currentSection = 0
       return activityManager.strength.count
+      
     case 1:
-      currentSection = 1
       return activityManager.mindful.count
+      
     case 2:
-      currentSection = 2
       return activityManager.yoga.count
+      
     default:
       return 0
     }
-
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! PreferencesTableViewCell
     
-    //        let currentActivities = defaultSet.activities.filter{$0.category.rawValue == indexPath.section}
-    //        for item in testArr {
-    //    //      cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
-    //    //      cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
-    //    //      print("this one maybe: \(item.name)")
-    //        }
-    //        if defaultSet.activities[indexPath.row].category.rawValue == indexPath.section {
-    //
-    //          print("NAME: \(defaultSet.activities[indexPath.row].name)")
-    //        }
-    //          cell.preferenceNameLabel.text = defaultSet.activities[indexPath.row].name
-    //          cell.preferenceSettingSwitch.isOn = defaultSet.activities[indexPath.row].settings
-    
     cell.delegate = self
     
-    switch currentSection {
+    switch indexPath.section {
     case 0:
       cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.strength[indexPath.row].settings
@@ -126,39 +112,16 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     
     switch tappedIndexPath.section {
     case 0:
-      sender.preferenceSettingSwitch.isOn != activityManager.strength[tappedIndexPath.row].settings
-      if (activityManager.strength[tappedIndexPath.row].settings == sender.preferenceSettingSwitch.isOn) {
-        activityManager.strength[tappedIndexPath.row].settings != sender.preferenceSettingSwitch.isOn
-      }
+      activityManager.strength[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
 
-      
     case 1:
-      currentSection = 1
+      activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
 
-      
     case 2:
-      currentSection = 2
+      activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
 
     default:
       fatalError("why is this trying to do outside of sections")
     }
-
-
-    
-    //    defaultSet.activities[tappedIndexPath.row].category
-    //    var originalIndex = defaultSet.activities[tappedIndexPath.row].originalIndex
-    
-    
-    //    defaultSet.activities[sender.activityOriginalIndex].settings = sender.preferenceSettingSwitch.isOn
-    //
-    //    print("NAME: \(defaultSet.activities[sender.activityOriginalIndex].name) IS: \(defaultSet.activities[sender.activityOriginalIndex].settings)")
-    //
-    //    tappedIndexPath.row
-    //    tappedIndexPath.section
-    //    print("LOCATION: TEST BUTTON:\(sender.preferenceSettingSwitch.isOn)")
-    
-    
-    
-    
   }
 }

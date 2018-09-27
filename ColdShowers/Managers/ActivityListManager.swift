@@ -25,10 +25,8 @@ class ActivityListManager: NSObject {
     }
     let context = appDelegate.persistentContainer.viewContext
     
-    
     // how to break into own functions?
     // or have one general 'helper' function that loads each array properly.
-    
     
     let allActivities = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sort = NSSortDescriptor(key: #keyPath(CoreActivity.category), ascending: true)
@@ -41,7 +39,6 @@ class ActivityListManager: NSObject {
 
     let allStrength = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     allStrength.predicate = NSPredicate(format: "category == 0")
-
     do {
       strength = try context.fetch(allStrength)
     } catch let error as NSError {
@@ -50,7 +47,6 @@ class ActivityListManager: NSObject {
     
     let allMindFul = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     allMindFul.predicate = NSPredicate(format: "category == 1")
-
     do {
       mindful = try context.fetch(allMindFul)
     } catch let error as NSError {
@@ -59,17 +55,13 @@ class ActivityListManager: NSObject {
 
     let allYoga = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     allYoga.predicate = NSPredicate(format: "category == 2")
-
     do {
       yoga = try context.fetch(allYoga)
       
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
-
   }
-  
-  
   
   // MARK: TIMER
   
@@ -96,6 +88,11 @@ class ActivityListManager: NSObject {
     let strengthCount = strength.count
     let mindfullCount = mindful.count
     let yogaCount = yoga.count
+    
+    // swifty way?
+    
+    
+    
     
     let randomStrength = strength[Int(arc4random_uniform(UInt32(strengthCount)) + 0)]
     let randomMindfull = mindful[Int(arc4random_uniform(UInt32(mindfullCount)) + 0)]
