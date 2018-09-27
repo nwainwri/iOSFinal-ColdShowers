@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     
+  
+    
+    
     // Do any additional setup after loading the view.\
     
 //    //need to pull date history
@@ -96,8 +99,6 @@ class LoginViewController: UIViewController {
     //        print("DENIED AS : \(today) is the same as todays Date()")
     //      }
     //    }
-    
-    
     
   }
   

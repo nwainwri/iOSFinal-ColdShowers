@@ -26,6 +26,24 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+      
+      let testManager = ActivityListManager()
+      
+      print("TEST: \(testManager.activities[0])")
+      
+      let sampleAct = testManager.activities[0]
+      
+      
+      
+      
+      
+      
+      
+      print("tester tester: \(sampleAct.name)")
+      
+      print(sampleAct.photo)
+      
+      
     }
 
     override func didReceiveMemoryWarning() {

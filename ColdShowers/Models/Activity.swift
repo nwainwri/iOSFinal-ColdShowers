@@ -17,7 +17,7 @@ class Activity: NSObject {
     func toPrettyString() -> String {
       switch self{
       case .strength:
-        return "Stre"
+        return "Strength"
       default:
         return "default"
       }
