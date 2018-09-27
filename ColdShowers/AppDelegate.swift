@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     UNUserNotificationCenter.current().delegate = self
     
     if let _ = defaults.value(forKey: "appHasLaunched") {
-      print("APP HAS LAUNCHED")
+      print("APP HAS LAUNCHED BEFORE")
     } else {
        let _ = DefaultSet()
       print("APP HAS NOT LAUNCHED")

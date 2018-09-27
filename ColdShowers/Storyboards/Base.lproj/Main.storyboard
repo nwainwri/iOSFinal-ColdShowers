@@ -60,7 +60,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Setup Alarm"/>
                                         <connections>
-                                            <action selector="setupScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="L4d-zY-EQJ"/>
+                                            <segue destination="PY9-VP-PkX" kind="show" id="EmP-Bh-KfZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obs-v5-2L7">
@@ -93,7 +93,6 @@
                         <outlet property="streakDaysNumberLabel" destination="nha-kA-gh3" id="ds8-5c-l1W"/>
                         <outlet property="workoutButton" destination="obs-v5-2L7" id="fqR-Je-7rL"/>
                         <segue destination="kqX-l1-1QY" kind="show" identifier="PrefSegue" id="aNz-Sl-nSo"/>
-                        <segue destination="PY9-VP-PkX" kind="show" identifier="CalenderSegue" id="jV9-V8-07o"/>
                         <segue destination="AYF-XS-WRE" kind="show" identifier="ActivitySegue" id="fck-vQ-SNH"/>
                     </connections>
                 </viewController>
@@ -323,18 +322,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xdb-6K-xo1">
-                                        <rect key="frame" x="0.0" y="479.5" width="93" height="30"/>
+                                        <rect key="frame" x="0.0" y="479.5" width="91" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-e7-IMN">
-                                                <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Done"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveButton:" destination="PY9-VP-PkX" eventType="touchUpInside" id="xsZ-cc-wKl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-Za-ifa">
-                                                <rect key="frame" x="42" y="0.0" width="51" height="30"/>
+                                                <rect key="frame" x="40" y="0.0" width="51" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
