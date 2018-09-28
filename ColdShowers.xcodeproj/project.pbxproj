@@ -22,6 +22,8 @@
 		A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */; };
 		A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762321544EFA005BDAF4 /* Activity.storyboard */; };
 		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
+		A19BE986215D9C8A00F03CE5 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */; };
+		A19BE988215DA8F100F03CE5 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19BE987215DA8F100F03CE5 /* AlarmCell.swift */; };
 		F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* DashHistory.plist */; };
 		F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */; };
 		F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD1721586A6F00576F8D /* ActivityListManager.swift */; };
@@ -71,6 +73,8 @@
 		A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		A14F762321544EFA005BDAF4 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		A19BE987215DA8F100F03CE5 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		F10DDD0E21580DEF00576F8D /* DashHistory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DashHistory.plist; sourceTree = "<group>"; };
 		F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F10DDD1721586A6F00576F8D /* ActivityListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListManager.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */,
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
 				A14F761B215447C8005BDAF4 /* ActivityViewController.swift */,
+				A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */,
+				A19BE987215DA8F100F03CE5 /* AlarmCell.swift */,
 				A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */,
 			);
 			path = ViewControllers;
@@ -366,11 +372,13 @@
 				F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */,
 				F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */,
 				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
+				A19BE986215D9C8A00F03CE5 /* ScheduleViewController.swift in Sources */,
 				F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
 				A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */,
 				A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */,
 				F176BF87215715C800C0836B /* PreferencesTableViewCell.swift in Sources */,
+				A19BE988215DA8F100F03CE5 /* AlarmCell.swift in Sources */,
 				F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */,
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
 				A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */,
