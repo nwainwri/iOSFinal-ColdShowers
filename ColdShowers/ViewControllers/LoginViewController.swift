@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     
-    let testManager = ActivityListManager()
+//    let testManager = ActivityListManager()
     
     // Do any additional setup after loading the view.\
     

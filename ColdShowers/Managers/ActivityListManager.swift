@@ -18,15 +18,13 @@ class ActivityListManager: NSObject {
   
   override init() {
     
-    // constants
     guard let appDelegate =
       UIApplication.shared.delegate as? AppDelegate else {
         return
     }
     let context = appDelegate.persistentContainer.viewContext
     
-    // how to break into own functions?
-    // or have one general 'helper' function that loads each array properly.
+    
     
     let allActivities = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sort = NSSortDescriptor(key: #keyPath(CoreActivity.category), ascending: true)
@@ -82,23 +80,31 @@ class ActivityListManager: NSObject {
   }
   
   func getNewList() -> [CoreActivity] {
-//    let strengthArray = activities.filter{$0.category == 0}
-//    let mindfullArray = activities.filter{$0.category == 1}
-//    let yogaArray = activities.filter{$0.category == 2}
-    let strengthCount = strength.count
-    let mindfullCount = mindful.count
-    let yogaCount = yoga.count
+//    // swifty way... not CoreData way....
+//    let strengthArray = activities.filter{$0.occurance > 0}
+//    let mindfulArray = activities.filter{$0.occurance > 0}
+//    let yogaArray = activities.filter{$0.occurance > 0}
+//
     
-    // swifty way?
+
+//    let randomStrength = strength[Int(arc4random_uniform(UInt32(strength.count)) + 0)]
+//    let randomMindfull = mindful[Int(arc4random_uniform(UInt32(mindful.count)) + 0)]
+//    let randomYoga = yoga[Int(arc4random_uniform(UInt32(yoga.count)) + 0)]
+    
+//    return [randomStrength, randomMindfull, randomYoga]
+    
+//    NSPredicate("AND")
+    // do a coredata pull, "pull all from category, then order by occoruance; then grab random from THAT last chunk
+    
+    // pull from Core Data, order by occourence, pull by category
+    
+    // pop that onto array, pull random element from array.
     
     
     
-    
-    let randomStrength = strength[Int(arc4random_uniform(UInt32(strengthCount)) + 0)]
-    let randomMindfull = mindful[Int(arc4random_uniform(UInt32(mindfullCount)) + 0)]
-    let randomYoga = yoga[Int(arc4random_uniform(UInt32(yogaCount)) + 0)]
-    
-    return [randomStrength, randomMindfull, randomYoga]
+    return [strength[Int(arc4random_uniform(UInt32(strength.count)) + 0)],
+            mindful[Int(arc4random_uniform(UInt32(mindful.count)) + 0)],
+            yoga[Int(arc4random_uniform(UInt32(yoga.count)) + 0)]]
   }
   
 }
