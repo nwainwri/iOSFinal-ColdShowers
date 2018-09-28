@@ -29,15 +29,26 @@ class ActivityViewController: UIViewController {
   var activityList = Array<CoreActivity>()
   
   let activityManager = ActivityListManager()
+  let hour = 0
   var minutes = 5
+  var seconds = 300
   var timer = Timer()
   var isTimerRunning = false // used to ensure only one timer running at any given time
+  
+  let formatter = DateFormatter()
+  var activityTotalTime = Date()
+  
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
+    
+    
+    timerOverlaylabel.text = timeString(time: TimeInterval(seconds))
+    
     activityList = activityManager.getNewList()
     loadData()
   }
@@ -59,10 +70,11 @@ class ActivityViewController: UIViewController {
   
   //MARK: Button Actions
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
-    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
+    UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
     }, completion: nil)
     timerOverlayView.isHidden = false
+    self.runTimer()
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
@@ -71,18 +83,29 @@ class ActivityViewController: UIViewController {
   
   //MARK: does not animate at all?
   @IBAction func timerOverlayButtonPressed(_ sender: UIButton) {
-    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseIn, animations: {
+//    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
+//      self.timerOverlayView.alpha = 0.0
+//
+//    }, completion: nil)
+    
+    UIView.animate(withDuration: 0.8, animations: {
       self.timerOverlayView.alpha = 0.0
+    }) { (true) in
+      // runs this code once animation has finished; which includes the segue to the next screen if user has done all activities
+      
       self.timerOverlayView.isHidden = true
-    }, completion: nil)
-    
-    activityList[currentActivity].occurance += 1
-    
-    if currentActivity < (activityList.count - 1) {
-      currentActivity += 1
-      loadData()
-    } else {
-      performSegue(withIdentifier: "postActivitySegue", sender: self)
+      self.activityList[self.currentActivity].occurance += 1
+      
+      self.timer.invalidate()
+      self.seconds = 300   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
+      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.seconds))
+      
+      if self.currentActivity < (self.activityList.count - 1) {
+        self.currentActivity += 1
+        self.loadData()
+      } else {
+        self.performSegue(withIdentifier: "postActivitySegue", sender: self)
+      }
     }
   }
 
@@ -90,7 +113,55 @@ class ActivityViewController: UIViewController {
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!) 
-    estimatedTimeAmount.text = activityManager.generateTime()
+    estimatedTimeAmount.text = "NEEDS TO ADD UP ALL ACTIVITY TIMES"
   }
+  
+  //MARK: TIMER FUNCTIONS
+  
+  
+  
+  func runTimer() {
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ActivityViewController.updateTimer)), userInfo: nil, repeats: true)
+  }
+  
+  
+  
+  @objc func updateTimer() {
+    seconds -= 1     //This will decrement(count down)the seconds.
+    self.timerOverlaylabel.text = timeString(time: TimeInterval(seconds)) //This will update the label.
+  }
+  
+  
+  func timeString(time:TimeInterval) -> String {
+    
+    let hours = Int(time) / 3600
+    let minutes = Int(time) / 60 % 60
+    let seconds = Int(time) % 60
+    
+    return String(format: "\(hours):\(minutes):\(seconds)")
+//    return String(format:”%02i:%02i:%02i”, hours, minutes, seconds)
+  }
+  
+  
+  func generateTime(_ time: Int) -> String{
+    formatter.dateFormat = "HH:mm:ss"
+    activityTotalTime = formatter.date(from: "\(hour):\(minutes):\(seconds)")!
+    let finalTime = formatter.string(from: activityTotalTime)
+    //    print(activityTotalTime)
+    //    print(finalTime)
+    return finalTime
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }

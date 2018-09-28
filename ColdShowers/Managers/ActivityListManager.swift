@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Nathan Wainwright on 2018-09-23.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil. / Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -15,6 +15,10 @@ class ActivityListManager: NSObject {
   var strength: [CoreActivity] = []
   var mindful: [CoreActivity] = []
   var yoga: [CoreActivity] = []
+  
+  var currentYoga: [CoreActivity] = []
+  var currentStrength: [CoreActivity] = []
+  var currentMindful: [CoreActivity] = []
   
   override init() {
     
@@ -29,8 +33,6 @@ class ActivityListManager: NSObject {
 //      context.save()
 //    }
     
-    
-    
     let allActivities = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sort = NSSortDescriptor(key: #keyPath(CoreActivity.category), ascending: true)
     allActivities.sortDescriptors = [sort]
@@ -40,8 +42,6 @@ class ActivityListManager: NSObject {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
     
-    
-
     let allStrength = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     allStrength.predicate = NSPredicate(format: "category == 0")
     do {
@@ -49,8 +49,6 @@ class ActivityListManager: NSObject {
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
-    
-    
     
     let allMindFul = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     allMindFul.predicate = NSPredicate(format: "category == 1")
@@ -61,17 +59,13 @@ class ActivityListManager: NSObject {
     }
 
     
-    
     let allYoga = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
-//    let sortYoga = NSSortDescriptor(key: "occurance", ascending: true)
-//    allYoga.sortDescriptors = [sortYoga]
     allYoga.predicate = NSPredicate(format: "category == 2")
     do {
       yoga = try context.fetch(allYoga)
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
-    
     
     var occurancesStrength: [NSNumber] = []
     for item in strength {
@@ -93,12 +87,10 @@ class ActivityListManager: NSObject {
     finalStrengthFetch.predicate = compoundStrength
     do {
       let finalStrength = try context.fetch(finalStrengthFetch)
-      strength = finalStrength
+      currentStrength = finalStrength
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
-    
-    
     
     var occurancesMindful: [NSNumber] = []
     for item in mindful {
@@ -120,14 +112,10 @@ class ActivityListManager: NSObject {
     finalMindfulFetch.predicate = compoundMindful
     do {
       let finalMindful = try context.fetch(finalMindfulFetch)
-      mindful = finalMindful
+      currentMindful = finalMindful
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
-    
-    
-    
-    
     
     
     /// allYoga [0, 0, 2, 5, 5, 5, 5, 6, 6]
@@ -153,66 +141,17 @@ class ActivityListManager: NSObject {
     finalYogaFetch.predicate = compoundYoga
     do {
       let finalYoga = try context.fetch(finalYogaFetch)
-      yoga = finalYoga
+      currentYoga = finalYoga
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
-    
-    
-    
-    
   }
   
-  
-  
-  
-  
-  // MARK: TIMER
-  
-  func generateTime() -> String{
-    
-    let formatter = DateFormatter()
-    var activityTotalTime = Date()
-    
-    formatter.dateFormat = "HH:mm:ss"
-    let hour = 00
-    let minutes = 15
-    let seconds = 00
-    activityTotalTime = formatter.date(from: "\(hour):\(minutes):\(seconds)")!
-    let finalTime = formatter.string(from: activityTotalTime)
-    //    print(activityTotalTime)
-    //    print(finalTime)
-    return finalTime
-  }
-  
+  // MARK: activity list function
   func getNewList() -> [CoreActivity] {
-//    // swifty way... not CoreData way....
-//    let strengthArray = activities.filter{$0.occurance > 0}
-//    let mindfulArray = activities.filter{$0.occurance > 0}
-//    let yogaArray = activities.filter{$0.occurance > 0}
-//
-    
-
-//    let randomStrength = strength[Int(arc4random_uniform(UInt32(strength.count)) + 0)]
-//    let randomMindfull = mindful[Int(arc4random_uniform(UInt32(mindful.count)) + 0)]
-//    let randomYoga = yoga[Int(arc4random_uniform(UInt32(yoga.count)) + 0)]
-    
-//    return [randomStrength, randomMindfull, randomYoga]
-    
-//    NSPredicate("AND")
-    // do a coredata pull, "pull all from category, then order by occoruance; then grab random from THAT last chunk
-    
-    // pull from Core Data, order by occourence, pull by category
-    
-    // pop that onto array, pull random element from array.
-    
-    
-    
-    
-    
-    return [strength[Int(arc4random_uniform(UInt32(strength.count)) + 0)],
-            mindful[Int(arc4random_uniform(UInt32(mindful.count)) + 0)],
-            yoga[Int(arc4random_uniform(UInt32(yoga.count)) + 0)]]
+    return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],
+            currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)],
+            currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]]
   }
   
 }
