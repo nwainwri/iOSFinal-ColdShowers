@@ -33,16 +33,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //    let _ = DefaultSet()
     
     // MARK: allows choice between login or sign up screen, depending if app used before
-    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     self.window = UIWindow()
     
-    if let _ = defaults.value(forKey: "Username") {
-      let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-      self.window?.rootViewController = loginViewCon
-    } else {
-      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
-      self.window?.rootViewController = signupViewCon
-    }
+    self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+    
+    
+//    if let _ = defaults.value(forKey: "Username") {
+//      let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+//      self.window?.rootViewController = loginViewCon
+//    } else {
+//      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
+//      self.window?.rootViewController = signupViewCon
+//    }
+
+
     self.window?.makeKeyAndVisible()
     
     
