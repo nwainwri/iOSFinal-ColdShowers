@@ -43,7 +43,6 @@ class ActivityViewController: UIViewController {
     // Do any additional setup after loading the view.
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
-    
     timerOverlaylabel.text = timeString(time: TimeInterval(seconds))
     
     activityList = activityManager.getNewList()
@@ -52,6 +51,9 @@ class ActivityViewController: UIViewController {
     
     MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    
+    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
     
     loadData()
   }
@@ -146,9 +148,6 @@ class ActivityViewController: UIViewController {
     let seconds = Int(time) % 60
     
     let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    
-//    let test = String(format: "%02d:%02d:%02d”, hours, minutes, seconds)
-    
 
     return timeString
 //    return String(format:”%02i:%02i:%02i”, hours, minutes, seconds)
