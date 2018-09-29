@@ -24,7 +24,6 @@
 		A14F762721544F40005BDAF4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F762621544F40005BDAF4 /* Login.storyboard */; };
 		A19BE986215D9C8A00F03CE5 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */; };
 		A19BE988215DA8F100F03CE5 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19BE987215DA8F100F03CE5 /* AlarmCell.swift */; };
-		F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* DashHistory.plist */; };
 		F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */; };
 		F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD1721586A6F00576F8D /* ActivityListManager.swift */; };
 		F11C6D1E215EF9B60094E99C /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */; };
@@ -32,7 +31,6 @@
 		F11DA23E215C497B0066AEF8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA23D215C497B0066AEF8 /* Category.swift */; };
 		F16DECE2215EBE1A00D9B7D1 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */; };
 		F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */; };
-		F16DECE6215ED52D00D9B7D1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */; };
 		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
 		F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF842156F3AF00C0836B /* SignUpViewController.swift */; };
@@ -80,7 +78,6 @@
 		A14F762621544F40005BDAF4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		A19BE987215DA8F100F03CE5 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
-		F10DDD0E21580DEF00576F8D /* DashHistory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DashHistory.plist; sourceTree = "<group>"; };
 		F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F10DDD1721586A6F00576F8D /* ActivityListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListManager.swift; sourceTree = "<group>"; };
 		F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
@@ -144,16 +141,16 @@
 			isa = PBXGroup;
 			children = (
 				A14F75E5215444E4005BDAF4 /* AppDelegate.swift */,
-				F176BF7D2155D74300C0836B /* Models */,
+				A14F762521544F22005BDAF4 /* Storyboards */,
 				A14F761A21544709005BDAF4 /* ViewControllers */,
 				F10DDD152158634900576F8D /* Cells */,
-				F10DDD12215822F900576F8D /* Protocols */,
 				F10DDD1621586A5000576F8D /* Managers */,
-				A14F762521544F22005BDAF4 /* Storyboards */,
+				F176BF7D2155D74300C0836B /* Models */,
+				F10DDD12215822F900576F8D /* Protocols */,
 				F10DDD0D21580DBC00576F8D /* Local Data */,
+				F11C6D21215F29870094E99C /* Extensions */,
 				A14F75F4215444E6005BDAF4 /* Info.plist */,
 				A14F75EF215444E6005BDAF4 /* Assets.xcassets */,
-				A14F75EC215444E4005BDAF4 /* ColdShowers.xcdatamodeld */,
 			);
 			path = ColdShowers;
 			sourceTree = "<group>";
@@ -187,10 +184,7 @@
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
 				A14F761B215447C8005BDAF4 /* ActivityViewController.swift */,
 				A19BE985215D9C8A00F03CE5 /* ScheduleViewController.swift */,
-				A19BE987215DA8F100F03CE5 /* AlarmCell.swift */,
 				A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */,
-				F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */,
-				F11C6D1F215EFED60094E99C /* Border.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,7 +204,7 @@
 		F10DDD0D21580DBC00576F8D /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
-				F10DDD0E21580DEF00576F8D /* DashHistory.plist */,
+				A14F75EC215444E4005BDAF4 /* ColdShowers.xcdatamodeld */,
 			);
 			path = "Local Data";
 			sourceTree = "<group>";
@@ -226,6 +220,7 @@
 		F10DDD152158634900576F8D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A19BE987215DA8F100F03CE5 /* AlarmCell.swift */,
 				F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */,
 			);
 			path = Cells;
@@ -238,6 +233,15 @@
 				F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		F11C6D21215F29870094E99C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */,
+				F11C6D1F215EFED60094E99C /* Border.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F176BF7D2155D74300C0836B /* Models */ = {
@@ -355,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A14F75F3215444E6005BDAF4 /* LaunchScreen.storyboard in Resources */,
-				F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */,
 				A14F75F0215444E6005BDAF4 /* Assets.xcassets in Resources */,
 				A14F75EB215444E4005BDAF4 /* Main.storyboard in Resources */,
 				A14F762721544F40005BDAF4 /* Login.storyboard in Resources */,
@@ -388,9 +391,7 @@
 				F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */,
 				F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */,
 				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
-
 				A19BE986215D9C8A00F03CE5 /* ScheduleViewController.swift in Sources */,
-
 				F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */,
 				F11C6D1E215EF9B60094E99C /* UIColor+AppColors.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
