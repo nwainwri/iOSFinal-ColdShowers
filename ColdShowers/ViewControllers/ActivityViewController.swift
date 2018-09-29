@@ -31,14 +31,12 @@ class ActivityViewController: UIViewController {
   let activityManager = ActivityListManager()
   let hour = 0
   var minutes = 5
-  var seconds = 300
+  var seconds = 123
   var timer = Timer()
   var isTimerRunning = false // used to ensure only one timer running at any given time
   
   let formatter = DateFormatter()
   var activityTotalTime = Date()
-  
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,10 +44,15 @@ class ActivityViewController: UIViewController {
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
     
-    
     timerOverlaylabel.text = timeString(time: TimeInterval(seconds))
     
     activityList = activityManager.getNewList()
+    estimatedTimeAmount.text = timeString(time: TimeInterval(seconds + seconds + seconds))
+    activityCurrentTimerLabel.text = timeString(time: TimeInterval(seconds))
+    
+    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    
     loadData()
   }
   
@@ -73,6 +76,8 @@ class ActivityViewController: UIViewController {
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
     }, completion: nil)
+    activityStartButton.isEnabled = false
+    activityCancelButton.isEnabled = false
     timerOverlayView.isHidden = false
     self.runTimer()
   }
@@ -94,6 +99,8 @@ class ActivityViewController: UIViewController {
       // runs this code once animation has finished; which includes the segue to the next screen if user has done all activities
       
       self.timerOverlayView.isHidden = true
+      self.activityStartButton.isEnabled = true
+      self.activityCancelButton.isEnabled = true
       self.activityList[self.currentActivity].occurance += 1
       
       self.timer.invalidate()
@@ -113,7 +120,7 @@ class ActivityViewController: UIViewController {
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!) 
-    estimatedTimeAmount.text = "NEEDS TO ADD UP ALL ACTIVITY TIMES"
+//    estimatedTimeAmount.text = "NEEDS TO ADD UP ALL ACTIVITY TIMES"
   }
   
   //MARK: TIMER FUNCTIONS
@@ -138,7 +145,12 @@ class ActivityViewController: UIViewController {
     let minutes = Int(time) / 60 % 60
     let seconds = Int(time) % 60
     
-    return String(format: "\(hours):\(minutes):\(seconds)")
+    let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    
+//    let test = String(format: "%02d:%02d:%02d”, hours, minutes, seconds)
+    
+
+    return timeString
 //    return String(format:”%02i:%02i:%02i”, hours, minutes, seconds)
   }
   

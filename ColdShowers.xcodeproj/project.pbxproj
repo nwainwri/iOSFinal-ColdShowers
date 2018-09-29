@@ -25,6 +25,8 @@
 		F10DDD0F21580DEF00576F8D /* DashHistory.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10DDD0E21580DEF00576F8D /* DashHistory.plist */; };
 		F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */; };
 		F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DDD1721586A6F00576F8D /* ActivityListManager.swift */; };
+		F11C6D1E215EF9B60094E99C /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */; };
+		F11C6D20215EFED60094E99C /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11C6D1F215EFED60094E99C /* Border.swift */; };
 		F11DA23E215C497B0066AEF8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA23D215C497B0066AEF8 /* Category.swift */; };
 		F16DECE2215EBE1A00D9B7D1 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */; };
 		F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */; };
@@ -77,6 +79,8 @@
 		F10DDD0E21580DEF00576F8D /* DashHistory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DashHistory.plist; sourceTree = "<group>"; };
 		F10DDD132158234E00576F8D /* PreferencesTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F10DDD1721586A6F00576F8D /* ActivityListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListManager.swift; sourceTree = "<group>"; };
+		F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		F11C6D1F215EFED60094E99C /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		F11DA23D215C497B0066AEF8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
 				A14F761B215447C8005BDAF4 /* ActivityViewController.swift */,
 				A14F761D215447ED005BDAF4 /* PostActivityViewController.swift */,
+				F11C6D1D215EF9B60094E99C /* UIColor+AppColors.swift */,
+				F11C6D1F215EFED60094E99C /* Border.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -378,9 +384,11 @@
 				A14F76202154480A005BDAF4 /* CalendarViewController.swift in Sources */,
 				F16DECE6215ED52D00D9B7D1 /* SplashViewController.swift in Sources */,
 				F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */,
+				F11C6D1E215EF9B60094E99C /* UIColor+AppColors.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
 				A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */,
 				A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */,
+				F11C6D20215EFED60094E99C /* Border.swift in Sources */,
 				F176BF87215715C800C0836B /* PreferencesTableViewCell.swift in Sources */,
 				F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */,
 				F16DECE2215EBE1A00D9B7D1 /* TimerManager.swift in Sources */,
