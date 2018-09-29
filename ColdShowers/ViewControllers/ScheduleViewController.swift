@@ -12,44 +12,75 @@ class ScheduleViewController: UITableViewController {
 
     var myAlarms = [UNNotificationRequest]()
     override func viewDidLoad() {
+        //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (myRequests) in
             self.myAlarms = myRequests
+            print(self.myAlarms.count)
+            if self.myAlarms.count > 0 {
+                print("here")
+                
+                
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+                
+            }
         }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+   
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.myAlarms.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell", for: indexPath) as? AlarmCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Alarm Cell", for: indexPath) as? AlarmCell else { fatalError() }
         
-        let alarm = myAlarms[indexPath.row]
-        cell.dateLabel.text = "\(alarm.description)"
-        cell.timeLabel.text = "time"
+        
+//        let keys = ["minute"]
+        let request = self.myAlarms[indexPath.row] as UNNotificationRequest
+//        let dates = request.dictionaryWithValues(forKeys: keys)
+//        
+////        let minute = dates["minute"]
+//////        let hour = dates["hour"]
+//////        let day = dates["day"]
+        
+            let timeString = request.content.userInfo["Time"] as? String
+            let dayString = request.content.userInfo["Day"] as? String
+        
+        //let time = "\(hour):\(minute)"
+        
+////
+        cell.dateLabel.text = timeString
+        cell.timeLabel.text = dayString
+        print(request.content.userInfo)
         
         
 
         return cell
     }
  
-
+    @IBAction func saveButtonSegue(_ sender: UIButton) {
+     
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

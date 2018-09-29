@@ -8,6 +8,13 @@
 
 import UIKit
 import UserNotifications
+
+enum weekDay:Int {
+   
+    case Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    
+}
+
 class CalendarViewController: UIViewController {
     
     //MARK: CalenderView Properties
@@ -33,6 +40,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
 //        UNUserNotificationCenter.current().delegate = self
         daysOfTheWeek.removeAll()
+        print("when is this called")
         
         
         
@@ -85,9 +93,31 @@ class CalendarViewController: UIViewController {
             if res {
                 for dateComponents in dates.0 {
                     let notificationContent = UNMutableNotificationContent()
-                    notificationContent.title = "Wake up"
-                    notificationContent.body = "Jump in?"
+                    
+                    
+                    notificationContent.title = "Wake up?"
+                    notificationContent.subtitle = "20 Minutes"
                     notificationContent.categoryIdentifier = "Actions"
+                    
+                    var timeString = String()
+                    guard let hour = dateComponents.hour, let minute = dateComponents.minute, let weekday = dateComponents.weekday else {fatalError()}
+                     switch hour {
+                     case 0:
+                    timeString = "12:\(minute)AM"
+                     case ..<12:
+                        timeString = "\(hour):\(minute)AM"
+                     case ..<24:
+                        timeString = "\(hour - 12):\(minute)PM"
+                     default:
+                        print("Invalid hour")
+                    }
+                    let day = weekDay(rawValue: weekday)
+                    let dayString = "\(String(describing: day))"
+                    
+                    
+                   
+                    notificationContent.userInfo = ["Time": timeString]
+                    notificationContent.userInfo = ["Day": dayString]
                     
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: dates.1)
                     let request = UNNotificationRequest(identifier: "\(dateComponents)", content: notificationContent, trigger: trigger)
@@ -97,7 +127,7 @@ class CalendarViewController: UIViewController {
                         }
                     })
                     UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (request) in
-                        print("\(request)")
+                        print("\(notificationContent.userInfo)")
                     })
                     
                 }
@@ -219,12 +249,13 @@ class CalendarViewController: UIViewController {
             newDate.minute = minute
             newDate.hour = hour
             input.0.append(newDate)
-            print(daysOfTheWeek.count)
+            
         }
         setActivity(dates: input)
-    }
-   
+        self.navigationController?.popViewController(animated: true)
     
+
+    }
 }
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
