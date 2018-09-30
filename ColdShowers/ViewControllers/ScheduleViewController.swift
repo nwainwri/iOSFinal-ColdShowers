@@ -10,15 +10,8 @@ import UIKit
 import UserNotifications
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  
   @IBOutlet weak var tableView: UITableView!
-  
-  
   @IBOutlet weak var doneButton: UIButton!
-  
-  
-  
-  
   
   var myAlarms = [UNNotificationRequest]()
   override func viewDidLoad() {
@@ -38,11 +31,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
-        
-        
       }
     }
-    
   }
   
   // MARK: - Table view data source
@@ -51,9 +41,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     return self.myAlarms.count
   }
   
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmCell else { fatalError("could not make cell") }
     //        let keys = ["minute"]
     let request = self.myAlarms[indexPath.row] as UNNotificationRequest
@@ -63,23 +51,22 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     //////        let day = dates["day"]
     
     let timeString = request.content.userInfo["Time"] as? String
+    print("TIME: \(timeString)")
     let dayString = request.content.userInfo["Day"] as? String
     
+    // will print DAY: Optional("Optional(ColdShowers.weekDay.Saturday)")
+    // so theory; however the 'string' is saved as a notification request... is where it's formatted to have "optional"
+    
+    print("DAY: \(String(describing: dayString))")
     //let time = "\(hour):\(minute)"
-    
     ////
-    
-    
     cell.dateLabel.text = timeString
     cell.timeLabel.text = dayString
+    
     print(request.content.userInfo)
     
     return cell
   }
-  
-  
-  
-  
   
   // MARK: Button Actions
   @IBAction func saveButtonSegue(_ sender: UIButton) {
@@ -90,10 +77,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     dismiss(animated: true, completion: nil)
     
   }
-  
-  
-  
-  
   
   /*
    // Override to support conditional editing of the table view.

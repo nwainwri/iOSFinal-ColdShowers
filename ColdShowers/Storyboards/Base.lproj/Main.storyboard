@@ -19,17 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac8-V6-TNP">
-                                <rect key="frame" x="314" y="40" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Ina-gc-P5J"/>
-                                    <constraint firstAttribute="width" secondItem="ac8-V6-TNP" secondAttribute="height" multiplier="1:1" id="pw9-l9-usU"/>
-                                </constraints>
-                                <state key="normal" title="Settings" image="coldShowers_Gear"/>
-                                <connections>
-                                    <action selector="preferencesButtonAction:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="JoP-sU-hqg"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vH2-jf-3sp">
                                 <rect key="frame" x="106.5" y="113" width="161.5" height="100"/>
                                 <subviews>
@@ -70,12 +59,26 @@
                                     <action selector="setupScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="jux-fP-0Cy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeh-h2-C3x">
-                                <rect key="frame" x="16" y="44" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeh-h2-C3x">
+                                <rect key="frame" x="16" y="40" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yeh-h2-C3x" secondAttribute="height" multiplier="1:1" id="WS6-Yg-LJ3"/>
+                                    <constraint firstAttribute="height" constant="45" id="l2e-LN-5kL"/>
+                                </constraints>
                                 <state key="normal" image="calenderIcon"/>
                                 <connections>
                                     <action selector="alarmScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="Mc2-at-d3O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac8-V6-TNP">
+                                <rect key="frame" x="314" y="40" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ina-gc-P5J"/>
+                                    <constraint firstAttribute="width" secondItem="ac8-V6-TNP" secondAttribute="height" multiplier="1:1" id="pw9-l9-usU"/>
+                                </constraints>
+                                <state key="normal" title="Settings" image="coldShowers_Gear"/>
+                                <connections>
+                                    <action selector="preferencesButtonAction:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="JoP-sU-hqg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,7 +87,9 @@
                             <constraint firstItem="ac8-V6-TNP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OwD-Or-Gm1" secondAttribute="leading" constant="20" symbolic="YES" id="70r-dt-YRK"/>
                             <constraint firstItem="vH2-jf-3sp" firstAttribute="centerX" secondItem="OwD-Or-Gm1" secondAttribute="centerX" id="EDX-bf-Mth"/>
                             <constraint firstItem="ac8-V6-TNP" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="20" id="F4Y-Og-HbT"/>
+                            <constraint firstItem="yeh-h2-C3x" firstAttribute="leading" secondItem="KRm-aJ-zwD" secondAttribute="leading" constant="16" id="fBz-Ic-ar3"/>
                             <constraint firstItem="KRm-aJ-zwD" firstAttribute="trailing" secondItem="ac8-V6-TNP" secondAttribute="trailing" constant="16" id="hto-Ip-SYc"/>
+                            <constraint firstItem="yeh-h2-C3x" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="20" id="lhi-lR-Cj7"/>
                             <constraint firstItem="vH2-jf-3sp" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="93" id="pqi-D7-hfy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KRm-aJ-zwD"/>
@@ -499,7 +504,7 @@
     </scenes>
     <resources>
         <image name="calenderIcon" width="50" height="50"/>
-        <image name="coldShowers_Gear" width="512" height="512"/>
+        <image name="coldShowers_Gear" width="389" height="389"/>
     </resources>
     <color key="tintColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

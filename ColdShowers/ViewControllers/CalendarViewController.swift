@@ -10,7 +10,6 @@ import UIKit
 import UserNotifications
 
 enum weekDay:Int {
-  
   case Sunday = 1,
   Monday,
   Tuesday,
@@ -20,8 +19,6 @@ enum weekDay:Int {
   Saturday
   
   func toString() -> String {
-//    let day: String
-    
     switch self.rawValue {
     case 1:
       return "Sunday"
@@ -57,11 +54,8 @@ class CalendarViewController: UIViewController {
   @IBOutlet weak var saturdayButton: UIButton!
   
   @IBOutlet weak var repeatSwitch: UISwitch!
-  
   @IBOutlet weak var calenderViewDoneButton: UIButton!
-  
   @IBOutlet weak var scheduleSaveButton: UIButton!
-  
   @IBOutlet weak var scheduleCancelButton: UIButton!
   
   var daysOfTheWeek = [Int]()
@@ -72,7 +66,6 @@ class CalendarViewController: UIViewController {
     daysOfTheWeek.removeAll()
     print("when is this called")
     
-    
     // Do any additional setup after loading the view.
   }
   
@@ -81,10 +74,7 @@ class CalendarViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
-  
   // MARK: - Notification date setting
-  
   func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
     
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
@@ -123,7 +113,6 @@ class CalendarViewController: UIViewController {
         for dateComponents in dates.0 {
           let notificationContent = UNMutableNotificationContent()
           
-          
           notificationContent.title = "Wake up?"
           notificationContent.subtitle = "20 Minutes"
           notificationContent.categoryIdentifier = "Actions"
@@ -143,38 +132,26 @@ class CalendarViewController: UIViewController {
           
           // cause of "optional" string point...
           // how to correct though?
-          
-//          dateComponents.weekday // is an int...
+          //          dateComponents.weekday // is an int...
           //          weekDay(rawValue: weekday)
           //          weekDay.Friday.toString()
           
           let day = weekDay(rawValue: weekday)
-//          let dayString = day?.toString(weekday)
-
-          
-          
-          
-          
-          
+          //          let dayString = day?.toString(weekday)
           // NEW CODE; STILL RETURNS 'OPTIONAL'
           let dayString = weekDay.toString(day!)
           
-//          guard let dayString = weekDay.toString(day) else {
-//            print("ERROR")
-//            return
-//          }
-          
-          
-//          print("THIS RIGHT HERE \(weekDay.Monday.toString(2))") // this weill print out "Monday"
-          
+          //          guard let dayString = weekDay.toString(day) else {
+          //            print("ERROR")
+          //            return
+          //          }
+          //  print("THIS RIGHT HERE \(weekDay.Monday.toString(2))") // this weill print out "Monday"
           //basically somewhere in here there needs to be a guard statment, or if let... to unwrap the string optional safely
-          
-          
-          
           
           
           notificationContent.userInfo = ["Time": timeString]
           notificationContent.userInfo = ["Day": dayString]
+          //          notificationContent.userInfo = ["Day" : "TEST"] // doesn't change the 'daystring' output at all
           
           let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: dates.1)
           let request = UNNotificationRequest(identifier: "\(dateComponents)", content: notificationContent, trigger: trigger)
@@ -199,31 +176,17 @@ class CalendarViewController: UIViewController {
     // create category with the action
     let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails, notActionShowDetails], intentIdentifiers: [], options: [])
     
-    
-    
-    
     UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
   }
   
-  
-
-  
   // MARK: - Button operation
-  
   @IBAction func scheduleCancelButtonAction(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
-    
   }
-  
-  
   
   @IBAction func scheduleSaveButtonAction(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
-    
   }
-  
-  
-  
   
   @IBAction func sundayButtonPressed(_ sender: UIButton) {
     sundayButton.isSelected = !sundayButton.isSelected
@@ -325,27 +288,15 @@ class CalendarViewController: UIViewController {
       
     }
     setActivity(dates: input)
-//    self.navigationController?.popViewController(animated: true)
+    //    self.navigationController?.popViewController(animated: true)
     dismiss(animated: true, completion: nil)
-
-    
-    
   }
 }
 
+
 extension CalendarViewController: UNUserNotificationCenterDelegate {
-  
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert])
   }
 }
-
-
-
-
-
-
-
-
-
 
