@@ -28,12 +28,17 @@ class ActivityViewController: UIViewController {
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()
   
+  //MARK: SoundManager
+  
+  let soundManager = SoundManager()
+  
+  //MARK: Activity Manager
   let activityManager = ActivityListManager()
   let hour = 0
   var minutes = 5
   
-  var rootSeconds = 120
-  var seconds = 120
+  var rootSeconds = 10
+  var seconds = 10
   var timer = Timer()
   var isTimerRunning = false // used to ensure only one timer running at any given time
   
@@ -92,25 +97,14 @@ class ActivityViewController: UIViewController {
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
 //    dismiss(animated: true, completion: nil)
-    
     // backHome
-    
     //MARK: is this best practice?
     self.performSegue(withIdentifier: "backHome", sender: nil)
-    
 //    self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-
-
-    
   }
   
   //MARK: does not animate at all?
   @IBAction func timerOverlayButtonPressed(_ sender: UIButton) {
-    //    UIView.animate(withDuration: 1.2, delay: 0.0, options: .curveEaseOut, animations: {
-    //      self.timerOverlayView.alpha = 0.0
-    //
-    //    }, completion: nil)
-    
     UIView.animate(withDuration: 0.8, animations: {
       self.timerOverlayView.alpha = 0.0
       self.activityStartButton.alpha = 1.0
@@ -151,6 +145,15 @@ class ActivityViewController: UIViewController {
   @objc func updateTimer() {
     seconds -= 1     //This will decrement(count down)the seconds.
     self.timerOverlaylabel.text = timeString(time: TimeInterval(seconds)) //This will update the label.
+    
+    // if you hit 'zero';... then dismiss overlay
+    
+    if seconds == 0 {
+      timerOverlayButtonPressed(timerOverlayButton)
+      soundManager.doneActivity()
+    }
+    
+    
   }
   
   func timeString(time:TimeInterval) -> String {
