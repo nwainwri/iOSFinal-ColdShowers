@@ -49,7 +49,7 @@ class HomeScreenViewController: UIViewController {
   }
   
   @IBAction func setupScheduleButtonPressed(_ sender: UIButton) {
-    self.performSegue(withIdentifier: "CalenderSegue", sender: nil)
+    self.performSegue(withIdentifier: "scheduleSegue", sender: nil)
   }
   
   @IBAction func setupWorkoutButtonAction(_ sender: UIButton) {

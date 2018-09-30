@@ -67,7 +67,7 @@
                                     <color key="titleColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YGM-WO-PRT" kind="show" id="w1h-zm-cse"/>
+                                    <action selector="setupScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="jux-fP-0Cy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,6 +89,7 @@
                         <outlet property="workoutButton" destination="obs-v5-2L7" id="fqR-Je-7rL"/>
                         <segue destination="kqX-l1-1QY" kind="show" identifier="PrefSegue" id="aNz-Sl-nSo"/>
                         <segue destination="AYF-XS-WRE" kind="show" identifier="ActivitySegue" id="fck-vQ-SNH"/>
+                        <segue destination="PY9-VP-PkX" kind="show" identifier="scheduleSegue" id="A5V-4z-Fmi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2y-UJ-gfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,16 +267,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zHN-FK-hOI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KN0-3R-WGl">
-                            <connections>
-                                <segue destination="PY9-VP-PkX" kind="show" identifier="setAlarmSeque" id="gbp-sv-ETY"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KN0-3R-WGl"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rjz-YW-Seg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="430"/>
+            <point key="canvasLocation" x="-364" y="654"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Rxg-GN-RD0">
@@ -286,25 +283,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yey-jp-0Pt">
-                                <rect key="frame" x="16" y="74" width="48" height="24"/>
+                                <rect key="frame" x="16" y="30" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-dD-7dD">
-                                <rect key="frame" x="0.0" y="106" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="559182733.28195">
                                     <!--2018-09-21 00:32:13 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days of the Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZO-IP-Bvx">
-                                <rect key="frame" x="16" y="330" width="177" height="25.5"/>
+                                <rect key="frame" x="16" y="286" width="177" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                 <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-kE-U7h" userLabel="Days of the Week Buttons">
-                                <rect key="frame" x="16" y="364" width="343" height="36"/>
+                                <rect key="frame" x="16" y="320" width="343" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-hi-C1K">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="36"/>
@@ -365,7 +362,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FOu-pW-bqK" userLabel="Repeat Switch">
-                                <rect key="frame" x="16" y="408" width="343" height="31"/>
+                                <rect key="frame" x="16" y="364" width="343" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x11-fE-XKU">
                                         <rect key="frame" x="0.0" y="0.0" width="289" height="31"/>
@@ -389,15 +386,26 @@
                                 </state>
                                 <connections>
                                     <action selector="saveButton:" destination="PY9-VP-PkX" eventType="touchUpInside" id="xsZ-cc-wKl"/>
-                                    <action selector="saveButtonSegue:" destination="D4A-48-yL2" eventType="touchUpInside" id="CfD-vk-QN7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Note: This will not set an alarm, but just a notification reminder." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgg-bg-dBa">
-                                <rect key="frame" x="16" y="475" width="343" height="33.5"/>
+                                <rect key="frame" x="16" y="431" width="343" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEe-yC-wnq">
+                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scheduleCancelButtonAction:" destination="PY9-VP-PkX" eventType="touchUpInside" id="x8A-6K-Oa0"/>
+                                    <action selector="setupScheduleButtonPressed:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="uEc-mh-M8B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -427,6 +435,8 @@
                         <outlet property="mondayButton" destination="I9U-RU-WtG" id="uFN-yb-5pX"/>
                         <outlet property="repeatSwitch" destination="xem-eC-NYH" id="vHB-01-iUD"/>
                         <outlet property="saturdayButton" destination="UUh-mh-1Nf" id="gaK-Fz-BfI"/>
+                        <outlet property="scheduleCancelButton" destination="yEe-yC-wnq" id="6k5-8r-5KK"/>
+                        <outlet property="scheduleSaveButton" destination="1Tb-e7-IMN" id="RhN-aW-Oz8"/>
                         <outlet property="sundayButton" destination="OgC-hi-C1K" id="pid-2x-x9D"/>
                         <outlet property="thursdayButton" destination="kfD-Py-S7P" id="Wgj-8t-E80"/>
                         <outlet property="timePicker" destination="VR7-dD-7dD" id="rVV-UK-lm1"/>
@@ -435,27 +445,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fe-eY-3hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="D4A-48-yL2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="430"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Qee-MJ-AUA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YGM-WO-PRT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1F-Mw-4r1">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="HdU-m5-fVs" kind="relationship" relationship="rootViewController" id="1aZ-HJ-1HE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XdA-b8-hfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="759" y="430"/>
+            <point key="canvasLocation" x="554" y="338"/>
         </scene>
     </scenes>
     <resources>

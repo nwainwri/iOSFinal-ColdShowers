@@ -16,8 +16,6 @@ class ScheduleViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,9 +24,7 @@ class ScheduleViewController: UITableViewController {
             print(self.myAlarms.count)
             if self.myAlarms.count > 0 {
                 print("here")
-                
-                
-                
+
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -40,9 +36,6 @@ class ScheduleViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-   
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.myAlarms.count
@@ -71,8 +64,6 @@ class ScheduleViewController: UITableViewController {
         cell.dateLabel.text = timeString
         cell.timeLabel.text = dayString
         print(request.content.userInfo)
-        
-        
 
         return cell
     }
