@@ -11,8 +11,36 @@ import UserNotifications
 
 enum weekDay:Int {
   
-  case Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+  case Sunday = 1,
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday
   
+  func toString() -> String {
+//    let day: String
+    
+    switch self.rawValue {
+    case 1:
+      return "Sunday"
+    case 2:
+      return "Monday"
+    case 3:
+      return "Tuesday"
+    case 4:
+      return "Wednesday"
+    case 5:
+      return "Thursday"
+    case 6:
+      return "Friday"
+    case 7:
+      return "Saturday"
+    default:
+      return "NULL"
+    }
+  }
 }
 
 class CalendarViewController: UIViewController {
@@ -32,22 +60,17 @@ class CalendarViewController: UIViewController {
   
   @IBOutlet weak var calenderViewDoneButton: UIButton!
   
-  
   @IBOutlet weak var scheduleSaveButton: UIButton!
   
   @IBOutlet weak var scheduleCancelButton: UIButton!
   
-  
   var daysOfTheWeek = [Int]()
-  
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     //        UNUserNotificationCenter.current().delegate = self
     daysOfTheWeek.removeAll()
     print("when is this called")
-    
     
     
     // Do any additional setup after loading the view.
@@ -117,8 +140,36 @@ class CalendarViewController: UIViewController {
           default:
             print("Invalid hour")
           }
+          
+          // cause of "optional" string point...
+          // how to correct though?
+          
+//          dateComponents.weekday // is an int...
+          //          weekDay(rawValue: weekday)
+          //          weekDay.Friday.toString()
+          
           let day = weekDay(rawValue: weekday)
-          let dayString = "\(String(describing: day))"
+//          let dayString = day?.toString(weekday)
+
+          
+          
+          
+          
+          
+          // NEW CODE; STILL RETURNS 'OPTIONAL'
+          let dayString = weekDay.toString(day!)
+          
+//          guard let dayString = weekDay.toString(day) else {
+//            print("ERROR")
+//            return
+//          }
+          
+          
+//          print("THIS RIGHT HERE \(weekDay.Monday.toString(2))") // this weill print out "Monday"
+          
+          //basically somewhere in here there needs to be a guard statment, or if let... to unwrap the string optional safely
+          
+          
           
           
           
