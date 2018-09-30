@@ -25,31 +25,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     if let _ = defaults.value(forKey: "appHasLaunched") {
       print("APP HAS LAUNCHED BEFORE")
     } else {
-       let _ = DefaultSet()
+      let _ = DefaultSet()
       print("APP HAS NOT LAUNCHED")
       defaults.set(true, forKey: "appHasLaunched")
     }
     
-//    let _ = DefaultSet()
-    
+    //    let _ = DefaultSet()
     // MARK: allows choice between login or sign up screen, depending if app used before
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     self.window = UIWindow()
     
     self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
     
+    //    if let _ = defaults.value(forKey: "Username") {
+    //      let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+    //      self.window?.rootViewController = loginViewCon
+    //    } else {
+    //      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
+    //      self.window?.rootViewController = signupViewCon
+    //    }
     
-//    if let _ = defaults.value(forKey: "Username") {
-//      let loginViewCon = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-//      self.window?.rootViewController = loginViewCon
-//    } else {
-//      let signupViewCon = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
-//      self.window?.rootViewController = signupViewCon
-//    }
-
-
     self.window?.makeKeyAndVisible()
-    
     
     let formatter1 = DateFormatter()
     //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -61,26 +57,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-//    let todayDate = Date()
     let calendar = NSCalendar.current
-    
-    // MOVE TO APP LAUNCH, ON LAUNCH CHECK IF LAST WORKOUT WAS YESTERDAY
-    // IF YES, THEN LEAVE CURRENT STREAK ALONE
-    
-    // IF NO, RESET STREAK TO ZERO
     if calendar.isDateInYesterday(lastDate) {
-//      print("YES \(todayDate) is after \(String(describing: lastDateString))")
-//      // DO THIS ONCE WE CONFIRM TODFAY IS JUST AFTER LAST DATE
-//      var newStreak = defaults.integer(forKey: "currentStreak")
-//      newStreak += 1
-//      defaults.set(newStreak, forKey: "currentStreak")
+      //      print("YES \(todayDate) is after \(String(describing: lastDateString))")
+      //      // DO THIS ONCE WE CONFIRM TODFAY IS JUST AFTER LAST DATE
+      //      var newStreak = defaults.integer(forKey: "currentStreak")
+      //      newStreak += 1
+      //      defaults.set(newStreak, forKey: "currentStreak")
     } else {
-//      var newStreak = defaults.integer(forKey: "currentStreak")
-//      newStreak = 0
+      //      var newStreak = defaults.integer(forKey: "currentStreak")
+      //      newStreak = 0
       defaults.set(0, forKey: "currentStreak")
     }
-    
-    
     return true
   }
   
@@ -88,7 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     self.saveContext()
-
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
@@ -112,7 +99,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
   }
   
   // MARK: - Core Data stack
-  
   lazy var persistentContainer: NSPersistentContainer = {
     /*
      The persistent container for the application. This implementation
@@ -154,41 +140,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       }
     }
   }
-    // Mark: - Notification Setting
-    
-    // Responds to action response, opening activity view controller
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        switch response.actionIdentifier {
-        case "Snooze":
-            print ("Snooze case hit")
-            
-        case UNNotificationDismissActionIdentifier:
-            print("Needs cancel function")
-            
-        case UNNotificationDefaultActionIdentifier:
-            print("Default action")
-            let storyboard = UIStoryboard(name: "Activity", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ActivityVC")
-            self.window?.rootViewController = vc
-            self.window?.makeKeyAndVisible()
-        default:
-            print("default case hit")
-        }
-        
-        completionHandler()
+  // Mark: - Notification Setting
   
-}
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert])
+  // Responds to action response, opening activity view controller
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    switch response.actionIdentifier {
+    case "Snooze":
+      print ("Snooze case hit")
+      
+    case UNNotificationDismissActionIdentifier:
+      print("Needs cancel function")
+      
+    case UNNotificationDefaultActionIdentifier:
+      print("Default action")
+      let storyboard = UIStoryboard(name: "Activity", bundle: nil)
+      let vc = storyboard.instantiateViewController(withIdentifier: "ActivityVC")
+      self.window?.rootViewController = vc
+      self.window?.makeKeyAndVisible()
+    default:
+      print("default case hit")
     }
-
-    func setUpNotificationCenter() {
-        let actionShowDetails = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
-        
-        // create category with the action
-        let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails], intentIdentifiers: [], options: [])
-        
-        UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
-    }
+    completionHandler()
+  }
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.alert])
+  }
+  
+  func setUpNotificationCenter() {
+    let actionShowDetails = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
+    // create category with the action
+    let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails], intentIdentifiers: [], options: [])
+    UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
+  }
 }

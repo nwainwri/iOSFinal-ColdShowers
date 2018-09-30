@@ -21,7 +21,6 @@ class ActivityListManager: NSObject {
   var currentMindful: [CoreActivity] = []
   
   override init() {
-    
     guard let appDelegate =
       UIApplication.shared.delegate as? AppDelegate else {
         return
@@ -72,9 +71,7 @@ class ActivityListManager: NSObject {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
     
-    
     //MARK: Filtering activites based on how many times they have been done, but also if user doesn't want them at all.
-    
     var occurancesStrength: [NSNumber] = []
     for item in strength {
       let contains = occurancesStrength.contains { (occurance) -> Bool in
@@ -118,10 +115,7 @@ class ActivityListManager: NSObject {
     
     let finalMindfulFetch = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let categoryMindful = NSPredicate(format: "category == 1")
-    
     let settingMindFul = NSPredicate(format: "settings == %@", NSNumber(value: true))
-
-    
     let occurenceMindful = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueMindful])
     
     let compoundMindful = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryMindful, settingMindFul])
@@ -132,7 +126,6 @@ class ActivityListManager: NSObject {
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
-    
     
     /// allYoga [0, 0, 2, 5, 5, 5, 5, 6, 6]
     //    let all = [0, 1, 1, 1, 2, 2, 3, 6, 7, 8, 8, 8]
@@ -164,15 +157,8 @@ class ActivityListManager: NSObject {
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
-  
-//  print("test")
-  
-  
   }
-  
-  
-  
-  
+
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {
     return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],

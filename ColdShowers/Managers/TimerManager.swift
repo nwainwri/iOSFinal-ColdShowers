@@ -32,9 +32,9 @@ class TimerManager: NSObject {
     return finalTime
   }
   
-//  func runTimer() {
-//    timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(.updateTimer)), userInfo: nil, repeats: true)
-//  }
+  //  func runTimer() {
+  //    timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(.updateTimer)), userInfo: nil, repeats: true)
+  //  }
   
   @objc func updateTimer() {
     formatter.dateFormat = "HH:mm:ss"
@@ -42,8 +42,4 @@ class TimerManager: NSObject {
     //    timerLabel.text = “\(seconds)” //This will update the label.
     print(seconds)
   }
-  
-  
-  
-  
 }

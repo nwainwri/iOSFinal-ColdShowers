@@ -155,7 +155,6 @@ extension CoreActivity {
   convenience init(context: NSManagedObjectContext, name: String, areaOfBody: [String], instructions: String, category: Int, photo: String) {
     
     //(name: "Pushups", areaOfBody: ["chest", "arms"], instructions: "pushups", category: .strength, photo: "pushups")
-    
     self.init(context: context)
     self.name = name
     self.areaOfBody = areaOfBody as NSArray

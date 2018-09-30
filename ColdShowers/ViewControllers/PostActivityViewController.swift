@@ -55,7 +55,7 @@ class PostActivityViewController: UIViewController {
     let formatter1 = DateFormatter()
     formatter1.dateFormat = "yyyy-MM-dd"
     formatter1.timeZone = TimeZone.current
-//    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
+    //    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
     
     let todayDateString = formatter1.string(from: Date())
     guard let todayDate = formatter1.date(from: todayDateString) else {
@@ -63,7 +63,7 @@ class PostActivityViewController: UIViewController {
     }
     
     let calendar = NSCalendar.current
-
+    
     let lastDateString = defaults.string(forKey: "lastActivityListDone")
     
     
@@ -86,7 +86,7 @@ class PostActivityViewController: UIViewController {
       //save state
       defaults.set(currentStreak, forKey: "currentStreak")
       defaults.set(userActivityHistory, forKey: "userActivityHistory")
-
+      
     }
   }
 }

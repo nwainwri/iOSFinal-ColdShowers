@@ -15,14 +15,14 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   @IBOutlet weak var doneButton: UIButton!
   
   let activityManager = ActivityListManager()
-
-
   
-//  var currentSection:Int = 0
+  
+  
+  //  var currentSection:Int = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     
     // Do any additional setup after loading the view.
     //      defaultSet.activities[0]
@@ -40,13 +40,13 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
- 
+      
       return "Strength"
     case 1:
-
+      
       return "Mindful"
     case 2:
- 
+      
       return "Yoga"
     default:
       return "OUT OF BOUNDS"
@@ -59,7 +59,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+    
     switch section {
     case 0:
       return activityManager.strength.count
@@ -117,13 +117,13 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     switch tappedIndexPath.section {
     case 0:
       activityManager.strength[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
-
+      
     case 1:
       activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
-
+      
     case 2:
       activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
-
+      
     default:
       fatalError("why is this trying to do outside of sections")
     }

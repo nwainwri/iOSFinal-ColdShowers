@@ -23,26 +23,26 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     
-//    let testManager = ActivityListManager()
+    //    let testManager = ActivityListManager()
     
     // Do any additional setup after loading the view.\
     
-//    //need to pull date history
-//    let formatter1 = DateFormatter()
-//    //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//    formatter1.dateFormat = "yyyy-MM-dd"
-//    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
-//    let today = formatter1.string(from: Date())
-//    let newDate = [today]
-//    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
-//    var userActivityHistoryDates = [Date]()
-//    for item in userActivityHistory {
-//      guard let currentItem = formatter1.date(from: item) else {
-//        fatalError()
-//      }
-//      userActivityHistoryDates.append(currentItem)
-//    }
-//    
+    //    //need to pull date history
+    //    let formatter1 = DateFormatter()
+    //    //    formatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    //    formatter1.dateFormat = "yyyy-MM-dd"
+    //    formatter1.timeZone = TimeZone(secondsFromGMT: 0)
+    //    let today = formatter1.string(from: Date())
+    //    let newDate = [today]
+    //    var userActivityHistory = defaults.array(forKey: "userActivityHistory")  as? [String] ?? ["ERROR NO DATES FOUND"]
+    //    var userActivityHistoryDates = [Date]()
+    //    for item in userActivityHistory {
+    //      guard let currentItem = formatter1.date(from: item) else {
+    //        fatalError()
+    //      }
+    //      userActivityHistoryDates.append(currentItem)
+    //    }
+    //    
     
     
     
