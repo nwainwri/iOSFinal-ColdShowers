@@ -8,7 +8,17 @@
 
 import UIKit
 import UserNotifications
-class ScheduleViewController: UITableViewController {
+class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+
+  @IBOutlet weak var doneButton: UIButton!
+  
+  
+  
+  
 
     var myAlarms = [UNNotificationRequest]()
     override func viewDidLoad() {
@@ -36,21 +46,20 @@ class ScheduleViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.myAlarms.count
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Alarm Cell", for: indexPath) as? AlarmCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmCell else { fatalError("could not make cell") }
         
         
 //        let keys = ["minute"]
         let request = self.myAlarms[indexPath.row] as UNNotificationRequest
 //        let dates = request.dictionaryWithValues(forKeys: keys)
-//        
 ////        let minute = dates["minute"]
 //////        let hour = dates["hour"]
 //////        let day = dates["day"]
@@ -68,10 +77,24 @@ class ScheduleViewController: UITableViewController {
         return cell
     }
  
+  
+  
+  
+  
+  // MARK: Button Actions
     @IBAction func saveButtonSegue(_ sender: UIButton) {
      
     }
+  
+  @IBAction func doneButtonPressed(_ sender: UIButton) {
+      dismiss(animated: true, completion: nil)
     
+  }
+  
+
+  
+  
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

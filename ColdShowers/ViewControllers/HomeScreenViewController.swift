@@ -17,6 +17,9 @@ class HomeScreenViewController: UIViewController {
   @IBOutlet weak var setupAlarmButton: UIButton!
   @IBOutlet weak var workoutButton: UIButton!
   
+  @IBOutlet weak var alarmScheduleButton: UIButton!
+  
+  
   
   let defaults = UserDefaults.standard
   
@@ -55,6 +58,13 @@ class HomeScreenViewController: UIViewController {
   @IBAction func setupWorkoutButtonAction(_ sender: UIButton) {
     self.performSegue(withIdentifier: "ActivitySegue", sender: nil)
   }
+  
+  
+  @IBAction func alarmScheduleButtonPressed(_ sender: UIButton) {
+    
+    self.performSegue(withIdentifier: "alarmScheduleSegue", sender: nil)
+  }
+  
   
   //MARK: Helper Functions
   func updateDash() {
