@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GbV-YJ-MVa" userLabel="Current Activity">
-                                <rect key="frame" x="16" y="127.5" width="196" height="20.5"/>
+                                <rect key="frame" x="16" y="127" width="196" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Activity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDI-us-g5i">
                                         <rect key="frame" x="0.0" y="0.0" width="131.5" height="20.5"/>
@@ -37,7 +37,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Activity Name&gt;" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-bP-eLK">
-                                <rect key="frame" x="16" y="95.5" width="165" height="24"/>
+                                <rect key="frame" x="16" y="95" width="165" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="lG1-xk-cQe"/>
                                 </constraints>
@@ -51,6 +51,16 @@
                                     <constraint firstAttribute="width" secondItem="86g-7v-l6I" secondAttribute="height" multiplier="1:1" id="hmC-CM-G9u"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lp-98-cJG">
+                                <rect key="frame" x="9" y="165" width="357" height="357"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Lp-98-cJG" secondAttribute="height" multiplier="1:1" id="0e0-p9-99f"/>
+                                </constraints>
+                                <mutableString key="text">Find a space at a window where there are sights to be seen outside. Look at everything there is to see.  Avoid labeling and categorizing what you see outside the window; instead of thinking “bird” or “stop sign”, try to notice the colors, the patterns, or the textures. Pay attention to the movement of the grass or leaves in the breeze, notice the many different shapes present in this small segment of the world you can see.  Try to see the world outside the window from the perspective of someone unfamiliar with these sights. Be observant, but not critical.  Be aware, but not fixated. If you become distracted, gently pull your mind away from those thoughts and notice a color or shape again to put you back in the right frame of mind.</mutableString>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Nu-4Lu">
                                 <rect key="frame" x="0.0" y="596" width="375" height="50"/>
                                 <constraints>
@@ -97,7 +107,7 @@
                                         </vibrancyEffect>
                                     </visualEffectView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jc3-RY-rs7">
-                                        <rect key="frame" x="102" y="7.5" width="172.5" height="105"/>
+                                        <rect key="frame" x="101.5" y="8" width="172.5" height="105"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdS-cY-3tX">
                                                 <rect key="frame" x="0.0" y="0.0" width="172.5" height="42"/>
@@ -131,7 +141,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-by-1T4" userLabel="Total Time">
-                                <rect key="frame" x="16" y="37" width="183" height="30"/>
+                                <rect key="frame" x="16" y="36" width="183" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-fp-ygf">
                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="30"/>
@@ -152,13 +162,16 @@
                         <constraints>
                             <constraint firstItem="86g-7v-l6I" firstAttribute="top" secondItem="GbV-YJ-MVa" secondAttribute="bottom" constant="8.5" id="0mu-4b-BHU"/>
                             <constraint firstItem="VgJ-Nu-4Lu" firstAttribute="centerX" secondItem="B3n-ro-SNV" secondAttribute="centerX" id="2PI-ks-SKX"/>
+                            <constraint firstItem="fgn-bu-5lH" firstAttribute="top" secondItem="1Lp-98-cJG" secondAttribute="bottom" constant="8" symbolic="YES" id="90J-YQ-Wsx"/>
                             <constraint firstItem="RMt-fT-nWP" firstAttribute="width" secondItem="fSW-LK-kGr" secondAttribute="width" id="FrZ-L6-1oe"/>
+                            <constraint firstItem="1Lp-98-cJG" firstAttribute="centerY" secondItem="B3n-ro-SNV" secondAttribute="centerY" id="GLe-go-FsC"/>
                             <constraint firstItem="fgn-bu-5lH" firstAttribute="width" secondItem="fSW-LK-kGr" secondAttribute="width" id="IzB-hT-N93"/>
                             <constraint firstItem="86g-7v-l6I" firstAttribute="centerY" secondItem="B3n-ro-SNV" secondAttribute="centerY" id="Mlw-uB-yv3"/>
                             <constraint firstItem="VgJ-Nu-4Lu" firstAttribute="width" secondItem="fSW-LK-kGr" secondAttribute="width" id="QTg-ZD-s0h"/>
                             <constraint firstItem="0Cc-bP-eLK" firstAttribute="top" secondItem="ODj-by-1T4" secondAttribute="bottom" constant="28.5" id="QtC-0n-pZR"/>
                             <constraint firstItem="RMt-fT-nWP" firstAttribute="centerY" secondItem="B3n-ro-SNV" secondAttribute="centerY" id="Td0-Iw-mav"/>
                             <constraint firstItem="RMt-fT-nWP" firstAttribute="centerX" secondItem="B3n-ro-SNV" secondAttribute="centerX" id="Zki-fQ-FuJ"/>
+                            <constraint firstItem="1Lp-98-cJG" firstAttribute="centerX" secondItem="B3n-ro-SNV" secondAttribute="centerX" id="aUj-pg-YiE"/>
                             <constraint firstItem="0Cc-bP-eLK" firstAttribute="leading" secondItem="B3n-ro-SNV" secondAttribute="leading" constant="16" id="dG9-zK-e3e"/>
                             <constraint firstItem="86g-7v-l6I" firstAttribute="width" secondItem="fSW-LK-kGr" secondAttribute="width" id="hjl-S4-tDw"/>
                             <constraint firstItem="86g-7v-l6I" firstAttribute="centerX" secondItem="B3n-ro-SNV" secondAttribute="centerX" id="jyM-qW-ma8"/>
@@ -175,6 +188,7 @@
                         <outlet property="activityCancelButton" destination="VgJ-Nu-4Lu" id="5Am-eh-nWS"/>
                         <outlet property="activityCurrentTimerLabel" destination="0yX-ZC-hW3" id="JED-Vn-AOv"/>
                         <outlet property="activityInstructionImage" destination="86g-7v-l6I" id="zF0-uV-vTs"/>
+                        <outlet property="activityInstructionLabel" destination="1Lp-98-cJG" id="yln-Po-8fM"/>
                         <outlet property="activityNameLabel" destination="0Cc-bP-eLK" id="zAZ-1B-PPi"/>
                         <outlet property="activityStartButton" destination="fgn-bu-5lH" id="Ra6-W5-cJx"/>
                         <outlet property="estimatedTimeAmount" destination="jVt-nq-pjq" id="mdN-1t-Flm"/>
@@ -183,6 +197,7 @@
                         <outlet property="timerOverlayView" destination="RMt-fT-nWP" id="Mp1-Jv-O6Q"/>
                         <outlet property="timerOverlaylabel" destination="GdS-cY-3tX" id="WAm-5a-ynD"/>
                         <segue destination="BaE-Uw-NHh" kind="show" identifier="postActivitySegue" id="GQw-sC-NfL"/>
+                        <segue destination="eSy-hz-7Cm" kind="show" identifier="backHome" id="4gZ-EE-2oz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnj-st-z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7K-3i-5TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317.5999999999999" y="-20.239880059970016"/>
+            <point key="canvasLocation" x="2372" y="-302"/>
         </scene>
         <!--Main-->
         <scene sceneID="BGI-Pg-SPo">
@@ -262,8 +277,11 @@
                 <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Main" id="eSy-hz-7Cm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adx-Rb-u71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="-21"/>
+            <point key="canvasLocation" x="2342" y="397"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4gZ-EE-2oz"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

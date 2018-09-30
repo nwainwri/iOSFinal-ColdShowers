@@ -61,9 +61,13 @@ class HomeScreenViewController: UIViewController {
   
   
   @IBAction func alarmScheduleButtonPressed(_ sender: UIButton) {
-    
     self.performSegue(withIdentifier: "alarmScheduleSegue", sender: nil)
   }
+  
+  
+  //MARK: Unwind Func
+  
+  @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
   
   
   //MARK: Helper Functions

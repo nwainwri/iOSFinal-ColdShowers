@@ -17,6 +17,7 @@ enum weekDay:Int {
   Thursday,
   Friday,
   Saturday
+
     
     func toString() -> String {
         
@@ -36,6 +37,8 @@ enum weekDay:Int {
         case .Saturday:
             return "Saturday"
         }
+
+  
     }
 }
 
@@ -127,11 +130,6 @@ class CalendarViewController: UIViewController {
             let timeString = alarmComponents.2
             let durationString = alarmComponents.3
             
-            
-          
-          
-          
-          
             notificationContent.userInfo = ["Day": dayString, "Time": timeString, "Duration": durationString]
           //          notificationContent.userInfo = ["Day" : "TEST"] // doesn't change the 'daystring' output at all
           
