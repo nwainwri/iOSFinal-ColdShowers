@@ -91,7 +91,15 @@ class ActivityViewController: UIViewController {
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
-    dismiss(animated: true, completion: nil)
+//    dismiss(animated: true, completion: nil)
+    
+    // backHome
+    
+    //MARK: is this best practice?
+    self.performSegue(withIdentifier: "backHome", sender: nil)
+    
+
+    
   }
   
   //MARK: does not animate at all?

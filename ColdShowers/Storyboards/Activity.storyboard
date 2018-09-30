@@ -183,6 +183,7 @@
                         <outlet property="timerOverlayView" destination="RMt-fT-nWP" id="Mp1-Jv-O6Q"/>
                         <outlet property="timerOverlaylabel" destination="GdS-cY-3tX" id="WAm-5a-ynD"/>
                         <segue destination="BaE-Uw-NHh" kind="show" identifier="postActivitySegue" id="GQw-sC-NfL"/>
+                        <segue destination="eSy-hz-7Cm" kind="show" identifier="backHome" id="4gZ-EE-2oz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnj-st-z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7K-3i-5TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317.5999999999999" y="-20.239880059970016"/>
+            <point key="canvasLocation" x="2372" y="-302"/>
         </scene>
         <!--Main-->
         <scene sceneID="BGI-Pg-SPo">
@@ -262,8 +263,11 @@
                 <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Main" id="eSy-hz-7Cm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adx-Rb-u71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="-21"/>
+            <point key="canvasLocation" x="2342" y="397"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4gZ-EE-2oz"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
