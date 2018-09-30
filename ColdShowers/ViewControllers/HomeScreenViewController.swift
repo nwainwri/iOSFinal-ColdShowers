@@ -17,51 +17,54 @@ class HomeScreenViewController: UIViewController {
   @IBOutlet weak var setupAlarmButton: UIButton!
   @IBOutlet weak var workoutButton: UIButton!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
+  let defaults = UserDefaults.standard
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+    updateDash()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
   
   // MARK: Button Actions
-  
   @IBAction func preferencesButtonAction(_ sender: UIButton) {
-    //PrefSegue
     self.performSegue(withIdentifier: "PrefSegue", sender: nil)
   }
   
   @IBAction func setupScheduleButtonPressed(_ sender: UIButton) {
-    
     self.performSegue(withIdentifier: "CalenderSegue", sender: nil)
   }
   
-  
-  
-  
-  
   @IBAction func setupWorkoutButtonAction(_ sender: UIButton) {
     self.performSegue(withIdentifier: "ActivitySegue", sender: nil)
-    //  ActivitySegue
-    
   }
   
-  
+  //MARK: Helper Functions
+  func updateDash() {
+    let currentDash = defaults.integer(forKey: "currentStreak")
+    if currentDash > 0 {
+      streakDaysNumberLabel.font = UIFont.boldSystemFont(ofSize: 55 )
+    }
+    let currentDashString = String(currentDash)
+    streakDaysNumberLabel.text = currentDashString
+  }
   
   
   

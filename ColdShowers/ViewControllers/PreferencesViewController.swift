@@ -15,11 +15,15 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   @IBOutlet weak var doneButton: UIButton!
   
   let activityManager = ActivityListManager()
+
+
   
 //  var currentSection:Int = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    
     // Do any additional setup after loading the view.
     //      defaultSet.activities[0]
     preferencesTableView.delegate = self

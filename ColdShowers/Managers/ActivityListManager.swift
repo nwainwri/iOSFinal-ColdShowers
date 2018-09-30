@@ -27,12 +27,11 @@ class ActivityListManager: NSObject {
         return
     }
     let context = appDelegate.persistentContainer.viewContext
-    
+
 //  this is a rough example of how to save in background.... HARD TO ensure it's working
 //    appDelegate.persistentContainer.performBackgroundTask { (context) in
 //      context.save()
 //    }
-    
     let allActivities = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sort = NSSortDescriptor(key: #keyPath(CoreActivity.category), ascending: true)
     allActivities.sortDescriptors = [sort]
@@ -43,6 +42,8 @@ class ActivityListManager: NSObject {
     }
     
     let allStrength = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
+    let sortStrength = NSSortDescriptor(key: "name", ascending: true)
+    allStrength.sortDescriptors = [sortStrength]
     allStrength.predicate = NSPredicate(format: "category == 0")
     do {
       strength = try context.fetch(allStrength)
@@ -51,6 +52,8 @@ class ActivityListManager: NSObject {
     }
     
     let allMindFul = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
+    let sortMindful = NSSortDescriptor(key: "name", ascending: true)
+    allMindFul.sortDescriptors = [sortMindful]
     allMindFul.predicate = NSPredicate(format: "category == 1")
     do {
       mindful = try context.fetch(allMindFul)
@@ -60,12 +63,17 @@ class ActivityListManager: NSObject {
 
     
     let allYoga = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
+    let sortYoga = NSSortDescriptor(key: "name", ascending: true)
+    allYoga.sortDescriptors = [sortYoga]
     allYoga.predicate = NSPredicate(format: "category == 2")
     do {
       yoga = try context.fetch(allYoga)
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
+    
+    
+    //MARK: Filtering activites based on how many times they have been done, but also if user doesn't want them at all.
     
     var occurancesStrength: [NSNumber] = []
     for item in strength {
@@ -81,9 +89,13 @@ class ActivityListManager: NSObject {
     
     let finalStrengthFetch = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let categoryStrength = NSPredicate(format: "category == 0")
+    let settingStrength = NSPredicate(format: "settings == %@", NSNumber(value: true))
+    
     let occurenceStrength = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueStrength])
     
-    let compoundStrength = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryStrength, occurenceStrength])
+    let compoundStrength = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryStrength, settingStrength])
+    
+    
     finalStrengthFetch.predicate = compoundStrength
     do {
       let finalStrength = try context.fetch(finalStrengthFetch)
@@ -106,9 +118,13 @@ class ActivityListManager: NSObject {
     
     let finalMindfulFetch = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let categoryMindful = NSPredicate(format: "category == 1")
+    
+    let settingMindFul = NSPredicate(format: "settings == %@", NSNumber(value: true))
+
+    
     let occurenceMindful = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueMindful])
     
-    let compoundMindful = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryMindful, occurenceMindful])
+    let compoundMindful = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryMindful, settingMindFul])
     finalMindfulFetch.predicate = compoundMindful
     do {
       let finalMindful = try context.fetch(finalMindfulFetch)
@@ -135,9 +151,12 @@ class ActivityListManager: NSObject {
     
     let finalYogaFetch = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let categoryYoga = NSPredicate(format: "category == 2")
+    
+    let settingYoga = NSPredicate(format: "settings == %@", NSNumber(value: true))
+
     let occuranceYoga = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueYoga])
     
-    let compoundYoga = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryYoga, occuranceYoga])
+    let compoundYoga = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryYoga, settingYoga])
     finalYogaFetch.predicate = compoundYoga
     do {
       let finalYoga = try context.fetch(finalYogaFetch)
@@ -145,7 +164,14 @@ class ActivityListManager: NSObject {
     } catch let error as NSError {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
+  
+//  print("test")
+  
+  
   }
+  
+  
+  
   
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {

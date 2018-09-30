@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csU-u1-mRy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coldshowersIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ezM-A7-i0O">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coldShowersLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ezM-A7-i0O">
                                         <rect key="frame" x="127.5" y="273.5" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="6PP-1a-T4R"/>
@@ -60,6 +60,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coldshowersIcon" width="1200" height="1200"/>
+        <image name="coldShowersLarge" width="1200" height="1200"/>
     </resources>
 </document>
