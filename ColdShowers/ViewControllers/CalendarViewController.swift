@@ -10,35 +10,35 @@ import UIKit
 import UserNotifications
 
 enum weekDay:Int {
-  case Sunday = 1,
+  case Sunday = 0,
   Monday,
   Tuesday,
   Wednesday,
   Thursday,
   Friday,
   Saturday
-  
-  func toString() -> String {
-    switch self.rawValue {
-    case 1:
-      return "Sunday"
-    case 2:
-      return "Monday"
-    case 3:
-      return "Tuesday"
-    case 4:
-      return "Wednesday"
-    case 5:
-      return "Thursday"
-    case 6:
-      return "Friday"
-    case 7:
-      return "Saturday"
-    default:
-      return "NULL"
+    
+    func toString() -> String {
+        
+        switch self {
+        case .Sunday:
+            return "Sunday"
+        case .Monday:
+            return "Monday"
+        case .Tuesday:
+            return "Tuesday"
+        case .Wednesday:
+            return "Wednesday"
+        case .Thursday:
+            return "Thursday"
+        case .Friday:
+            return "Friday"
+        case .Saturday:
+            return "Saturday"
+        }
     }
-  }
 }
+
 
 class CalendarViewController: UIViewController {
   
@@ -106,54 +106,36 @@ class CalendarViewController: UIViewController {
       }
     }
   }
-  func setActivity(dates: ([DateComponents], Bool)) {
+  func setActivity(alarmComponents: ([DateComponents], Bool, String, Int)) {
+    //For testing only
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     
     checkUserPermission { (res) in
       if res {
-        for dateComponents in dates.0 {
+        for dateComponents in alarmComponents.0 {
           let notificationContent = UNMutableNotificationContent()
           
           notificationContent.title = "Wake up?"
-          notificationContent.subtitle = "20 Minutes"
+          notificationContent.subtitle = ""
           notificationContent.categoryIdentifier = "Actions"
+        
           
-          var timeString = String()
-          guard let hour = dateComponents.hour, let minute = dateComponents.minute, let weekday = dateComponents.weekday else {fatalError()}
-          switch hour {
-          case 0:
-            timeString = "12:\(minute)AM"
-          case ..<12:
-            timeString = "\(hour):\(minute)AM"
-          case ..<24:
-            timeString = "\(hour - 12):\(minute)PM"
-          default:
-            print("Invalid hour")
-          }
-          
-          // cause of "optional" string point...
-          // how to correct though?
-          //          dateComponents.weekday // is an int...
-          //          weekDay(rawValue: weekday)
-          //          weekDay.Friday.toString()
-          
-          let day = weekDay(rawValue: weekday)
-          //          let dayString = day?.toString(weekday)
-          // NEW CODE; STILL RETURNS 'OPTIONAL'
-          let dayString = weekDay.toString(day!)
-          
-          //          guard let dayString = weekDay.toString(day) else {
-          //            print("ERROR")
-          //            return
-          //          }
-          //  print("THIS RIGHT HERE \(weekDay.Monday.toString(2))") // this weill print out "Monday"
-          //basically somewhere in here there needs to be a guard statment, or if let... to unwrap the string optional safely
+            guard let dayNumber = dateComponents.weekday else { fatalError("invalid day")}
+            
+            guard let day = weekDay.init(rawValue: dayNumber - 1) else { fatalError("invalide date")}
+            let dayString = day.toString()
+            let timeString = alarmComponents.2
+            let durationString = alarmComponents.3
+            
+            
           
           
-          notificationContent.userInfo = ["Time": timeString]
-          notificationContent.userInfo = ["Day": dayString]
+          
+          
+            notificationContent.userInfo = ["Day": dayString, "Time": timeString, "Duration": durationString]
           //          notificationContent.userInfo = ["Day" : "TEST"] // doesn't change the 'daystring' output at all
           
-          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: dates.1)
+          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: alarmComponents.1)
           let request = UNNotificationRequest(identifier: "\(dateComponents)", content: notificationContent, trigger: trigger)
           UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
             if let error = error {
@@ -273,10 +255,26 @@ class CalendarViewController: UIViewController {
     guard let minute = Int(minuteString), let hour = Int(hourString) else {
       fatalError()
     }
-    var input: ([DateComponents], Bool)
+    var adjustedTimeString = String()
+    
+    switch hour {
+    case 0:
+        adjustedTimeString = "12:\(minute) AM"
+    case ..<12:
+        adjustedTimeString = "\(hour):\(minute) PM"
+    case ..<24:
+        adjustedTimeString = "\(hour - 12):\(minute) AM"
+    default:
+        adjustedTimeString = "Invalid Time"
+    }
+    
+    
+    var input: ([DateComponents], Bool, String, Int)
     input.0 = [DateComponents]()
     input.1 = repeatSwitch.isOn
-    
+    input.2 = adjustedTimeString
+    input.3 = 15
+
     for day in daysOfTheWeek {
       
       var newDate = DateComponents()
@@ -287,7 +285,7 @@ class CalendarViewController: UIViewController {
       input.0.append(newDate)
       
     }
-    setActivity(dates: input)
+    setActivity(alarmComponents: input)
     //    self.navigationController?.popViewController(animated: true)
     dismiss(animated: true, completion: nil)
   }
