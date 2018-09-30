@@ -40,34 +40,37 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      
-      return "Strength"
+      return "Strength..."
     case 1:
-      
       return "Mindful"
     case 2:
-      
+      return "Yoga"
+    case 3:
       return "Yoga"
     default:
       return "OUT OF BOUNDS"
     }
+    
+    
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
     //    return defaultSet.categories.count
-    return 3
+    return 4
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     switch section {
     case 0:
+      return 3
+    case 1:
       return activityManager.strength.count
       
-    case 1:
+    case 2:
       return activityManager.mindful.count
       
-    case 2:
+    case 3:
       return activityManager.yoga.count
       
     default:
@@ -76,23 +79,33 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! PreferencesTableViewCell
+    let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! ActivityPreferencesTableViewCell
+    
+    let cell2 = preferencesTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! ActivityTimePreferenceTableViewCell
+    
     
     cell.delegate = self
     
     switch indexPath.section {
     case 0:
+      cell2.activityCategoryNameLabel.text = "TEST ME"
+      cell2.activityCategoryTimeSlider.maximumValue = 10
+      
+      cell2.layoutIfNeeded()
+      return cell2
+    case 1:
       cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.strength[indexPath.row].settings
-    case 1:
+    case 2:
       cell.preferenceNameLabel.text = activityManager.mindful[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.mindful[indexPath.row].settings
-    case 2:
+    case 3:
       cell.preferenceNameLabel.text = activityManager.yoga[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.yoga[indexPath.row].settings
     default:
       fatalError("currectionSection Value out of bounds.")
     }
+    cell.layoutIfNeeded()
     return cell
   }
   
@@ -111,7 +124,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   //MARK: Delegation Functions
-  func didTapSwitch(_ sender: PreferencesTableViewCell) {
+  func didTapSwitch(_ sender: ActivityPreferencesTableViewCell) {
     guard let tappedIndexPath = preferencesTableView.indexPath(for: sender) else { return }
     
     switch tappedIndexPath.section {

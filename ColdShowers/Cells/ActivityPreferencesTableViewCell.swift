@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreferencesTableViewCell: UITableViewCell {
+class ActivityPreferencesTableViewCell: UITableViewCell {
   
   @IBOutlet weak var preferenceNameLabel: UILabel!
   @IBOutlet weak var preferenceSettingSwitch: UISwitch!

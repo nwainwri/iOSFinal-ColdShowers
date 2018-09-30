@@ -31,12 +31,13 @@
 		F11DA23E215C497B0066AEF8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA23D215C497B0066AEF8 /* Category.swift */; };
 		F14CF9A921615C3F0005D1D2 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CF9A821615C3F0005D1D2 /* SoundManager.swift */; };
 		F14CF9AC21615F3E0005D1D2 /* doneActivity.wav in Resources */ = {isa = PBXBuildFile; fileRef = F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */; };
+		F14CF9AE2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */; };
 		F16DECE2215EBE1A00D9B7D1 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */; };
 		F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */; };
 		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
 		F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF842156F3AF00C0836B /* SignUpViewController.swift */; };
-		F176BF87215715C800C0836B /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */; };
+		F176BF87215715C800C0836B /* ActivityPreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF86215715C800C0836B /* ActivityPreferencesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,13 +88,14 @@
 		F11DA23D215C497B0066AEF8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F14CF9A821615C3F0005D1D2 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = doneActivity.wav; path = "Rough Assets/Sounds/doneActivity.wav"; sourceTree = SOURCE_ROOT; };
+		F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimePreferenceTableViewCell.swift; sourceTree = "<group>"; };
 		F16DECE1215EBE1A00D9B7D1 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F176BF7E2155D8EF00C0836B /* DefaultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSet.swift; sourceTree = "<group>"; };
 		F176BF842156F3AF00C0836B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
+		F176BF86215715C800C0836B /* ActivityPreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPreferencesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				A19BE987215DA8F100F03CE5 /* AlarmCell.swift */,
-				F176BF86215715C800C0836B /* PreferencesTableViewCell.swift */,
+				F176BF86215715C800C0836B /* ActivityPreferencesTableViewCell.swift */,
+				F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,12 +412,13 @@
 				A19BE986215D9C8A00F03CE5 /* ScheduleViewController.swift in Sources */,
 				F10DDD142158234E00576F8D /* PreferencesTableViewCellDelegate.swift in Sources */,
 				F14CF9A921615C3F0005D1D2 /* SoundManager.swift in Sources */,
+				F14CF9AE2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift in Sources */,
 				F11C6D1E215EF9B60094E99C /* UIColor+AppColors.swift in Sources */,
 				A14F761721544683005BDAF4 /* LoginViewController.swift in Sources */,
 				A14F7622215448CB005BDAF4 /* PreferencesViewController.swift in Sources */,
 				A14F761C215447C8005BDAF4 /* ActivityViewController.swift in Sources */,
 				F11C6D20215EFED60094E99C /* Border.swift in Sources */,
-				F176BF87215715C800C0836B /* PreferencesTableViewCell.swift in Sources */,
+				F176BF87215715C800C0836B /* ActivityPreferencesTableViewCell.swift in Sources */,
 				A19BE988215DA8F100F03CE5 /* AlarmCell.swift in Sources */,
 				F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */,
 				F16DECE2215EBE1A00D9B7D1 /* TimerManager.swift in Sources */,

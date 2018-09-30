@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PreferencesTableViewCellDelegate : class {
-  func didTapSwitch(_ sender: PreferencesTableViewCell)
+  func didTapSwitch(_ sender: ActivityPreferencesTableViewCell)
 }
