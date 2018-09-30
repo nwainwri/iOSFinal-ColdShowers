@@ -43,25 +43,25 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmCell else { fatalError("could not make cell") }
-    //        let keys = ["minute"]
+    
     let request = self.myAlarms[indexPath.row] as UNNotificationRequest
-    //        let dates = request.dictionaryWithValues(forKeys: keys)
-    ////        let minute = dates["minute"]
-    //////        let hour = dates["hour"]
-    //////        let day = dates["day"]
+    
     
     let timeString = request.content.userInfo["Time"] as? String
-    print("TIME: \(timeString)")
     let dayString = request.content.userInfo["Day"] as? String
+    let durationInt = request.content.userInfo["Duration"] as? Int
+    let durationString = "\(durationInt ?? 15) Minutes"
     
     // will print DAY: Optional("Optional(ColdShowers.weekDay.Saturday)")
     // so theory; however the 'string' is saved as a notification request... is where it's formatted to have "optional"
     
-    print("DAY: \(String(describing: dayString))")
+    
     //let time = "\(hour):\(minute)"
     ////
     cell.dateLabel.text = timeString
     cell.timeLabel.text = dayString
+    cell.durationLabel.text = durationString
+    
     
     print(request.content.userInfo)
     
