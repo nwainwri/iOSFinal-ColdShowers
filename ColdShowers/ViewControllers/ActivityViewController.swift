@@ -23,6 +23,9 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityStartButton: UIButton!
   @IBOutlet weak var activityCancelButton: UIButton!
   @IBOutlet weak var activityCurrentTimerLabel: UILabel!
+  @IBOutlet weak var activityInstructionLabel: UILabel!
+  
+  
   
   //MARK: Varible Properties
   var currentActivity:Int = 0
@@ -139,7 +142,8 @@ class ActivityViewController: UIViewController {
   //MARK: Load Data for Labels
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
-    activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!) 
+    activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!)
+    activityInstructionLabel.text = activityList[currentActivity].instructions
   }
   
   //MARK: TIMER FUNCTIONS

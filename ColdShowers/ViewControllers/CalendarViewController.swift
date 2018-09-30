@@ -19,20 +19,20 @@ enum weekDay:Int {
   Saturday
   
   func toString() -> String {
-    switch self.rawValue {
-    case 1:
+    switch self {
+    case .Sunday:
       return "Sunday"
-    case 2:
+    case .Monday:
       return "Monday"
-    case 3:
+    case .Tuesday:
       return "Tuesday"
-    case 4:
+    case .Wednesday:
       return "Wednesday"
-    case 5:
+    case .Thursday:
       return "Thursday"
-    case 6:
+    case .Friday:
       return "Friday"
-    case 7:
+    case .Saturday:
       return "Saturday"
     default:
       return "NULL"
