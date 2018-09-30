@@ -139,7 +139,8 @@ class CalendarViewController: UIViewController {
           let day = weekDay(rawValue: weekday)
           //          let dayString = day?.toString(weekday)
           // NEW CODE; STILL RETURNS 'OPTIONAL'
-          let dayString = weekDay.toString(day!)
+//          let dayString = weekDay.toString(day!)
+          let dayString = "Monday"
           
           //          guard let dayString = weekDay.toString(day) else {
           //            print("ERROR")

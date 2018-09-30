@@ -61,7 +61,6 @@ class HomeScreenViewController: UIViewController {
   
   
   @IBAction func alarmScheduleButtonPressed(_ sender: UIButton) {
-    
     self.performSegue(withIdentifier: "alarmScheduleSegue", sender: nil)
   }
   

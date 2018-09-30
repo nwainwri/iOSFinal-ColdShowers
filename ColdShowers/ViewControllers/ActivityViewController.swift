@@ -98,6 +98,8 @@ class ActivityViewController: UIViewController {
     //MARK: is this best practice?
     self.performSegue(withIdentifier: "backHome", sender: nil)
     
+//    self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+
 
     
   }
