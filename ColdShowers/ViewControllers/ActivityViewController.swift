@@ -47,6 +47,11 @@ class ActivityViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    //MARK: will keep the workout screen active.
+    UIApplication.shared.isIdleTimerDisabled = true
+
+    
     // Do any additional setup after loading the view.
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
