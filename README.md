@@ -4,13 +4,11 @@ Final Project for Lighthouse-Labs iOS Developer bootcamp. Application designed t
 
 ![screenshots](screenshots/coldShowersShots.png)
 
-
 ## Authors
 - **Kit Clark-O'Neil** -- [kclarkoneil](https://github.com/kclarkoneil)
 
 - **Nathan Wainwright** -- [nwainwri](https://github.com/nwainwri)
 
-
-##Tech Stack
+## Tech Stack
 - Swift
 - CoreData
