@@ -150,7 +150,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="6px-CR-wnZ">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="6px-CR-wnZ">
                                                     <rect key="frame" x="13" y="39.5" width="349" height="31"/>
                                                     <connections>
                                                         <action selector="activityCategoryTimeSliderAction:" destination="iDV-mF-xmU" eventType="valueChanged" id="8if-jc-1yp"/>

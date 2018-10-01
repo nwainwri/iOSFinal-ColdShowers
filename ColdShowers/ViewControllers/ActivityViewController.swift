@@ -25,13 +25,17 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityCurrentTimerLabel: UILabel!
   @IBOutlet weak var activityInstructionLabel: UILabel!
   
-
+  
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()
   
   //MARK: SoundManager
   let soundManager = SoundManager()
+  
+  
+  //MARK: Time Manager
+  let timeManager = ActivityTimeManager()
   
   //MARK: Activity Manager
   let activityManager = ActivityListManager()
@@ -57,9 +61,15 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-     timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
-     timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
-     timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
+    
+    timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
+    timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
+    timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
+    
+//    // user default methods
+//    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
+//    timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
+//    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
     switch self.currentActivity {
     case 0:
@@ -83,16 +93,16 @@ class ActivityViewController: UIViewController {
     
     //MARK: will keep the workout screen active.
     UIApplication.shared.isIdleTimerDisabled = true
-
+    
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
-
+    
     activityList = activityManager.getNewList()
     estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
     
     
     
-
+    
     MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
@@ -134,11 +144,11 @@ class ActivityViewController: UIViewController {
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
-//    dismiss(animated: true, completion: nil)
+    //    dismiss(animated: true, completion: nil)
     // backHome
     //MARK: is this best practice?
     self.performSegue(withIdentifier: "backHome", sender: nil)
-//    self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+    //    self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
   }
   
   //MARK: does not animate at all?
@@ -157,7 +167,7 @@ class ActivityViewController: UIViewController {
       self.activityList[self.currentActivity].occurance += 1
       
       self.timer.invalidate()
-//      self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
+      //      self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
       
       if self.activityList[self.currentActivity].category == 0 {
         self.seconds = self.timeStrengthValue
@@ -174,7 +184,7 @@ class ActivityViewController: UIViewController {
       
       
       
-//      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.rootSeconds))
+      //      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.rootSeconds))
       
       if self.currentActivity < (self.activityList.count - 1) {
         self.currentActivity += 1

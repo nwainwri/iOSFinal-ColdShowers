@@ -19,7 +19,7 @@ class HomeScreenViewController: UIViewController {
   
   @IBOutlet weak var alarmScheduleButton: UIButton!
   
-  
+  let timeManager = ActivityTimeManager()
   
   let defaults = UserDefaults.standard
   
@@ -28,6 +28,7 @@ class HomeScreenViewController: UIViewController {
     // Do any additional setup after loading the view.
     updateDash()
     
+
   }
   
   override func didReceiveMemoryWarning() {
@@ -59,7 +60,6 @@ class HomeScreenViewController: UIViewController {
     self.performSegue(withIdentifier: "ActivitySegue", sender: nil)
   }
   
-  
   @IBAction func alarmScheduleButtonPressed(_ sender: UIButton) {
     self.performSegue(withIdentifier: "alarmScheduleSegue", sender: nil)
   }
@@ -79,8 +79,5 @@ class HomeScreenViewController: UIViewController {
     let currentDashString = String(currentDash)
     streakDaysNumberLabel.text = currentDashString
   }
-  
-  
-  
   
 }

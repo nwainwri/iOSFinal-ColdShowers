@@ -17,23 +17,30 @@ class ActivityTimePreferenceTableViewCell: UITableViewCell {
   //to save output
   let defaults = UserDefaults.standard
   
+  let timeManager = ActivityTimeManager()
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    // Configure the view for the selected state
+  }
+  
   
   @IBAction func activityCategoryTimeSliderAction(_ sender: UISlider) {
-    activityTimeSliderLabel.text = String(Int(activityCategoryTimeSlider.value))
-    print(self.activityCategoryNameLabel.text!)
     
-    defaults.set(Int(self.activityCategoryTimeSlider.value), forKey: "time\(self.activityCategoryNameLabel.text!)Value")
+    activityTimeSliderLabel.text = String(timeManager.getTime(self.activityCategoryNameLabel.text!))
+    
+//    activityTimeSliderLabel.text = String(Int(activityCategoryTimeSlider.value)) // userDefault Method
+//    print(self.activityCategoryNameLabel.text!)
+    
+    timeManager.setTime(self.activityCategoryNameLabel.text!, value: Float(Int(self.activityCategoryTimeSlider.value)))
+    
+//    defaults.set(Int(self.activityCategoryTimeSlider.value), forKey: "time\(self.activityCategoryNameLabel.text!)Value")
+    activityCategoryTimeSlider.maximumValue = 10.0
     
   }
   

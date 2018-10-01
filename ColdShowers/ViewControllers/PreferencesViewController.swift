@@ -19,6 +19,8 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   //to get values
   let defaults = UserDefaults.standard
   
+  let timeManager = ActivityTimeManager()
+  
   //  var currentSection:Int = 0
   
   override func viewDidLoad() {
@@ -113,11 +115,15 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
       }
       
       cell2.activityCategoryNameLabel.text = "\(nameLabel)"
-      cell2.activityTimeSliderLabel.text = String(defaults.integer(forKey: "time\(nameLabel)Value"))
-      cell2.activityCategoryTimeSlider.value = Float(defaults.integer(forKey: "time\(nameLabel)Value"))
-//      print(cell2.activityCategoryTimeSlider.value)
+      cell2.activityTimeSliderLabel.text = String(timeManager.getTime(nameLabel))
+      cell2.activityCategoryTimeSlider.value = timeManager.getTime(nameLabel)
       
-//      cell2.layoutIfNeeded()
+//      //mark user default methods
+//      cell2.activityTimeSliderLabel.text = String(defaults.integer(forKey: "time\(nameLabel)Value"))
+//      cell2.activityCategoryTimeSlider.value = Float(defaults.integer(forKey: "time\(nameLabel)Value"))
+      //      print(cell2.activityCategoryTimeSlider.value)
+      
+      //      cell2.layoutIfNeeded()
       return cell2
     case 1:
       cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
@@ -130,12 +136,12 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     case 3:
       cell.preferenceNameLabel.text = activityManager.yoga[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.yoga[indexPath.row].settings
-    return cell
+      return cell
     default:
       fatalError("currectionSection Value out of bounds.")
     }
-//    cell.layoutIfNeeded()
-//    return cell
+    //    cell.layoutIfNeeded()
+    //    return cell
   }
   
   /*

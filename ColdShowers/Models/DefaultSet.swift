@@ -75,6 +75,15 @@ class DefaultSet {
     }
     
     let context = appDelegate.persistentContainer.viewContext
+    
+    //MARK: sets up initial settings for workout times; only does this once on intial loading of local data
+    _ = ActivityTimes(context: context, timeStrengthValue: 1.0, timeMindfulValue: 1.0, timeYogaValue: 1.0)
+    
+    
+    
+    
+    
+    
 
     // strength category is Int == 0
     _ = CoreActivity(context:context, name: "Pushups", areaOfBody: ["chest", "arms"], instructions: "", category: 0, photo: "pushups")
@@ -223,11 +232,20 @@ extension CoreActivity {
     self.category = Int64(category)
     self.photo = photo
     
-    
     self.originalIndex = 0
     self.settings = true
     self.intensity = 0
     self.occurance = 0
   }
 }
+
+extension ActivityTimes {
+  convenience init(context: NSManagedObjectContext, timeStrengthValue: Float, timeMindfulValue: Float, timeYogaValue: Float) {
+    self.init(context: context)
+    self.timeStrengthValue = timeStrengthValue
+    self.timeMindfulValue = timeMindfulValue
+    self.timeYogaValue = timeYogaValue
+  }
+}
+
 
