@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vH2-jf-3sp">
-                                <rect key="frame" x="106.5" y="113" width="161.5" height="100"/>
+                                <rect key="frame" x="107" y="283" width="161.5" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Dash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNr-M4-Wel">
                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="30"/>
@@ -36,9 +36,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="nha-kA-gh3" firstAttribute="centerX" secondItem="vH2-jf-3sp" secondAttribute="centerX" id="XX9-to-TLo"/>
+                                    <constraint firstItem="PNr-M4-Wel" firstAttribute="centerX" secondItem="vH2-jf-3sp" secondAttribute="centerX" id="dZC-jO-kGs"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obs-v5-2L7">
-                                <rect key="frame" x="0.0" y="308" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="418" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
@@ -50,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-Yi-Yfy">
-                                <rect key="frame" x="0.0" y="366" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="476" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
                                 <state key="normal" title="Setup Schedule">
@@ -82,6 +86,10 @@
                                     <action selector="preferencesButtonAction:" destination="w9t-ZA-WkR" eventType="touchUpInside" id="JoP-sU-hqg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coldShowersIconRound" translatesAutoresizingMaskIntoConstraints="NO" id="A9n-2i-NQx">
+                                <rect key="frame" x="147" y="155" width="81" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -91,7 +99,7 @@
                             <constraint firstItem="yeh-h2-C3x" firstAttribute="leading" secondItem="KRm-aJ-zwD" secondAttribute="leading" constant="16" id="fBz-Ic-ar3"/>
                             <constraint firstItem="KRm-aJ-zwD" firstAttribute="trailing" secondItem="ac8-V6-TNP" secondAttribute="trailing" constant="16" id="hto-Ip-SYc"/>
                             <constraint firstItem="yeh-h2-C3x" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="20" id="lhi-lR-Cj7"/>
-                            <constraint firstItem="vH2-jf-3sp" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="93" id="pqi-D7-hfy"/>
+                            <constraint firstItem="vH2-jf-3sp" firstAttribute="top" secondItem="KRm-aJ-zwD" secondAttribute="top" constant="263" id="pqi-D7-hfy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KRm-aJ-zwD"/>
                     </view>
@@ -553,6 +561,7 @@
     </scenes>
     <resources>
         <image name="calenderIcon" width="50" height="50"/>
+        <image name="coldShowersIconRound" width="500" height="500"/>
         <image name="coldShowers_Gear" width="389" height="389"/>
     </resources>
     <color key="tintColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
