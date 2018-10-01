@@ -25,14 +25,12 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityCurrentTimerLabel: UILabel!
   @IBOutlet weak var activityInstructionLabel: UILabel!
   
-  
-  
+
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()
   
   //MARK: SoundManager
-  
   let soundManager = SoundManager()
   
   //MARK: Activity Manager
@@ -48,8 +46,20 @@ class ActivityViewController: UIViewController {
   let formatter = DateFormatter()
   var activityTotalTime = Date()
   
+  //MARK: Local Data
+  let defaults = UserDefaults.standard
+  
+  //MARK: getting default time allotments for activities from userdefault
+  var timeStrengthValue:Int = 0
+  var timeMindfulValue:Int = 0
+  var timeYogaValue:Int = 0
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+     timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
+     timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
+     timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
     //MARK: will keep the workout screen active.
     UIApplication.shared.isIdleTimerDisabled = true
@@ -60,9 +70,14 @@ class ActivityViewController: UIViewController {
     timerOverlayView.alpha = 0.0
     timerOverlaylabel.text = timeString(time: TimeInterval(rootSeconds))
     
+    
+    
+    
     activityList = activityManager.getNewList()
-    estimatedTimeAmount.text = timeString(time: TimeInterval(seconds + seconds + seconds))
+    estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
     activityCurrentTimerLabel.text = timeString(time: TimeInterval(seconds))
+    
+
     
     MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
@@ -100,6 +115,8 @@ class ActivityViewController: UIViewController {
     activityStartButton.isHidden = true
     activityCancelButton.isHidden = true
     timerOverlayView.isHidden = false
+    
+    
     self.runTimer()
   }
   
@@ -128,7 +145,20 @@ class ActivityViewController: UIViewController {
       
       self.timer.invalidate()
       self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
-      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.rootSeconds))
+      
+      if self.activityList[self.currentActivity].category == 0 {
+        self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+      } else if self.activityList[self.currentActivity].category == 1 {
+        self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+      } else if self.activityList[self.currentActivity].category == 2 {
+        self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+      } else {
+        // DO NOTHING
+      }
+      
+      
+      
+//      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.rootSeconds))
       
       if self.currentActivity < (self.activityList.count - 1) {
         self.currentActivity += 1
@@ -164,6 +194,11 @@ class ActivityViewController: UIViewController {
     
     
   }
+  
+  
+  
+  
+  
   
   func timeString(time:TimeInterval) -> String {
     let hours = Int(time) / 3600

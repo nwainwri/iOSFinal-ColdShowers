@@ -16,7 +16,8 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   
   let activityManager = ActivityListManager()
   
-  
+  //to get values
+  let defaults = UserDefaults.standard
   
   //  var currentSection:Int = 0
   
@@ -29,6 +30,11 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     preferencesTableView.delegate = self
     preferencesTableView.dataSource = self
     
+    preferencesTableView.rowHeight = UITableViewAutomaticDimension
+    preferencesTableView.estimatedRowHeight = 140
+    
+    
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -40,11 +46,11 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "Strength..."
+      return "Activity Time Length, Minutes"
     case 1:
-      return "Mindful"
+      return "Strength"
     case 2:
-      return "Yoga"
+      return "Mindful"
     case 3:
       return "Yoga"
     default:
@@ -78,35 +84,58 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     }
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableViewAutomaticDimension
+  }
+  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableViewAutomaticDimension
+  }
+  
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! ActivityPreferencesTableViewCell
     
     let cell2 = preferencesTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! ActivityTimePreferenceTableViewCell
     
-    
     cell.delegate = self
     
     switch indexPath.section {
     case 0:
-      cell2.activityCategoryNameLabel.text = "TEST ME"
-      cell2.activityCategoryTimeSlider.maximumValue = 10
       
-      cell2.layoutIfNeeded()
+      var nameLabel = ""
+      if indexPath.row == 0 {
+        nameLabel = "Strength"
+      } else if indexPath.row == 1 {
+        nameLabel = "Mindful"
+      } else if indexPath.row == 2 {
+        nameLabel = "Yoga"
+      }
+      
+      cell2.activityCategoryNameLabel.text = "\(nameLabel)"
+      cell2.activityTimeSliderLabel.text = String(defaults.integer(forKey: "time\(nameLabel)Value"))
+      cell2.activityCategoryTimeSlider.value = Float(defaults.integer(forKey: "time\(nameLabel)Value"))
+//      print(cell2.activityCategoryTimeSlider.value)
+      
+//      cell2.layoutIfNeeded()
       return cell2
     case 1:
       cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.strength[indexPath.row].settings
+      return cell
     case 2:
       cell.preferenceNameLabel.text = activityManager.mindful[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.mindful[indexPath.row].settings
+      return cell
     case 3:
       cell.preferenceNameLabel.text = activityManager.yoga[indexPath.row].name
       cell.preferenceSettingSwitch.isOn = activityManager.yoga[indexPath.row].settings
+    return cell
     default:
       fatalError("currectionSection Value out of bounds.")
     }
-    cell.layoutIfNeeded()
-    return cell
+//    cell.layoutIfNeeded()
+//    return cell
   }
   
   /*
