@@ -34,7 +34,6 @@
 		F14CF9AE2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */; };
 		F16DECE2215EBE1A00D9B7D1 /* ActivityTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE1215EBE1A00D9B7D1 /* ActivityTimeManager.swift */; };
 		F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */; };
-		F176BF7C2155D73E00C0836B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7B2155D73E00C0836B /* Activity.swift */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
 		F176BF852156F3AF00C0836B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF842156F3AF00C0836B /* SignUpViewController.swift */; };
 		F176BF87215715C800C0836B /* ActivityPreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF86215715C800C0836B /* ActivityPreferencesTableViewCell.swift */; };
@@ -92,7 +91,6 @@
 		F16DECE1215EBE1A00D9B7D1 /* ActivityTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimeManager.swift; sourceTree = "<group>"; };
 		F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		F176BF7B2155D73E00C0836B /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F176BF7E2155D8EF00C0836B /* DefaultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSet.swift; sourceTree = "<group>"; };
 		F176BF842156F3AF00C0836B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F176BF86215715C800C0836B /* ActivityPreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPreferencesTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 		F176BF7D2155D74300C0836B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F176BF7B2155D73E00C0836B /* Activity.swift */,
 				F176BF7E2155D8EF00C0836B /* DefaultSet.swift */,
 				F11DA23D215C497B0066AEF8 /* Category.swift */,
 			);
@@ -433,7 +430,6 @@
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
 				A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */,
 				F11DA23E215C497B0066AEF8 /* Category.swift in Sources */,
-				F176BF7C2155D73E00C0836B /* Activity.swift in Sources */,
 				A14F7619215446DA005BDAF4 /* HomeScreenViewController.swift in Sources */,
 				A14F761E215447ED005BDAF4 /* PostActivityViewController.swift in Sources */,
 			);
