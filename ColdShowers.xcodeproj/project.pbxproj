@@ -30,8 +30,8 @@
 		F11C6D20215EFED60094E99C /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11C6D1F215EFED60094E99C /* Border.swift */; };
 		F11DA23E215C497B0066AEF8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA23D215C497B0066AEF8 /* Category.swift */; };
 		F14CF9A921615C3F0005D1D2 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CF9A821615C3F0005D1D2 /* SoundManager.swift */; };
-		F14CF9AC21615F3E0005D1D2 /* doneActivity.wav in Resources */ = {isa = PBXBuildFile; fileRef = F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */; };
 		F14CF9AE2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */; };
+		F15BD3402162B808000AF03D /* doneActivity.wav in Resources */ = {isa = PBXBuildFile; fileRef = F15BD33F2162B808000AF03D /* doneActivity.wav */; };
 		F16DECE2215EBE1A00D9B7D1 /* ActivityTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DECE1215EBE1A00D9B7D1 /* ActivityTimeManager.swift */; };
 		F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */; };
 		F176BF7F2155D8EF00C0836B /* DefaultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BF7E2155D8EF00C0836B /* DefaultSet.swift */; };
@@ -86,8 +86,8 @@
 		F11C6D1F215EFED60094E99C /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		F11DA23D215C497B0066AEF8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F14CF9A821615C3F0005D1D2 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = doneActivity.wav; path = "Rough Assets/Sounds/doneActivity.wav"; sourceTree = SOURCE_ROOT; };
 		F14CF9AD2161866E0005D1D2 /* ActivityTimePreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimePreferenceTableViewCell.swift; sourceTree = "<group>"; };
+		F15BD33F2162B808000AF03D /* doneActivity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doneActivity.wav; sourceTree = "<group>"; };
 		F16DECE1215EBE1A00D9B7D1 /* ActivityTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimeManager.swift; sourceTree = "<group>"; };
 		F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 		F14CF9AA21615F2A0005D1D2 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */,
+				F15BD33F2162B808000AF03D /* doneActivity.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -384,9 +384,9 @@
 				A14F75F0215444E6005BDAF4 /* Assets.xcassets in Resources */,
 				A14F75EB215444E4005BDAF4 /* Main.storyboard in Resources */,
 				A14F762721544F40005BDAF4 /* Login.storyboard in Resources */,
-				F14CF9AC21615F3E0005D1D2 /* doneActivity.wav in Resources */,
 				A14F762421544EFA005BDAF4 /* Activity.storyboard in Resources */,
 				F16DECE4215ED3B100D9B7D1 /* Splash.storyboard in Resources */,
+				F15BD3402162B808000AF03D /* doneActivity.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
