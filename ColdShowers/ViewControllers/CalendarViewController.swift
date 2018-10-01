@@ -259,9 +259,9 @@ class CalendarViewController: UIViewController {
     case 0:
         adjustedTimeString = "12:\(minute) AM"
     case ..<12:
-        adjustedTimeString = "\(hour):\(minute) PM"
+        adjustedTimeString = "\(hour):\(minute) AM"
     case ..<24:
-        adjustedTimeString = "\(hour - 12):\(minute) AM"
+        adjustedTimeString = "\(hour - 12):\(minute) PM"
     default:
         adjustedTimeString = "Invalid Time"
     }

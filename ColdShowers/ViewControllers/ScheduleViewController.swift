@@ -52,12 +52,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     let durationInt = request.content.userInfo["Duration"] as? Int
     let durationString = "\(durationInt ?? 15) Minutes"
     
-    // will print DAY: Optional("Optional(ColdShowers.weekDay.Saturday)")
-    // so theory; however the 'string' is saved as a notification request... is where it's formatted to have "optional"
     
-    
-    //let time = "\(hour):\(minute)"
-    ////
     cell.dateLabel.text = timeString
     cell.timeLabel.text = dayString
     cell.durationLabel.text = durationString
