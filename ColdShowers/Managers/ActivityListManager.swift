@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Nathan Wainwright on 2018-09-23.
-//  Copyright © 2018 Kit Clark-O'Neil. / Nathan Wainwright All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -26,11 +26,11 @@ class ActivityListManager: NSObject {
         return
     }
     let context = appDelegate.persistentContainer.viewContext
-
-//  this is a rough example of how to save in background.... HARD TO ensure it's working
-//    appDelegate.persistentContainer.performBackgroundTask { (context) in
-//      context.save()
-//    }
+    
+    //  this is a rough example of how to save in background.... HARD TO ensure it's working
+    //    appDelegate.persistentContainer.performBackgroundTask { (context) in
+    //      context.save()
+    //    }
     let allActivities = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sort = NSSortDescriptor(key: #keyPath(CoreActivity.category), ascending: true)
     allActivities.sortDescriptors = [sort]
@@ -59,7 +59,6 @@ class ActivityListManager: NSObject {
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
-
     
     let allYoga = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let sortYoga = NSSortDescriptor(key: "name", ascending: true)
@@ -88,7 +87,7 @@ class ActivityListManager: NSObject {
     let categoryStrength = NSPredicate(format: "category == 0")
     let settingStrength = NSPredicate(format: "settings == %@", NSNumber(value: true))
     
-    let occurenceStrength = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueStrength])
+    let occurenceStrength = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueStrength]) // leave in, further expansion
     
     let compoundStrength = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryStrength, settingStrength])
     
@@ -116,7 +115,7 @@ class ActivityListManager: NSObject {
     let finalMindfulFetch = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
     let categoryMindful = NSPredicate(format: "category == 1")
     let settingMindFul = NSPredicate(format: "settings == %@", NSNumber(value: true))
-    let occurenceMindful = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueMindful])
+    let occurenceMindful = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueMindful]) // leave in, further expansion
     
     let compoundMindful = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryMindful, settingMindFul])
     finalMindfulFetch.predicate = compoundMindful
@@ -127,8 +126,6 @@ class ActivityListManager: NSObject {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
     
-    /// allYoga [0, 0, 2, 5, 5, 5, 5, 6, 6]
-    //    let all = [0, 1, 1, 1, 2, 2, 3, 6, 7, 8, 8, 8]
     var occurancesYoga: [NSNumber] = [] /// e.g. [0, 2, 5, 6]
     
     for item in yoga {
@@ -146,8 +143,8 @@ class ActivityListManager: NSObject {
     let categoryYoga = NSPredicate(format: "category == 2")
     
     let settingYoga = NSPredicate(format: "settings == %@", NSNumber(value: true))
-
-    let occuranceYoga = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueYoga])
+    
+    let occuranceYoga = NSPredicate(format: "occurance IN %@", argumentArray: [uniqueYoga]) // leave in, further expansion
     
     let compoundYoga = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryYoga, settingYoga])
     finalYogaFetch.predicate = compoundYoga
@@ -158,12 +155,11 @@ class ActivityListManager: NSObject {
       print("Could not fetch. FinalYogaFetch \(error), \(error.userInfo)")
     }
   }
-
+  
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {
     return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],
             currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)],
             currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]]
   }
-  
 }

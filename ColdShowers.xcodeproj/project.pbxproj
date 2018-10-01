@@ -157,6 +157,7 @@
 				F11C6D21215F29870094E99C /* Extensions */,
 				F14CF9AA21615F2A0005D1D2 /* Sounds */,
 				A14F75F4215444E6005BDAF4 /* Info.plist */,
+				F15BD33E2162ABF5000AF03D /* Expansion */,
 				A14F75EF215444E6005BDAF4 /* Assets.xcassets */,
 			);
 			path = ColdShowers;
@@ -183,9 +184,6 @@
 		A14F761A21544709005BDAF4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A14F761621544683005BDAF4 /* LoginViewController.swift */,
-				F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */,
-				F176BF842156F3AF00C0836B /* SignUpViewController.swift */,
 				A14F7618215446DA005BDAF4 /* HomeScreenViewController.swift */,
 				A14F7621215448CB005BDAF4 /* PreferencesViewController.swift */,
 				A14F761F2154480A005BDAF4 /* CalendarViewController.swift */,
@@ -200,8 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				A14F75F1215444E6005BDAF4 /* LaunchScreen.storyboard */,
-				F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */,
-				A14F762621544F40005BDAF4 /* Login.storyboard */,
 				A14F75E9215444E4005BDAF4 /* Main.storyboard */,
 				A14F762321544EFA005BDAF4 /* Activity.storyboard */,
 			);
@@ -259,6 +255,18 @@
 				F14CF9AB21615F3E0005D1D2 /* doneActivity.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F15BD33E2162ABF5000AF03D /* Expansion */ = {
+			isa = PBXGroup;
+			children = (
+				F16DECE3215ED3B100D9B7D1 /* Splash.storyboard */,
+				A14F762621544F40005BDAF4 /* Login.storyboard */,
+				A14F761621544683005BDAF4 /* LoginViewController.swift */,
+				F16DECE5215ED52D00D9B7D1 /* SplashViewController.swift */,
+				F176BF842156F3AF00C0836B /* SignUpViewController.swift */,
+			);
+			path = Expansion;
 			sourceTree = "<group>";
 		};
 		F176BF7D2155D74300C0836B /* Models */ = {

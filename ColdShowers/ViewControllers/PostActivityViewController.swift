@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-20.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 import UIKit
 
@@ -65,7 +65,6 @@ class PostActivityViewController: UIViewController {
     let calendar = NSCalendar.current
     
     let lastDateString = defaults.string(forKey: "lastActivityListDone")
-    
     
     guard let lastDate = formatter1.date(from: lastDateString ?? formatter1.string(from: Date(timeIntervalSinceReferenceDate:0))) else {
       // if error triggered; check data

@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-20.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -16,9 +16,6 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   
   let activityManager = ActivityListManager()
   
-  //to get values
-  let defaults = UserDefaults.standard
-  
   let timeManager = ActivityTimeManager()
   
   //  var currentSection:Int = 0
@@ -26,16 +23,12 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
     // Do any additional setup after loading the view.
-    //      defaultSet.activities[0]
     preferencesTableView.delegate = self
     preferencesTableView.dataSource = self
     
     preferencesTableView.rowHeight = UITableViewAutomaticDimension
     preferencesTableView.estimatedRowHeight = 140
-    
-    
     
   }
   
@@ -58,8 +51,6 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     default:
       return "OUT OF BOUNDS"
     }
-    
-    
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,7 +59,6 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
     switch section {
     case 0:
       return 3
@@ -94,13 +84,12 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     return UITableViewAutomaticDimension
   }
   
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! ActivityPreferencesTableViewCell
     
     let cell2 = preferencesTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! ActivityTimePreferenceTableViewCell
     
-    cell.delegate = self
+    cell.delegate = self // needed for UISwitch, do not remove
     
     switch indexPath.section {
     case 0:
@@ -117,13 +106,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
       cell2.activityCategoryNameLabel.text = "\(nameLabel)"
       cell2.activityTimeSliderLabel.text = String(timeManager.getTime(nameLabel))
       cell2.activityCategoryTimeSlider.value = timeManager.getTime(nameLabel)
-      
-//      //mark user default methods
-//      cell2.activityTimeSliderLabel.text = String(defaults.integer(forKey: "time\(nameLabel)Value"))
-//      cell2.activityCategoryTimeSlider.value = Float(defaults.integer(forKey: "time\(nameLabel)Value"))
-      //      print(cell2.activityCategoryTimeSlider.value)
-      
-      //      cell2.layoutIfNeeded()
+
       return cell2
     case 1:
       cell.preferenceNameLabel.text = activityManager.strength[indexPath.row].name
@@ -140,8 +123,6 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     default:
       fatalError("currectionSection Value out of bounds.")
     }
-    //    cell.layoutIfNeeded()
-    //    return cell
   }
   
   /*

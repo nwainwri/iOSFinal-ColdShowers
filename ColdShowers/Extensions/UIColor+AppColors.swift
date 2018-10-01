@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Nathan Wainwright on 2018-09-28.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-20.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ enum weekDay:Int {
   Friday,
   Saturday
 
-    
     func toString() -> String {
         
         switch self {
@@ -37,8 +36,6 @@ enum weekDay:Int {
         case .Saturday:
             return "Saturday"
         }
-
-  
     }
 }
 
@@ -121,8 +118,7 @@ class CalendarViewController: UIViewController {
           notificationContent.title = "Wake up?"
           notificationContent.subtitle = ""
           notificationContent.categoryIdentifier = "Actions"
-        
-          
+
             guard let dayNumber = dateComponents.weekday else { fatalError("invalid day")}
             
             guard let day = weekDay.init(rawValue: dayNumber - 1) else { fatalError("invalide date")}
@@ -288,7 +284,6 @@ class CalendarViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
 }
-
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

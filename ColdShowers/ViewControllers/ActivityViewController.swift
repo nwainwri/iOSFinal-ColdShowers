@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-20.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -33,7 +33,6 @@ class ActivityViewController: UIViewController {
   //MARK: SoundManager
   let soundManager = SoundManager()
   
-  
   //MARK: Time Manager
   let timeManager = ActivityTimeManager()
   
@@ -61,15 +60,14 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
     timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
     timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
     timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
     
-//    // user default methods
-//    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
-//    timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
-//    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
+    //    // user default methods
+    //    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
+    //    timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
+    //    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
     switch self.currentActivity {
     case 0:
@@ -99,9 +97,6 @@ class ActivityViewController: UIViewController {
     
     activityList = activityManager.getNewList()
     estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
-    
-    
-    
     
     MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
@@ -139,19 +134,13 @@ class ActivityViewController: UIViewController {
     activityCancelButton.isHidden = true
     timerOverlayView.isHidden = false
     
-    
     self.runTimer()
   }
   
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
-    //    dismiss(animated: true, completion: nil)
-    // backHome
-    //MARK: is this best practice?
     self.performSegue(withIdentifier: "backHome", sender: nil)
-    //    self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
   }
   
-  //MARK: does not animate at all?
   @IBAction func timerOverlayButtonPressed(_ sender: UIButton) {
     UIView.animate(withDuration: 0.8, animations: {
       self.timerOverlayView.alpha = 0.0
@@ -167,7 +156,6 @@ class ActivityViewController: UIViewController {
       self.activityList[self.currentActivity].occurance += 1
       
       self.timer.invalidate()
-      //      self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
       
       if self.activityList[self.currentActivity].category == 0 {
         self.seconds = self.timeStrengthValue
@@ -181,10 +169,6 @@ class ActivityViewController: UIViewController {
       } else {
         // DO NOTHING
       }
-      
-      
-      
-      //      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.rootSeconds))
       
       if self.currentActivity < (self.activityList.count - 1) {
         self.currentActivity += 1
@@ -209,8 +193,6 @@ class ActivityViewController: UIViewController {
           fatalError("TIME VALUE ERROR")
         }
         
-        
-        
         self.loadData()
       } else {
         self.performSegue(withIdentifier: "postActivitySegue", sender: self)
@@ -231,24 +213,14 @@ class ActivityViewController: UIViewController {
   }
   
   @objc func updateTimer() {
-    
     self.seconds -= 1     //This will decrement(count down)the seconds.
     self.timerOverlaylabel.text = timeString(time: TimeInterval(self.seconds)) //This will update the label.
-    
-    // if you hit 'zero';... then dismiss overlay
     
     if seconds == 0 {
       timerOverlayButtonPressed(timerOverlayButton)
       soundManager.doneActivity()
-    }
-    
-    
+    } 
   }
-  
-  
-  
-  
-  
   
   func timeString(time:TimeInterval) -> String {
     let hours = Int(time) / 3600

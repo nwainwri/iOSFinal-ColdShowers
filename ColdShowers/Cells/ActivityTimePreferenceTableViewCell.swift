@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Nathan Wainwright on 2018-09-30.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -29,24 +29,10 @@ class ActivityTimePreferenceTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  
   @IBAction func activityCategoryTimeSliderAction(_ sender: UISlider) {
     
     activityTimeSliderLabel.text = String(timeManager.getTime(self.activityCategoryNameLabel.text!))
-    
-//    activityTimeSliderLabel.text = String(Int(activityCategoryTimeSlider.value)) // userDefault Method
-//    print(self.activityCategoryNameLabel.text!)
-    
     timeManager.setTime(self.activityCategoryNameLabel.text!, value: Float(Int(self.activityCategoryTimeSlider.value)))
-    
-//    defaults.set(Int(self.activityCategoryTimeSlider.value), forKey: "time\(self.activityCategoryNameLabel.text!)Value")
     activityCategoryTimeSlider.maximumValue = 10.0
-    
   }
-  
-  
-  
-  
-  
-  
 }

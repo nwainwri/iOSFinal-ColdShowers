@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-27.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,6 @@ class AlarmCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // Initialization code
     }
 
@@ -24,5 +23,4 @@ class AlarmCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
 }

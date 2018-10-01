@@ -3,7 +3,7 @@
 //  ColdShowers
 //
 //  Created by Kit Clark-O'Neil on 2018-09-20.
-//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//  Copyright © 2018 Kit Clark-O'Neil and Nathan Wainwright All rights reserved.
 //
 
 import UIKit
@@ -27,8 +27,6 @@ class HomeScreenViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     updateDash()
-    
-
   }
   
   override func didReceiveMemoryWarning() {
@@ -68,8 +66,7 @@ class HomeScreenViewController: UIViewController {
   //MARK: Unwind Func
   
   @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
-  
-  
+
   //MARK: Helper Functions
   func updateDash() {
     let currentDash = defaults.integer(forKey: "currentStreak")
