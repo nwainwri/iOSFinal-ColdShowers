@@ -10,5 +10,6 @@ Final Project for Lighthouse-Labs iOS Developer bootcamp. Application designed t
 **Nathan Wainwright** -- [nwainwri](https://github.com/nwainwri)
 
 
-##Built With
-Swift, CoreData
+##Tech Stack
+*Swift
+*CoreData
