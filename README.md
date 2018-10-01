@@ -6,10 +6,11 @@ Final Project for Lighthouse-Labs iOS Developer bootcamp. Application designed t
 
 
 ## Authors
-**Kit Clark-O'Neil** -- [kclarkoneil](https://github.com/kclarkoneil)
-**Nathan Wainwright** -- [nwainwri](https://github.com/nwainwri)
+- **Kit Clark-O'Neil** -- [kclarkoneil](https://github.com/kclarkoneil)
+
+- **Nathan Wainwright** -- [nwainwri](https://github.com/nwainwri)
 
 
 ##Tech Stack
-*Swift
-*CoreData
+- Swift
+- CoreData
