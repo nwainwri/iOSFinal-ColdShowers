@@ -61,27 +61,40 @@ class ActivityViewController: UIViewController {
      timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
      timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
+    switch self.currentActivity {
+    case 0:
+      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+      self.rootSeconds = self.timeStrengthValue
+      self.seconds = self.timeStrengthValue
+    case 1:
+      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+      self.rootSeconds = self.timeMindfulValue
+      self.seconds = self.timeMindfulValue
+    case 2:
+      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+      self.rootSeconds = self.timeYogaValue
+      self.seconds = self.timeYogaValue
+    default:
+      fatalError("TIME VALUE ERROR")
+    }
+    
     //MARK: will keep the workout screen active.
     UIApplication.shared.isIdleTimerDisabled = true
 
-    
-    // Do any additional setup after loading the view.
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
-    timerOverlaylabel.text = timeString(time: TimeInterval(rootSeconds))
-    
-    
-    
-    
+
     activityList = activityManager.getNewList()
     estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
-    activityCurrentTimerLabel.text = timeString(time: TimeInterval(seconds))
+    
+    
     
 
-    
     MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
-    
     MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
     MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
     
@@ -144,13 +157,16 @@ class ActivityViewController: UIViewController {
       self.activityList[self.currentActivity].occurance += 1
       
       self.timer.invalidate()
-      self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
+//      self.seconds = self.rootSeconds   //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
       
       if self.activityList[self.currentActivity].category == 0 {
+        self.seconds = self.timeStrengthValue
         self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
       } else if self.activityList[self.currentActivity].category == 1 {
+        self.seconds = self.timeMindfulValue
         self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
       } else if self.activityList[self.currentActivity].category == 2 {
+        self.seconds = self.timeYogaValue
         self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
       } else {
         // DO NOTHING
@@ -162,6 +178,29 @@ class ActivityViewController: UIViewController {
       
       if self.currentActivity < (self.activityList.count - 1) {
         self.currentActivity += 1
+        
+        switch self.currentActivity {
+        case 0:
+          self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+          self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+          self.rootSeconds = self.timeStrengthValue
+          self.seconds = self.timeStrengthValue
+        case 1:
+          self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+          self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+          self.rootSeconds = self.timeMindfulValue
+          self.seconds = self.timeMindfulValue
+        case 2:
+          self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+          self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+          self.rootSeconds = self.timeYogaValue
+          self.seconds = self.timeYogaValue
+        default:
+          fatalError("TIME VALUE ERROR")
+        }
+        
+        
+        
         self.loadData()
       } else {
         self.performSegue(withIdentifier: "postActivitySegue", sender: self)
@@ -182,8 +221,9 @@ class ActivityViewController: UIViewController {
   }
   
   @objc func updateTimer() {
-    seconds -= 1     //This will decrement(count down)the seconds.
-    self.timerOverlaylabel.text = timeString(time: TimeInterval(seconds)) //This will update the label.
+    
+    self.seconds -= 1     //This will decrement(count down)the seconds.
+    self.timerOverlaylabel.text = timeString(time: TimeInterval(self.seconds)) //This will update the label.
     
     // if you hit 'zero';... then dismiss overlay
     
