@@ -19,6 +19,11 @@ class ActivityTimeManager: NSObject {
   
   var times: [ActivityTimes] = []
   
+  
+  
+  
+  
+  // new comment
   override init() {
     guard let appDelegate =
       UIApplication.shared.delegate as? AppDelegate else {
