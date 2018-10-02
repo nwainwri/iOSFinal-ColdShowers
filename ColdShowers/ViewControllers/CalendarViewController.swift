@@ -111,7 +111,7 @@ class CalendarViewController: UIViewController {
   }
   func setActivity(alarmComponents: ([DateComponents], Bool, String, Int)) {
     //For testing only
-    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     
     checkUserPermission { (res) in
       if res {
@@ -157,6 +157,12 @@ class CalendarViewController: UIViewController {
     
     UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
   }
+  
+  
+
+  
+  
+  
   
   // MARK: - Button operation
   @IBAction func scheduleCancelButtonAction(_ sender: UIButton) {
@@ -310,6 +316,25 @@ class CalendarViewController: UIViewController {
 }
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
+  
+  
+  // currently does not get called at all, should be where notification is set to delivered.
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    switch response.notification.request.content.categoryIdentifier {
+    case "accept":
+      print("accpeted")
+    default:
+      //      fatalError(response.notification.request.content.categoryIdentifier)
+      print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
+      break
+    }
+
+  }
+  
+  
+  
+  
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert])
   }
