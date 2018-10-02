@@ -60,6 +60,9 @@ class CalendarViewController: UIViewController {
   
   var daysOfTheWeek = [Int]()
   
+  let timeManager = ActivityTimeManager()
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     //        UNUserNotificationCenter.current().delegate = self
@@ -251,23 +254,44 @@ class CalendarViewController: UIViewController {
     }
     var adjustedTimeString = String()
     
+    
+    // example for time formatting
+//    func timeString(time:TimeInterval) -> String {
+//      let hours = Int(time) / 3600
+//      let minutes = Int(time) / 60 % 60
+//      let timeString = String(format: "%02d:%02d:%02d", hours, minutes)
+//      return timeString
+//    }
+    
     switch hour {
     case 0:
-        adjustedTimeString = "12:\(minute) AM"
+        adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
     case ..<12:
-        adjustedTimeString = "\(hour):\(minute) AM"
+        adjustedTimeString = String(format: "%2d:%02d AM", hour, minute) // String(format: "%02d:%02d", hour, minute)
     case ..<24:
-        adjustedTimeString = "\(hour - 12):\(minute) PM"
+        adjustedTimeString = String(format: "%2d:%02d PM", hour - 12, minute) // String(format: "%02d:%02d", hour - 12, minute)
     default:
         adjustedTimeString = "Invalid Time"
     }
+    
+//    switch hour {
+//    case 0:
+//      adjustedTimeString = "12:\(minute) AM"
+//    case ..<12:
+//      adjustedTimeString = "\(hour):\(minute) AM"
+//    case ..<24:
+//      adjustedTimeString = "\(hour - 12):\(minute) PM"
+//    default:
+//      adjustedTimeString = "Invalid Time"
+//    }
+    
     
     
     var input: ([DateComponents], Bool, String, Int)
     input.0 = [DateComponents]()
     input.1 = repeatSwitch.isOn
     input.2 = adjustedTimeString
-    input.3 = 15
+    input.3 = timeManager.all() // MARK: -- where time for notification is set.
 
     for day in daysOfTheWeek {
       
