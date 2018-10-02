@@ -291,7 +291,7 @@ class CalendarViewController: UIViewController {
     input.0 = [DateComponents]()
     input.1 = repeatSwitch.isOn
     input.2 = adjustedTimeString
-    input.3 = timeManager.all() // MARK: -- where time for notification is set.
+    input.3 = 15 // MARK: -- where time for notification is set.
 
     for day in daysOfTheWeek {
       
