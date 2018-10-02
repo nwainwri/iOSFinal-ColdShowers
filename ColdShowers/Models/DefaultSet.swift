@@ -27,70 +27,70 @@ class DefaultSet {
     _ = CoreActivity(context:context,
                      name: "Pushups",
                      areaOfBody: ["chest", "arms"],
-                     instructions: "",
+                     instructions: "Keep your elbows in as you descend, then at the top, when you think you’ve pushed all the way up, push just a little more and feel your shoulder blades roll around your ribcage.",
                      category: 0,
                      photo: "pushups")
     
     _ = CoreActivity(context: context,
                      name: "Sit Ups",
                      areaOfBody: ["stomach", "legs"],
-                     instructions: "",
+                     instructions: "Lie down on your back, keep your knees bent and your back and feet flat on the mat. Slowly lift your torso and sit up. Return to the starting position by rolling down one vertebrae at a time.",
                      category: 0,
                      photo: "situps")
     
     _ = CoreActivity(context: context,
                      name: "Crunches",
                      areaOfBody: ["stomach"],
-                     instructions: "",
+                     instructions: "Lie down on the mat, keep your knees bent, your back and feet flat, and your hands supporting your head. Lift your shoulders, squeeze your abdominal muscles and hold it for one to two seconds. Slowly return to the starting position and repeat until set is complete.",
                      category: 0,
                      photo: "crunches")
     
     _ = CoreActivity(context: context,
-                     name: "Leg Lifts ",
+                     name: "Leg Lifts",
                      areaOfBody: ["legs"],
-                     instructions: "",
+                     instructions: "Lie supine on bench or mat. Place hands under lower buttock on each side to support pelvis. Keeping knees straight, raise legs by flexing hips until hips are completely flexed. Return until hips and knees are extended. Repeat.",
                      category: 0,
                      photo: "leglifts")
     
     _ = CoreActivity(context: context,
                      name: "Squats",
                      areaOfBody: ["legs","back"],
-                     instructions: "",
+                     instructions: "Stand with your head facing forward and your chest held up and out. Place your feet shoulder-width apart or slightly wider. Extend your hands straight out in front of you to help keep your balance. You can also bend the elbows or clasp the fingers. Sit back and down like you're sitting into an imaginary chair. Keep your head facing forward as your upper body bends forward a bit. Rather than allowing your back to round, let your lower back arch slightly as you descend. Lower down so your thighs are as parallel to the floor as possible, with your knees over your ankles. Press your weight back into your heels. Keep your body tight, and push through your heels to bring yourself back to the starting position.",
                      category: 0,
                      photo: "squats")
     
     _ = CoreActivity(context: context,
                      name: "Plank",
                      areaOfBody: ["back","stomach", "arms"],
-                     instructions: "",
+                     instructions: "Slowly lift your entire torso off the floor or mat, maintaining a stiff torso and legs. Avoid any arching (sagging) in your low back, hiking (upwards) in your hips or bending in the knees. Avoid shrugging your shoulder and keep your shoulders positioned directly over your elbows with your palms facing down. Continue to breath while holding this position.",
                      category: 0,
                      photo: "plank")
     
     _ = CoreActivity(context: context,
                      name: "Lunges",
                      areaOfBody: ["legs"],
-                     instructions: "",
+                     instructions: "Keep your upper body straight, with your shoulders back and relaxed and chin up (pick a point to stare at in front of you so you don't keep looking down). Always engage your core. Step forward with one leg, lowering your hips until both knees are bent at about a 90-degree angle. Make sure your front knee is directly above your ankle, not pushed out too far, and make sure your other knee doesn't touch the floor. Keep the weight in your heels as you push back up to the starting position.",
                      category: 0,
                      photo: "lunges")
     
     _ = CoreActivity(context: context,
                      name: "Pike Pushup",
                      areaOfBody: ["back","legs", "arms"],
-                     instructions: "",
+                     instructions: "Start in a pushup position and raise your hips until you have a straight line going from your hands to your hips. Keep your elbows in as you descend, drive yourself back up and keep your hips up the entire time.",
                      category: 0,
                      photo: "pikePushUp")
     
     _ = CoreActivity(context: context,
                      name: "Bear Crawl",
                      areaOfBody: ["back","arms"],
-                     instructions: "",
+                     instructions: "Get on all fours with your hands under your shoulders and your knees under your hips; keep your knees an inch above the ground. Crawl forward by taking a small step with your right arm and left leg at the same time and alternate. Keep your hips low and your head up.",
                      category: 0,
                      photo: "bearcrawl")
     
     _ = CoreActivity(context: context,
                      name: "Hip/Thigh Extension",
                      areaOfBody: ["legs","stomach"],
-                     instructions: "",
+                     instructions: "Lie on your back in a bridge position and bend one knee so that it makes a 90-degree angle to the floor and stick the opposite leg straight out — knees aligned. With your bent leg, squeeze your glute, push through your heel, push your hips up and keep your hips level as you rise. Keep your straight leg extended throughout the exercise and keep it inline with your torso. ",
                      category: 0,
                      photo:"hipthigh")
     
@@ -169,70 +169,70 @@ class DefaultSet {
     _ = CoreActivity(context: context,
                      name: "Mountain Pose",
                      areaOfBody: ["legs", "arms"],
-                     instructions: "",
+                     instructions: "This pose is excellent for giving a warm-up stretch to the entire body from neck to toe.",
                      category: 2,
                      photo:"mountain")
     
     _ = CoreActivity(context: context,
                      name: "Tree Pose",
                      areaOfBody: ["legs"],
-                     instructions: "",
+                     instructions: "Move into the pose, by lifting the left leg and placing it on the inner right thigh. Balance your body and mind until your body stands firm like the tree on the right leg. Focus on the breath and lift both your arms into the air above the head to join your hands.",
                      category: 2,
                      photo:"tree")
     
     _ = CoreActivity(context: context,
                      name: "Child's Pose",
                      areaOfBody: ["legs","arms"],
-                     instructions: "",
+                     instructions: "Relax like a child with this pose and let the worries of the world fade away in it. The pose not only helps your body relax but also stills the mind and aligns it with the center of your heart.",
                      category: 2,
                      photo:"child")
     
     _ = CoreActivity(context: context,
                      name: "Downward Facing Dog",
                      areaOfBody: ["legs","back", "arms"],
-                     instructions: "",
+                     instructions: "The pose is one of the most followed yoga stretches for beginners. Pull yourself into an ‘Inverted-V’ position and feel a thorough stretch and tone in the spine, legs, calves, and hamstrings. While the steadiness required in maintaining the composure in this pose contributes to building strength and balance.",
                      category: 2,
                      photo:"downwarddog")
     
     _ = CoreActivity(context: context,
                      name: "Warrior I",
                      areaOfBody: ["legs","arms"],
-                     instructions: "",
+                     instructions: "Start in a standing position with your hands upwards, inhale slowly during this. As you exhale, step your left foot back about four feet, so you’re in a lunge position with the right ankle over the right knee. Raise your arms straight overhead, biceps by ears, and turn your left foot about 90 degrees to face the left wall. Align your left heel perpendicular with your right heel. Expand your chest and pull your shoulders back, then lower down toward the floor as you lift your arms up. Make sure your hips stay square to the front, as you continue to breathe.",
                      category: 2,
                      photo:"warriorOne")
     
     _ = CoreActivity(context: context,
                      name: "Triangle Pose",
                      areaOfBody: ["legs","back"],
-                     instructions: "",
+                     instructions: "Stand up straight, and place your feet slightly more than shoulder width apart. The Triangle is a lateral stretch for your trunk muscles and spine, and makes your hips, legs, and shoulders more flexible. Stretch your right arm up, then bend to your left, sliding your left hand down your thigh. Do not twist your body. Hold for 30 seconds, working up to 2 minutes with practice. Inhale as you straighten up again. Repeat the pose on the other side. Your body forms a straight line, parallel to the floor. from your waist to your fingertips.",
                      category: 2,
                      photo:"triangle")
     
     _ = CoreActivity(context: context,
                      name: "Chair Pose",
                      areaOfBody: ["legs","back", "arms"],
-                     instructions: "",
+                     instructions: "Start in a standing position with your hands upwards, inhale slowly during this. Inhale and raise your arms perpendicular to the floor. Either keep the arms parallel, palms facing inward, or join the palms. Exhale and bend your knees, trying to take the thighs as nearly parallel to the floor as possible. The knees will project out over the feet, and the torso will lean slightly forward over the thighs until the front torso forms approximately a right angle with the tops of the thighs. Keep the inner thighs parallel to each other and press the heads of the thigh bones down toward the heels. Firm your shoulder blades against the back. Take your tailbone down toward the floor and in toward your pubis to keep the lower back long. Stay for thirty seconds to a minute. To come out of this pose straighten your knees with an inhalation, lifting strongly through the arms. Exhale and release your arms to your sides into the starting position.",
                      category: 2,
                      photo:"chair")
     
     _ = CoreActivity(context: context,
                      name: "Cobra Pose",
                      areaOfBody: ["back","arms"],
-                     instructions: "",
+                     instructions: "Rest on the mat on your stomach and raise the upper body to the curvature of the spine. Experience a deep stretch in the torso and the legs as you perform it. Close your eyes and remain in the pose for a few seconds for complete relaxation of the mind.",
                      category: 2,
                      photo:"cobra")
     
     _ = CoreActivity(context: context,
                      name: "Cobbler’s Pose",
                      areaOfBody: ["legs"],
-                     instructions: "",
+                     instructions: "Sit on the mat in the position of the Cobbler, the soles of your feet aligned with each other. While grasping the feet with your hands flap your thighs like the wings of a butterfly. An excellent pose to release even the most dormant muscles in the lower body while strengthening the spine.",
                      category: 2,
                      photo:"cobbler")
     
     _ = CoreActivity(context: context,
-                     name: "Corpose Pose",
+                     name: "Corpse Pose",
                      areaOfBody: ["body","mind"],
-                     instructions: "",
+                     instructions: "Spare a few minutes into this pose and let your mind, body, and soul sink in perfect harmony with each other before you head out for the day – feeling completely relaxed and rejuvenated.",
                      category: 2,
                      photo:"corpse")
     

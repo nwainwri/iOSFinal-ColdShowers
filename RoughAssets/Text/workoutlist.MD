@@ -10,6 +10,14 @@ var category: String?
 
 URL:
 https://blog.myfitnesspal.com/10-essential-bodyweight-exercises/
+https://www.popsugar.com/fitness/How-Do-Squats-8876316
+https://exrx.net/Lists/Directory
+https://www.spotebi.com/exercise-guide/abs-obliques-exercises/
+https://www.realbuzz.com/articles-interests/fitness/article/the-top-10-best-exercises/
+https://www.acefitness.org/education-and-resources/lifestyle/blog/6593/top-25-at-home-exercises
+https://blog.myfitnesspal.com/10-essential-bodyweight-exercises/
+https://www.shape.com/fitness/workouts/know-your-basics-how-do-lunge
+
 
 Push Ups    ["arms", "chest"]   
 Sit Ups     ["stomach","legs"]
@@ -26,6 +34,11 @@ Hip/Thigh Extension   ["legs","stomach"]
 
 URL:
 https://www.rishikulyogshala.org/top-10-yoga-poses-for-complete-beginners/
+https://dailyburn.com/life/fitness/beginner-yoga-poses-positions/
+
+https://www.sivananda.org/teachings/asana/triangle.html
+
+
 
 Mountain Pose ["legs"]
 Tree Pose ["legs","arms"]
