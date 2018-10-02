@@ -26,6 +26,12 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityInstructionLabel: UILabel!
   
   
+  @IBOutlet weak var activityInstructionButton: UIButton!
+  @IBOutlet weak var activityInstructionTextView: UITextView!
+  
+  var instructionSetting = true
+  
+  
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()
@@ -59,6 +65,7 @@ class ActivityViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    activityInstructionTextView.isHidden = true
     
     timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
     timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
@@ -122,6 +129,35 @@ class ActivityViewController: UIViewController {
    */
   
   //MARK: Button Actions
+  
+  @IBAction func activityInstructionButtonPressed(_ sender: UIButton) {
+    
+    if instructionSetting {
+      activityInstructionTextView.isHidden = true
+    } else {
+      activityInstructionTextView.isHidden = false
+    }
+    
+     instructionSetting = !instructionSetting
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
@@ -133,7 +169,8 @@ class ActivityViewController: UIViewController {
     activityStartButton.isHidden = true
     activityCancelButton.isHidden = true
     timerOverlayView.isHidden = false
-    
+    activityInstructionButton.isEnabled = false
+    activityInstructionTextView.isHidden = true
     self.runTimer()
   }
   
@@ -153,6 +190,8 @@ class ActivityViewController: UIViewController {
       self.activityCancelButton.isEnabled = true
       self.activityStartButton.isHidden = false
       self.activityCancelButton.isHidden = false
+      self.activityInstructionButton.isEnabled = true
+      self.activityInstructionTextView.isHidden = true
       self.activityList[self.currentActivity].occurance += 1
       
       self.timer.invalidate()
@@ -204,7 +243,9 @@ class ActivityViewController: UIViewController {
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!)
-    activityInstructionLabel.text = activityList[currentActivity].instructions
+//    activityInstructionLabel.text = activityList[currentActivity].instructions
+    activityInstructionTextView.text = activityList[currentActivity].instructions
+    
   }
   
   //MARK: TIMER FUNCTIONS

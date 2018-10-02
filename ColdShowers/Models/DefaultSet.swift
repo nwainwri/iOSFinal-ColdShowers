@@ -24,16 +24,75 @@ class DefaultSet {
     _ = ActivityTimes(context: context, timeStrengthValue: 1.0, timeMindfulValue: 1.0, timeYogaValue: 1.0)
     
     // strength category is Int == 0
-    _ = CoreActivity(context:context, name: "Pushups", areaOfBody: ["chest", "arms"], instructions: "", category: 0, photo: "pushups")
-    _ = CoreActivity(context: context, name: "Sit Ups", areaOfBody: ["stomach", "legs"], instructions: "", category: 0, photo: "situps")
-    _ = CoreActivity(context: context, name: "Crunches", areaOfBody: ["stomach"], instructions: "", category: 0, photo: "crunches")
-    _ = CoreActivity(context: context, name: "Leg Lifts ", areaOfBody: ["legs"], instructions: "", category: 0, photo: "leglifts")
-    _ = CoreActivity(context: context, name: "Squats", areaOfBody: ["legs","back"], instructions: "", category: 0, photo: "squats")
-    _ = CoreActivity(context: context, name: "Plank", areaOfBody: ["back","stomach", "arms"], instructions: "", category: 0, photo: "plank")
-    _ = CoreActivity(context: context, name: "Lunges", areaOfBody: ["legs"], instructions: "", category: 0, photo: "lunges")
-    _ = CoreActivity(context: context, name: "Pike Pushup", areaOfBody: ["back","legs", "arms"], instructions: "", category: 0, photo: "pikePushUp")
-    _ = CoreActivity(context: context, name: "Bear Crawl", areaOfBody: ["back","arms"], instructions: "", category: 0, photo: "bearcrawl")
-    _ = CoreActivity(context: context, name: "Hip/Thigh Extension", areaOfBody: ["legs","stomach"], instructions: "", category: 0, photo:"hipthigh")
+    _ = CoreActivity(context:context,
+                     name: "Pushups",
+                     areaOfBody: ["chest", "arms"],
+                     instructions: "",
+                     category: 0,
+                     photo: "pushups")
+    
+    _ = CoreActivity(context: context,
+                     name: "Sit Ups",
+                     areaOfBody: ["stomach", "legs"],
+                     instructions: "",
+                     category: 0,
+                     photo: "situps")
+    
+    _ = CoreActivity(context: context,
+                     name: "Crunches",
+                     areaOfBody: ["stomach"],
+                     instructions: "",
+                     category: 0,
+                     photo: "crunches")
+    
+    _ = CoreActivity(context: context,
+                     name: "Leg Lifts ",
+                     areaOfBody: ["legs"],
+                     instructions: "",
+                     category: 0,
+                     photo: "leglifts")
+    
+    _ = CoreActivity(context: context,
+                     name: "Squats",
+                     areaOfBody: ["legs","back"],
+                     instructions: "",
+                     category: 0,
+                     photo: "squats")
+    
+    _ = CoreActivity(context: context,
+                     name: "Plank",
+                     areaOfBody: ["back","stomach", "arms"],
+                     instructions: "",
+                     category: 0,
+                     photo: "plank")
+    
+    _ = CoreActivity(context: context,
+                     name: "Lunges",
+                     areaOfBody: ["legs"],
+                     instructions: "",
+                     category: 0,
+                     photo: "lunges")
+    
+    _ = CoreActivity(context: context,
+                     name: "Pike Pushup",
+                     areaOfBody: ["back","legs", "arms"],
+                     instructions: "",
+                     category: 0,
+                     photo: "pikePushUp")
+    
+    _ = CoreActivity(context: context,
+                     name: "Bear Crawl",
+                     areaOfBody: ["back","arms"],
+                     instructions: "",
+                     category: 0,
+                     photo: "bearcrawl")
+    
+    _ = CoreActivity(context: context,
+                     name: "Hip/Thigh Extension",
+                     areaOfBody: ["legs","stomach"],
+                     instructions: "",
+                     category: 0,
+                     photo:"hipthigh")
     
     // mindful category is Int == 1
     _ = CoreActivity(context: context,
@@ -107,16 +166,75 @@ class DefaultSet {
                      photo:"mindful")
     
     // yoga category is Int == 2
-    _ = CoreActivity(context: context, name: "Mountain Pose", areaOfBody: ["legs", "arms"], instructions: "", category: 2, photo:"mountain")
-    _ = CoreActivity(context: context, name: "Tree Pose", areaOfBody: ["legs"], instructions: "", category: 2, photo:"tree")
-    _ = CoreActivity(context: context, name: "Child's Pose", areaOfBody: ["legs","arms"], instructions: "", category: 2, photo:"child")
-    _ = CoreActivity(context: context, name: "Downward Facing Dog", areaOfBody: ["legs","back", "arms"], instructions: "", category: 2, photo:"downwarddog")
-    _ = CoreActivity(context: context, name: "Warrior I", areaOfBody: ["legs","arms"], instructions: "", category: 2, photo:"warriorOne")
-    _ = CoreActivity(context: context, name: "Triangle Pose", areaOfBody: ["legs","back"], instructions: "", category: 2, photo:"triangle")
-    _ = CoreActivity(context: context, name: "Chair Pose", areaOfBody: ["legs","back", "arms"], instructions: "", category: 2, photo:"chair")
-    _ = CoreActivity(context: context, name: "Cobra Pose", areaOfBody: ["back","arms"], instructions: "", category: 2, photo:"cobra")
-    _ = CoreActivity(context: context, name: "Cobbler’s Pose", areaOfBody: ["legs"], instructions: "", category: 2, photo:"cobbler")
-    _ = CoreActivity(context: context, name: "Corpose Pose", areaOfBody: ["body","mind"], instructions: "", category: 2, photo:"corpse")
+    _ = CoreActivity(context: context,
+                     name: "Mountain Pose",
+                     areaOfBody: ["legs", "arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"mountain")
+    
+    _ = CoreActivity(context: context,
+                     name: "Tree Pose",
+                     areaOfBody: ["legs"],
+                     instructions: "",
+                     category: 2,
+                     photo:"tree")
+    
+    _ = CoreActivity(context: context,
+                     name: "Child's Pose",
+                     areaOfBody: ["legs","arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"child")
+    
+    _ = CoreActivity(context: context,
+                     name: "Downward Facing Dog",
+                     areaOfBody: ["legs","back", "arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"downwarddog")
+    
+    _ = CoreActivity(context: context,
+                     name: "Warrior I",
+                     areaOfBody: ["legs","arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"warriorOne")
+    
+    _ = CoreActivity(context: context,
+                     name: "Triangle Pose",
+                     areaOfBody: ["legs","back"],
+                     instructions: "",
+                     category: 2,
+                     photo:"triangle")
+    
+    _ = CoreActivity(context: context,
+                     name: "Chair Pose",
+                     areaOfBody: ["legs","back", "arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"chair")
+    
+    _ = CoreActivity(context: context,
+                     name: "Cobra Pose",
+                     areaOfBody: ["back","arms"],
+                     instructions: "",
+                     category: 2,
+                     photo:"cobra")
+    
+    _ = CoreActivity(context: context,
+                     name: "Cobbler’s Pose",
+                     areaOfBody: ["legs"],
+                     instructions: "",
+                     category: 2,
+                     photo:"cobbler")
+    
+    _ = CoreActivity(context: context,
+                     name: "Corpose Pose",
+                     areaOfBody: ["body","mind"],
+                     instructions: "",
+                     category: 2,
+                     photo:"corpse")
     
     appDelegate.saveContext()
   }
