@@ -66,7 +66,7 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     activityInstructionTextView.isHidden = true
-    
+    activityList = activityManager.getNewList(activityCount: 10)
     
 //    timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
 //    timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
@@ -78,26 +78,25 @@ class ActivityViewController: UIViewController {
     //    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
     
-
-    switch self.currentActivity {
-    case 0:
-      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
-      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
-      self.rootSeconds = self.timeStrengthValue
-      self.seconds = self.timeStrengthValue
-    case 1:
-      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
-      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
-      self.rootSeconds = self.timeMindfulValue
-      self.seconds = self.timeMindfulValue
-    case 2:
-      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
-      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
-      self.rootSeconds = self.timeYogaValue
-      self.seconds = self.timeYogaValue
-    default:
-      fatalError("TIME VALUE ERROR")
-    }
+//    switch self.currentActivity {
+//    case 0:
+//      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+//      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))
+//      self.rootSeconds = self.timeStrengthValue
+//      self.seconds = self.timeStrengthValue
+//    case 1:
+//      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+//      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeMindfulValue))
+//      self.rootSeconds = self.timeMindfulValue
+//      self.seconds = self.timeMindfulValue
+//    case 2:
+//      self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+//      self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timeYogaValue))
+//      self.rootSeconds = self.timeYogaValue
+//      self.seconds = self.timeYogaValue
+//    default:
+//      fatalError("TIME VALUE ERROR")
+//    }
     
     //MARK: will keep the workout screen active.
     UIApplication.shared.isIdleTimerDisabled = true
@@ -105,8 +104,8 @@ class ActivityViewController: UIViewController {
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
     
-    activityList = activityManager.getNewList()
-    estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
+    activityList = activityManager.getNewList(activityCount: 10)
+   // estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
     
 //    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
 //    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
@@ -157,6 +156,13 @@ class ActivityViewController: UIViewController {
 
   
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
+    for currentActivity in activityList {
+        self.timerOverlaylabel.text = self.timeString(time: TimeInterval(currentActivity.activityTime))
+        self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(currentActivity.activityTime))
+        self.rootSeconds = Int(currentActivity.activityTime)
+        self.seconds = Int(currentActivity.activityTime)
+    
+
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
       self.timerOverlayView.alpha = 1.0
       self.activityStartButton.alpha = 0.0
@@ -171,7 +177,7 @@ class ActivityViewController: UIViewController {
     activityInstructionTextView.isHidden = true
     self.runTimer()
   }
-  
+    }
   @IBAction func activityCancelButtonPressed(_ sender: UIButton) {
     self.performSegue(withIdentifier: "backHome", sender: nil)
   }
