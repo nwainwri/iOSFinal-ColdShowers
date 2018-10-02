@@ -157,10 +157,10 @@ class ActivityListManager: NSObject {
   }
   
   // MARK: activity list function
-  func getNewList() -> [CoreActivity] {
+    func getNewList(activityCount: Int) -> [CoreActivity] {
     var activityArray = [CoreActivity]()
     let activityGenerator = ActivityGenerator()
-    activityGenerator.generateActivity(previousActivities: &activityArray, activityCount: 3)
+    activityGenerator.generateActivity(previousActivities: &activityArray, activityCount: activityCount)
     return activityArray
     
 //    //return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],

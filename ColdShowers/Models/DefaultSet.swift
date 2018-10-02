@@ -265,6 +265,7 @@ class DefaultSet {
                      category: 2,
                      photo:"corpse",
                      intensity: 3)
+                     
     
     appDelegate.saveContext()
   }
@@ -284,6 +285,7 @@ extension CoreActivity {
     self.originalIndex = 0
     self.settings = true
     self.occurance = 10
+    self.activityTime = 90
   }
 }
 

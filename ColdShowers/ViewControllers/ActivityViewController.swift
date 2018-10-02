@@ -34,13 +34,13 @@ class ActivityViewController: UIViewController {
   
   //MARK: Varible Properties
   var currentActivity:Int = 0
-  var activityList = Array<CoreActivity>()
+  var activityList = [CoreActivity]()
   
   //MARK: SoundManager
   let soundManager = SoundManager()
   
   //MARK: Time Manager
-  let timeManager = ActivityTimeManager()
+  //let timeManager = ActivityTimeManager()
   
   //MARK: Activity Manager
   let activityManager = ActivityListManager()
@@ -67,15 +67,18 @@ class ActivityViewController: UIViewController {
     super.viewDidLoad()
     activityInstructionTextView.isHidden = true
     
-    timeStrengthValue = 60 * Int(timeManager.getTime("Strength")) 
-    timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
-    timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
+    
+//    timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
+//    timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
+//    timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
     
     //    // user default methods
     //    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
     //    timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
     //    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
     
+    
+
     switch self.currentActivity {
     case 0:
       self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timeStrengthValue))

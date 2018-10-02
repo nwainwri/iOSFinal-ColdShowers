@@ -75,9 +75,11 @@ class ActivityGenerator: NSObject {
                     
                 }
                 }
+            //Apply differences to new preference rating
             dynamicPreference -= intensityDifference
             dynamicPreference -= previousActivityPreference
             
+            //Populate an array with a number of versions, equal to dynamic preference score, of each potential element.
             let firstElement = (activity.name, activity.areaOfBody, dynamicPreference)
             let count = Int(firstElement.2)
             if count > 0 && count <= 20 {
@@ -90,6 +92,7 @@ class ActivityGenerator: NSObject {
                 }
             }
         
+            //Select element at random from this new array, add it to activity array, and run activity again
         let randomNumber = Int(arc4random_uniform(UInt32(firstArray.count)))
         if let firstActivityName = firstArray[randomNumber].0 {
         addToArrayByName(firstArray: baseArray, secondArray: &previousActivities, name: firstActivityName)
