@@ -105,10 +105,10 @@ class ActivityViewController: UIViewController {
     activityList = activityManager.getNewList()
     estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
     
-    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
-    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
-    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
-    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+//    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+//    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+//    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+//    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
     
     loadData()
   }
@@ -142,21 +142,16 @@ class ActivityViewController: UIViewController {
     
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    // loading this here, as on plus model phones it doesn't display properly.
+    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+  }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
