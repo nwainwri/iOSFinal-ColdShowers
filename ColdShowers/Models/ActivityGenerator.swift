@@ -1,0 +1,107 @@
+//
+//  ActivityGenerator.swift
+//  ColdShowers
+//
+//  Created by Kit Clark-O'Neil on 2018-10-01.
+//  Copyright © 2018 Kit Clark-O'Neil. All rights reserved.
+//
+
+import UIKit
+import CoreData
+class ActivityGenerator: NSObject {
+    
+    var baseArray = [CoreActivity]()
+    var initialIntensity = Int64()
+    var context: NSManagedObjectContext?
+    override init() {
+
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        context = appDelegate.persistentContainer.viewContext
+        let intensityRequest = NSFetchRequest<UserDesiredIntensity>(entityName: "UserDesiredIntensity")
+        let activityRequest = NSFetchRequest<CoreActivity>(entityName: "CoreActivity")
+
+
+        do {
+            let activity = (try context?.fetch(activityRequest))!
+            let intensity = (try context?.fetch(intensityRequest))!
+
+            baseArray = activity
+            initialIntensity = intensity[0].desiredIntensity
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    func addToArrayByName (firstArray: [CoreActivity], secondArray: inout [CoreActivity], name: String) {
+        
+        for activity in firstArray {
+            guard let activityName = activity.name else {
+                return
+            }
+            if activityName == name {
+                secondArray.append(activity)
+                return
+            }
+            
+        }
+        
+    }
+    
+    
+    func generateActivity(previousActivities: inout [CoreActivity], activityCount: Int) {
+        
+        if previousActivities.count <= activityCount {
+            var dynamicPreference: Int64
+            
+    //Generate array with adjusted preferences based on desired intensity
+    var firstArray = [(String?, NSArray?, Int64)]()
+        
+        for activity in baseArray {
+            dynamicPreference = activity.occurance
+            let intensityDifference = abs(activity.intensity - initialIntensity)
+            var previousActivityPreference:Int64 = 0
+            
+            //Check previous activities to favour activities with new areas of the body
+            for previousActivity in previousActivities {
+                guard let previousBodyArea = previousActivity.areaOfBody as? [String], let currentBodyArea = activity.areaOfBody as? [String] else {return}
+                for pBodyArea in previousBodyArea {
+                    for cBodyArea in currentBodyArea {
+                        if pBodyArea == cBodyArea {
+                            previousActivityPreference += 1
+                        }
+                    }
+                    
+                }
+                }
+            dynamicPreference -= intensityDifference
+            dynamicPreference -= previousActivityPreference
+            
+            let firstElement = (activity.name, activity.areaOfBody, dynamicPreference)
+            let count = Int(firstElement.2)
+            if count > 0 && count <= 20 {
+            for _ in 0..<count {
+                firstArray.append(firstElement)
+            }
+            }
+                else {
+                    firstArray.append(firstElement)
+                }
+            }
+        
+        let randomNumber = Int(arc4random_uniform(UInt32(firstArray.count)))
+        if let firstActivityName = firstArray[randomNumber].0 {
+        addToArrayByName(firstArray: baseArray, secondArray: &previousActivities, name: firstActivityName)
+            }
+        
+        generateActivity(previousActivities: &previousActivities, activityCount: activityCount)
+        }
+        else {
+            return
+    }
+   
+}
+
+
+}

@@ -158,8 +158,13 @@ class ActivityListManager: NSObject {
   
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {
-    return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],
-            currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)],
-            currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]]
+    var activityArray = [CoreActivity]()
+    let activityGenerator = ActivityGenerator()
+    activityGenerator.generateActivity(previousActivities: &activityArray, activityCount: 3)
+    return activityArray
+    
+//    //return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],
+//            currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)],
+//            currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]]
   }
 }

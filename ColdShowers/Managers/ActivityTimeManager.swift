@@ -57,13 +57,8 @@ class ActivityTimeManager: NSObject {
     if category == "Average Intensity" {
         timeValue = Float(desiredIntensity[0].desiredIntensity)
     }
-    else if category == "Strength" {
-      timeValue = 1
-    } else if category == "Mindful" {
-      timeValue = times[0].timeMindfulValue
-    } else if category == "Yoga" {
-      timeValue = times[0].timeYogaValue
-    } else {
+    
+    else {
       timeValue = 666.0
     }
     return timeValue
@@ -72,15 +67,9 @@ class ActivityTimeManager: NSObject {
   func setTime(_ category: String, value: Float) {
     
     if category == "Average Intensity" {
-        desiredIntensity[0].desiredIntensity = Int16(value)
+        desiredIntensity[0].desiredIntensity = Int64(value)
     }
-    else if category == "Strength" {
-      times[0].timeStrengthValue = value
-    } else if category == "Mindful" {
-      times[0].timeMindfulValue = value
-    } else if category == "Yoga" {
-      times[0].timeYogaValue = value
-    } else {
+    else {
       fatalError("ERROR WITH CATEGORY OR VALUE")
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13F6441216319BC00348877 /* ActivityGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F6440216319BC00348877 /* ActivityGenerator.swift */; };
 		A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F75E5215444E4005BDAF4 /* AppDelegate.swift */; };
 		A14F75EB215444E4005BDAF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14F75E9215444E4005BDAF4 /* Main.storyboard */; };
 		A14F75EE215444E4005BDAF4 /* ColdShowers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A14F75EC215444E4005BDAF4 /* ColdShowers.xcdatamodeld */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A13F6440216319BC00348877 /* ActivityGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGenerator.swift; sourceTree = "<group>"; };
 		A14F75E2215444E4005BDAF4 /* ColdShowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColdShowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14F75E5215444E4005BDAF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A14F75EA215444E4005BDAF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		F176BF7D2155D74300C0836B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A13F6440216319BC00348877 /* ActivityGenerator.swift */,
 				F176BF7E2155D8EF00C0836B /* DefaultSet.swift */,
 				F11DA23D215C497B0066AEF8 /* Category.swift */,
 			);
@@ -425,6 +428,7 @@
 				F11C6D20215EFED60094E99C /* Border.swift in Sources */,
 				F176BF87215715C800C0836B /* ActivityPreferencesTableViewCell.swift in Sources */,
 				A19BE988215DA8F100F03CE5 /* AlarmCell.swift in Sources */,
+				A13F6441216319BC00348877 /* ActivityGenerator.swift in Sources */,
 				F10DDD1821586A6F00576F8D /* ActivityListManager.swift in Sources */,
 				F16DECE2215EBE1A00D9B7D1 /* ActivityTimeManager.swift in Sources */,
 				A14F75E6215444E4005BDAF4 /* AppDelegate.swift in Sources */,
