@@ -272,6 +272,8 @@ class CalendarViewController: UIViewController {
     switch hour {
     case 0:
         adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
+    case 12:
+      adjustedTimeString = String(format: "12:%02d PM", minute) // String(format: "12:%02d", minute)
     case ..<12:
         adjustedTimeString = String(format: "%2d:%02d AM", hour, minute) // String(format: "%02d:%02d", hour, minute)
     case ..<24:
