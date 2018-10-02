@@ -38,6 +38,8 @@ https://dailyburn.com/life/fitness/beginner-yoga-poses-positions/
 
 https://www.sivananda.org/teachings/asana/triangle.html
 
+https://www.yogajournal.com/poses/mountain-pose
+
 
 
 Mountain Pose ["legs"]
