@@ -111,7 +111,7 @@ class CalendarViewController: UIViewController {
   }
   func setActivity(alarmComponents: ([DateComponents], Bool, String, Int)) {
     //For testing only
-    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     
     checkUserPermission { (res) in
       if res {
@@ -157,6 +157,12 @@ class CalendarViewController: UIViewController {
     
     UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
   }
+  
+  
+
+  
+  
+  
   
   // MARK: - Button operation
   @IBAction func scheduleCancelButtonAction(_ sender: UIButton) {
@@ -266,6 +272,8 @@ class CalendarViewController: UIViewController {
     switch hour {
     case 0:
         adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
+    case 12:
+      adjustedTimeString = String(format: "12:%02d PM", minute) // String(format: "12:%02d", minute)
     case ..<12:
         adjustedTimeString = String(format: "%2d:%02d AM", hour, minute) // String(format: "%02d:%02d", hour, minute)
     case ..<24:
@@ -291,7 +299,7 @@ class CalendarViewController: UIViewController {
     input.0 = [DateComponents]()
     input.1 = repeatSwitch.isOn
     input.2 = adjustedTimeString
-    input.3 = timeManager.all() // MARK: -- where time for notification is set.
+    input.3 = 15 // MARK: -- where time for notification is set.
 
     for day in daysOfTheWeek {
       
@@ -310,6 +318,25 @@ class CalendarViewController: UIViewController {
 }
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
+  
+  
+  // currently does not get called at all, should be where notification is set to delivered.
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    switch response.notification.request.content.categoryIdentifier {
+    case "accept":
+      print("accpeted")
+    default:
+      //      fatalError(response.notification.request.content.categoryIdentifier)
+      print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
+      break
+    }
+
+  }
+  
+  
+  
+  
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert])
   }

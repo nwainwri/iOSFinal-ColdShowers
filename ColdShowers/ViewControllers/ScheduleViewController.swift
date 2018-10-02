@@ -15,13 +15,20 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   
   var myAlarms = [UNNotificationRequest]()
   override func viewDidLoad() {
-    //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    
+    UNUserNotificationCenter.current().removeAllDeliveredNotifications() //  notifications arent being marked delivered
+    
+    //    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["localNotification"])
+    //    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    
     super.viewDidLoad()
     self.tableView.delegate = self
     self.tableView.dataSource = self
   }
   
   override func viewDidAppear(_ animated: Bool) {
+    
+    
     UNUserNotificationCenter.current().getPendingNotificationRequests { (myRequests) in
       self.myAlarms = myRequests
       print(self.myAlarms.count)
@@ -46,7 +53,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     let request = self.myAlarms[indexPath.row] as UNNotificationRequest
     
-    
     let timeString = request.content.userInfo["Time"] as? String
     let dayString = request.content.userInfo["Day"] as? String
     let durationInt = request.content.userInfo["Duration"] as? Int
@@ -63,6 +69,19 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     return cell
   }
   
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    // currently deletes from screen, but not actually from notification center items.
+    
+    let identifierString = myAlarms[indexPath.row].identifier
+    
+    if editingStyle == .delete {
+      self.myAlarms.remove(at: indexPath.row)
+      UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifierString])
+      tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+  }
+  
   // MARK: Button Actions
   @IBAction func saveButtonSegue(_ sender: UIButton) {
     
@@ -72,7 +91,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     dismiss(animated: true, completion: nil)
     
   }
-
+  
   /*
    // MARK: - Navigation
    
