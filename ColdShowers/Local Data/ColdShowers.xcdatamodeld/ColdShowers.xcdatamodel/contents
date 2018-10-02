@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ActivityTimes" representedClassName="ActivityTimes" syncable="YES" codeGenerationType="class">
         <attribute name="timeMindfulValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeStrengthValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,8 +16,12 @@
         <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="settings" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="UserDesiredIntensity" representedClassName="UserDesiredIntensity" syncable="YES" codeGenerationType="class">
+        <attribute name="desiredIntensity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CoreActivity" positionX="-54" positionY="-9" width="128" height="178"/>
         <element name="ActivityTimes" positionX="-54" positionY="54" width="128" height="90"/>
+        <element name="CoreActivity" positionX="-54" positionY="-9" width="128" height="178"/>
+        <element name="UserDesiredIntensity" positionX="-54" positionY="54" width="128" height="60"/>
     </elements>
 </model>

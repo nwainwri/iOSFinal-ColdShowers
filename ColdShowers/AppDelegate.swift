@@ -28,6 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       let _ = DefaultSet()
       print("APP HAS NOT LAUNCHED")
       defaults.set(true, forKey: "appHasLaunched")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "UserDesiredIntensity", in: context)
+        let intensity = NSManagedObject(entity: entity!, insertInto: context)
+        intensity.setValue(1, forKey: "desiredIntensity")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
     
     //    let _ = DefaultSet()

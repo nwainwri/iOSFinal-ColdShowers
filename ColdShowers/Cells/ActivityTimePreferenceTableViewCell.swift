@@ -31,8 +31,9 @@ class ActivityTimePreferenceTableViewCell: UITableViewCell {
   
   @IBAction func activityCategoryTimeSliderAction(_ sender: UISlider) {
     
-    activityTimeSliderLabel.text = String(timeManager.getTime(self.activityCategoryNameLabel.text!))
-    timeManager.setTime(self.activityCategoryNameLabel.text!, value: Float(Int(self.activityCategoryTimeSlider.value)))
     activityCategoryTimeSlider.maximumValue = 10.0
+    activityTimeSliderLabel.text = String(timeManager.getTime("Average Intensity"))
+    timeManager.setTime("Average Intensity", value: Float(Int(self.activityCategoryTimeSlider.value)))
+    
   }
 }

@@ -18,30 +18,47 @@ class ActivityTimeManager: NSObject {
   var context:NSManagedObjectContext?
   
   var times: [ActivityTimes] = []
+    var desiredIntensity: [UserDesiredIntensity] = []
   
   override init() {
     guard let appDelegate =
       UIApplication.shared.delegate as? AppDelegate else {
         return
     }
+    
     context = appDelegate.persistentContainer.viewContext
     
-    let allTimes = NSFetchRequest<ActivityTimes>(entityName: "ActivityTimes")
+   
+    let intensityRequest = NSFetchRequest<UserDesiredIntensity>(entityName: "UserDesiredIntensity")
+   // let allTimes = NSFetchRequest<ActivityTimes>(entityName: "ActivityTimes")
+    
     do {
-      times = (try context?.fetch(allTimes))!
+        guard let intensity = (try context?.fetch(intensityRequest)) else {
+            desiredIntensity[0].desiredIntensity = 1
+            do {
+                try context?.save()
+            } catch {
+                fatalError("Failed saving")
+            }
+            return
+        }
+        desiredIntensity = intensity
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
-  }
-  
-  func all() -> Int {
-    return Int(times[0].timeMindfulValue) + Int(times[0].timeStrengthValue) + Int(times[0].timeYogaValue)
-  }
+    }
+ // func all() -> Int {
+   // return Int(times[0].timeMindfulValue) + Int(times[0].timeStrengthValue) + Int(times[0].timeYogaValue)
+
+
   
   func getTime(_ category: String) -> Float {
     var timeValue:Float = 0.0
-    if category == "Strength" {
-      timeValue = times[0].timeStrengthValue
+    if category == "Average Intensity" {
+        timeValue = Float(desiredIntensity[0].desiredIntensity)
+    }
+    else if category == "Strength" {
+      timeValue = 1
     } else if category == "Mindful" {
       timeValue = times[0].timeMindfulValue
     } else if category == "Yoga" {
@@ -53,7 +70,11 @@ class ActivityTimeManager: NSObject {
   }
   
   func setTime(_ category: String, value: Float) {
-    if category == "Strength" {
+    
+    if category == "Average Intensity" {
+        desiredIntensity[0].desiredIntensity = Int16(value)
+    }
+    else if category == "Strength" {
       times[0].timeStrengthValue = value
     } else if category == "Mindful" {
       times[0].timeMindfulValue = value
@@ -70,3 +91,4 @@ class ActivityTimeManager: NSObject {
     }
   }
 }
+
