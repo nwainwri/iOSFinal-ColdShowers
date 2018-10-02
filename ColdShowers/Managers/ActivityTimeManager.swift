@@ -72,7 +72,7 @@ class ActivityTimeManager: NSObject {
   func setTime(_ category: String, value: Float) {
     
     if category == "Average Intensity" {
-        desiredIntensity[0].desiredIntensity = Int16(value)
+        desiredIntensity[0].desiredIntensity = Int64(value)
     }
     else if category == "Strength" {
       times[0].timeStrengthValue = value
