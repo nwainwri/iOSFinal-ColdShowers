@@ -60,7 +60,7 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    timeStrengthValue = 60 * Int(timeManager.getTime("Strength"))
+    timeStrengthValue = 60 * Int(timeManager.getTime("Strength")) 
     timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
     timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
     

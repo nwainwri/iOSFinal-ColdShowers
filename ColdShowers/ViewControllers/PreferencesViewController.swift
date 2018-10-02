@@ -41,7 +41,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "Activity Time Length, Minutes"
+      return "Average Activity Intensity"
     case 1:
       return "Strength"
     case 2:
@@ -61,7 +61,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
     case 0:
-      return 3
+      return 1
     case 1:
       return activityManager.strength.count
       
@@ -94,17 +94,11 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     switch indexPath.section {
     case 0:
       
-      var nameLabel = ""
-      if indexPath.row == 0 {
-        nameLabel = "Strength"
-      } else if indexPath.row == 1 {
-        nameLabel = "Mindful"
-      } else if indexPath.row == 2 {
-        nameLabel = "Yoga"
-      }
+      let nameLabel = "Average Intensity"
       
-      cell2.activityCategoryNameLabel.text = "\(nameLabel)"
-      cell2.activityTimeSliderLabel.text = String(timeManager.getTime(nameLabel))
+      
+      cell2.activityCategoryNameLabel.text = "Average Intensity"
+      cell2.activityTimeSliderLabel.text = "\(timeManager.getTime(nameLabel))"
       cell2.activityCategoryTimeSlider.value = timeManager.getTime(nameLabel)
 
       return cell2
