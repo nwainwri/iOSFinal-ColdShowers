@@ -29,6 +29,11 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityInstructionButton: UIButton!
   @IBOutlet weak var activityInstructionTextView: UITextView!
   
+  
+  @IBOutlet weak var currentActivitySetCountLabel: UILabel!
+  
+  
+  
   var instructionSetting = true
   
   
@@ -69,13 +74,16 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     activityInstructionTextView.isHidden = true
+    activityList = activityManager.getNewList()
+    
+    currentActivitySetCountLabel.text = "Current Set: \(currentActivity + 1) of \(activityList.count)"
+    
     
     timerOverlaylabel.text = timeString(time: TimeInterval(timePerActivity))
 //    timeStrengthValue = 60 * timeManager.getTime("Strength")
 //    timeMindfulValue = 60 * timeManager.getTime("Mindful")
 //    timeYogaValue = 60 * timeManager.getTime("Yoga")
     
-    activityList = activityManager.getNewList()
     //MARK: get all times for all activities
     // as all activities are 1.5 mins long now
     // MARK: NON DYNAMIC DATA
@@ -239,6 +247,8 @@ class ActivityViewController: UIViewController {
       if self.currentActivity < (self.activityList.count - 1) {
         self.currentActivity += 1
         
+            self.currentActivitySetCountLabel.text = "Current Set: \(self.currentActivity + 1) of \(self.activityList.count)"
+        
         self.timerOverlaylabel.text = self.timeString(time: TimeInterval(self.timePerActivity))
         self.activityCurrentTimerLabel.text = self.timeString(time: TimeInterval(self.timePerActivity))
         self.rootSeconds = self.timePerActivity
@@ -290,6 +300,9 @@ class ActivityViewController: UIViewController {
     activityInstructionTextView.text = activityList[currentActivity].instructions
     
     activityCurrentTimerLabel.text = timeString(time: TimeInterval(timePerActivity))
+    
+    
+    
     
   }
   
