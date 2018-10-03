@@ -160,6 +160,9 @@ class ActivityListManager: NSObject {
   
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {
+    
+    
+    
     let actOne = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
     let actTwo = currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
     let actThree = currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
@@ -172,10 +175,70 @@ class ActivityListManager: NSObject {
     let actTen = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
     
     
-
     
     
-//    list: = [actOne, actTwo, actThree, actFour, actFive, actSix, actSeven, actEight, actNine, actTen]
+    
+    
+    //    list: = [actOne, actTwo, actThree, actFour, actFive, actSix, actSeven, actEight, actNine, actTen]
     return [actOne, actTwo, actThree, actFour, actFive, actSix, actSeven, actEight, actNine, actTen]
   }
+  
+  
+  func getList(_ amount: Int) -> [CoreActivity] { // change to -> [CoreActivity]
+    
+    let catagoryRandom = Int(arc4random_uniform(6) + 1)
+    
+    
+    var returnList: [CoreActivity] = []
+    var counter:Int = 0
+     // ONLY USE NUMBERS 1-6 FOR THIS FUNCTION
+    
+     while counter < amount {
+      returnList.append(getRandomAct(Int(arc4random_uniform(6) + 1)))
+      counter += 1
+    }
+    
+    
+    
+    return returnList // change to coreactivity
+  }
+  
+  func getRandomAct(_ number: Int) -> CoreActivity {
+    
+    switch number {
+    case 1:
+      return currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    case 2:
+      return currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
+    case 3:
+      return currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
+    case 4:
+      return currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    case 5:
+      return currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
+    case 6:
+      return currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
+    default:
+      fatalError("Input number, \(number) is out of bounds, needs to between 1-6")
+    }
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
