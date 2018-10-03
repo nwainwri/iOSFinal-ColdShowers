@@ -66,6 +66,10 @@ class CalendarViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    scheduleSaveButton.isEnabled = false
+    
+    
     // Do any additional setup after loading the view.
     //        UNUserNotificationCenter.current().delegate = self
     daysOfTheWeek.removeAll()
@@ -169,6 +173,9 @@ class CalendarViewController: UIViewController {
   
   @IBAction func sundayButtonPressed(_ sender: UIButton) {
     sundayButton.isSelected = !sundayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if sundayButton.isSelected {
       daysOfTheWeek.append(1)
     }
@@ -180,6 +187,9 @@ class CalendarViewController: UIViewController {
   
   @IBAction func mondayButtonPressed(_ sender: UIButton) {
     mondayButton.isSelected = !mondayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if mondayButton.isSelected {
       daysOfTheWeek.append(2)
     }
@@ -191,6 +201,9 @@ class CalendarViewController: UIViewController {
   
   @IBAction func tuesdayButtonPressed(_ sender: UIButton) {
     tuesdayButton.isSelected = !tuesdayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if tuesdayButton.isSelected {
       daysOfTheWeek.append(3)
     }
@@ -202,6 +215,9 @@ class CalendarViewController: UIViewController {
   
   @IBAction func wednesdayButtonPressed(_ sender: UIButton) {
     wednesdayButton.isSelected = !wednesdayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if wednesdayButton.isSelected {
       daysOfTheWeek.append(4)
     }
@@ -212,6 +228,9 @@ class CalendarViewController: UIViewController {
   }
   @IBAction func thursdayButtonPressed(_ sender: UIButton) {
     thursdayButton.isSelected = !thursdayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if thursdayButton.isSelected {
       daysOfTheWeek.append(5)
     }
@@ -222,6 +241,9 @@ class CalendarViewController: UIViewController {
   }
   @IBAction func fridayButtonPressed(_ sender: UIButton) {
     fridayButton.isSelected = !fridayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if fridayButton.isSelected {
       daysOfTheWeek.append(6)
     }
@@ -232,6 +254,9 @@ class CalendarViewController: UIViewController {
   }
   @IBAction func saturdayButtonPressed(_ sender: UIButton) {
     saturdayButton.isSelected = !saturdayButton.isSelected
+    
+    scheduleSaveButton.isEnabled = true
+    
     if saturdayButton.isSelected {
       daysOfTheWeek.append(7)
     }
@@ -245,8 +270,13 @@ class CalendarViewController: UIViewController {
     
     let myTimePicker = DateFormatter()
     myTimePicker.dateFormat = "HH:mm"
+    // FYI: --> "h:mm a" --> 12:08 PM
+    // https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
+
     
     let timeString = myTimePicker.string(from: timePicker.date)
+    
+    
     let time = timeString.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
     let minuteString = String(time[1])
     let hourString = String(time[0])

@@ -176,9 +176,6 @@ class ActivityViewController: UIViewController {
     MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
   }
   
-  
-  
-  
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
     
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {

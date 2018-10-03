@@ -441,6 +441,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="disabled" title=".">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButton:" destination="PY9-VP-PkX" eventType="touchUpInside" id="xsZ-cc-wKl"/>
                                 </connections>
