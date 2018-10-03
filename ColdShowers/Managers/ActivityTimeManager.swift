@@ -58,11 +58,11 @@ class ActivityTimeManager: NSObject {
         timeValue = Float(desiredIntensity[0].desiredIntensity)
     }
     else if category == "Strength" {
-      timeValue = 5
+      timeValue = 1.5
     } else if category == "Mindful" {
-      timeValue = 5
+      timeValue = 1.5
     } else if category == "Yoga" {
-      timeValue = 5
+      timeValue = 1.5
     } else {
       timeValue = 666.0
     }

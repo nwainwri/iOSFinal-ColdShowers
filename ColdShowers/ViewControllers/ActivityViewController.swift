@@ -47,8 +47,8 @@ class ActivityViewController: UIViewController {
   let hour = 0
   var minutes = 5
   
-  var rootSeconds = 10
-  var seconds = 10
+  var rootSeconds:Float = 10.0
+  var seconds:Float = 10.0
   var timer = Timer()
   var isTimerRunning = false // used to ensure only one timer running at any given time
   
@@ -59,17 +59,17 @@ class ActivityViewController: UIViewController {
   let defaults = UserDefaults.standard
   
   //MARK: getting default time allotments for activities from userdefault
-  var timeStrengthValue:Int = 0
-  var timeMindfulValue:Int = 0
-  var timeYogaValue:Int = 0
+  var timeStrengthValue:Float = 0.0
+  var timeMindfulValue:Float = 0.0
+  var timeYogaValue:Float = 0.0
   
   override func viewDidLoad() {
     super.viewDidLoad()
     activityInstructionTextView.isHidden = true
     
-    timeStrengthValue = 60 * Int(timeManager.getTime("Strength")) 
-    timeMindfulValue = 60 * Int(timeManager.getTime("Mindful"))
-    timeYogaValue = 60 * Int(timeManager.getTime("Yoga"))
+    timeStrengthValue = 60 * timeManager.getTime("Strength")
+    timeMindfulValue = 60 * timeManager.getTime("Mindful")
+    timeYogaValue = 60 * timeManager.getTime("Yoga")
     
     //    // user default methods
     //    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
@@ -105,10 +105,10 @@ class ActivityViewController: UIViewController {
     activityList = activityManager.getNewList()
     estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
     
-//    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
-//    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
-//    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
-//    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+    //    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    //    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
+    //    MakeBorder.addBottomBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
+    //    MakeBorder.addTopBorder(inpView: timerOverlayView, withColor: UIColor.jetBlack)
     
     loadData()
   }
@@ -131,15 +131,12 @@ class ActivityViewController: UIViewController {
   //MARK: Button Actions
   
   @IBAction func activityInstructionButtonPressed(_ sender: UIButton) {
-    
     if instructionSetting {
       activityInstructionTextView.isHidden = true
     } else {
       activityInstructionTextView.isHidden = false
     }
-    
-     instructionSetting = !instructionSetting
-    
+    instructionSetting = !instructionSetting
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -151,7 +148,7 @@ class ActivityViewController: UIViewController {
   }
   
   
-
+  
   
   @IBAction func activityStartButtonPressed(_ sender: UIButton) {
     UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseOut, animations: {
@@ -238,7 +235,7 @@ class ActivityViewController: UIViewController {
   func loadData() {
     activityNameLabel.text = activityList[currentActivity].name
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!)
-//    activityInstructionLabel.text = activityList[currentActivity].instructions
+    //    activityInstructionLabel.text = activityList[currentActivity].instructions
     activityInstructionTextView.text = activityList[currentActivity].instructions
     
   }
