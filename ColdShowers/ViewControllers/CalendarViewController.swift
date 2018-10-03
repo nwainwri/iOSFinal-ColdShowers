@@ -174,7 +174,7 @@ class CalendarViewController: UIViewController {
   @IBAction func sundayButtonPressed(_ sender: UIButton) {
     sundayButton.isSelected = !sundayButton.isSelected
     
-    scheduleSaveButton.isEnabled = true
+   
     
     if sundayButton.isSelected {
       daysOfTheWeek.append(1)
@@ -183,12 +183,18 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 1)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   
   @IBAction func mondayButtonPressed(_ sender: UIButton) {
     mondayButton.isSelected = !mondayButton.isSelected
     
-    scheduleSaveButton.isEnabled = true
+    
     
     if mondayButton.isSelected {
       daysOfTheWeek.append(2)
@@ -197,12 +203,18 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 2)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   
   @IBAction func tuesdayButtonPressed(_ sender: UIButton) {
     tuesdayButton.isSelected = !tuesdayButton.isSelected
     
-    scheduleSaveButton.isEnabled = true
+    
     
     if tuesdayButton.isSelected {
       daysOfTheWeek.append(3)
@@ -211,12 +223,16 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 3)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   
   @IBAction func wednesdayButtonPressed(_ sender: UIButton) {
     wednesdayButton.isSelected = !wednesdayButton.isSelected
-    
-    scheduleSaveButton.isEnabled = true
     
     if wednesdayButton.isSelected {
       daysOfTheWeek.append(4)
@@ -225,11 +241,17 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 4)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   @IBAction func thursdayButtonPressed(_ sender: UIButton) {
     thursdayButton.isSelected = !thursdayButton.isSelected
     
-    scheduleSaveButton.isEnabled = true
+    
     
     if thursdayButton.isSelected {
       daysOfTheWeek.append(5)
@@ -238,11 +260,16 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 5)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   @IBAction func fridayButtonPressed(_ sender: UIButton) {
     fridayButton.isSelected = !fridayButton.isSelected
     
-    scheduleSaveButton.isEnabled = true
     
     if fridayButton.isSelected {
       daysOfTheWeek.append(6)
@@ -251,18 +278,28 @@ class CalendarViewController: UIViewController {
       let index = daysOfTheWeek.index(of: 6)
       daysOfTheWeek.remove(at: index!)
     }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
+    }
   }
   @IBAction func saturdayButtonPressed(_ sender: UIButton) {
     saturdayButton.isSelected = !saturdayButton.isSelected
-    
-    scheduleSaveButton.isEnabled = true
-    
+
     if saturdayButton.isSelected {
       daysOfTheWeek.append(7)
     }
     else {
       let index = daysOfTheWeek.index(of: 7)
       daysOfTheWeek.remove(at: index!)
+    }
+    if daysOfTheWeek.count > 0 {
+        scheduleSaveButton.isEnabled = true
+    }
+    else {
+        scheduleSaveButton.isEnabled = false
     }
   }
   
