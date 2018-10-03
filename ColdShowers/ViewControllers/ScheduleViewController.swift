@@ -23,6 +23,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     super.viewDidLoad()
     self.tableView.delegate = self
     self.tableView.dataSource = self
+  
+    self.tableView.rowHeight = 44.0
+  
   }
   
   override func viewDidAppear(_ animated: Bool) {

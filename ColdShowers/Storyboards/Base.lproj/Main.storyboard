@@ -536,10 +536,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Date&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL9-6o-r9E" userLabel="Date Label">
-                                                    <rect key="frame" x="12" y="11" width="51" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="78k-cI-sLJ"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="12" y="11" width="51" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -558,14 +555,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ngX-RQ-2d9" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="topMargin" id="6Ll-Kx-x9t"/>
-                                                <constraint firstItem="sL9-6o-r9E" firstAttribute="leading" secondItem="2yN-Ir-jzA" secondAttribute="leading" constant="12" id="DA2-dv-4jS"/>
-                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="trailing" secondItem="2yN-Ir-jzA" secondAttribute="trailingMargin" id="H0B-yv-SyV"/>
-                                                <constraint firstItem="sL9-6o-r9E" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="topMargin" id="lCx-vp-3tw"/>
-                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="topMargin" id="pNj-Gc-iZP"/>
-                                                <constraint firstItem="ngX-RQ-2d9" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="topMargin" id="uJm-is-sOK"/>
-                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="leading" secondItem="ngX-RQ-2d9" secondAttribute="trailing" constant="19.5" id="vOU-oo-pXE"/>
-                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="topMargin" id="wUb-WI-kcp"/>
+                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="centerY" secondItem="sL9-6o-r9E" secondAttribute="centerY" id="6jd-Ns-XD5"/>
+                                                <constraint firstItem="sL9-6o-r9E" firstAttribute="leading" secondItem="2yN-Ir-jzA" secondAttribute="leading" constant="12" id="DQP-qS-aXo"/>
+                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="leading" secondItem="ngX-RQ-2d9" secondAttribute="trailing" constant="19.5" id="Sw6-lm-1yy"/>
+                                                <constraint firstItem="QRW-b7-Eoi" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="top" constant="11" id="Wku-tu-toR"/>
+                                                <constraint firstItem="ngX-RQ-2d9" firstAttribute="centerY" secondItem="sL9-6o-r9E" secondAttribute="centerY" id="cYE-16-FIr"/>
+                                                <constraint firstItem="ngX-RQ-2d9" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="top" constant="11" id="iJh-DN-vZ0"/>
+                                                <constraint firstAttribute="trailing" secondItem="QRW-b7-Eoi" secondAttribute="trailing" constant="15" id="l5O-TG-d7m"/>
+                                                <constraint firstItem="sL9-6o-r9E" firstAttribute="top" secondItem="2yN-Ir-jzA" secondAttribute="top" constant="11" id="wlj-Dq-zre"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
