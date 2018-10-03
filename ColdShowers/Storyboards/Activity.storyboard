@@ -236,30 +236,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTH-tO-AY0">
-                                <rect key="frame" x="8" y="112" width="359" height="127"/>
+                                <rect key="frame" x="8" y="112" width="359" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall, how challenging was this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-AR-BZw">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Ze-Vd-i8l">
-                                        <rect key="frame" x="0.0" y="31" width="359" height="29"/>
-                                        <segments>
-                                            <segment title="Okay"/>
-                                            <segment title="Good"/>
-                                            <segment title="Great"/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you enjoy yourself?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywc-rl-aNC">
-                                        <rect key="frame" x="0.0" y="67" width="359" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you enjoy this set of activities?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywc-rl-aNC">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-Ez-B6J">
-                                        <rect key="frame" x="0.0" y="99" width="359" height="29"/>
+                                        <rect key="frame" x="0.0" y="32" width="359" height="29"/>
                                         <segments>
                                             <segment title="Yes"/>
                                             <segment title="No"/>
@@ -298,7 +284,6 @@
                     <connections>
                         <outlet property="activityButtonFinish" destination="kSA-xB-BaB" id="B6Z-bm-OHI"/>
                         <outlet property="enjoymentLabel" destination="Ywc-rl-aNC" id="zVo-ue-xiV"/>
-                        <outlet property="intensityLabel" destination="0rN-AR-BZw" id="fhc-KJ-ybT"/>
                         <segue destination="eSy-hz-7Cm" kind="show" identifier="backHomeSegue" id="Uyx-Zs-Bkp"/>
                     </connections>
                 </viewController>
