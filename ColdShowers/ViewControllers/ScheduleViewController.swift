@@ -14,23 +14,23 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var doneButton: UIButton!
   
   var myAlarms = [UNNotificationRequest]()
+  
+  let center = UNUserNotificationCenter.current()
+  
   override func viewDidLoad() {
-    UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-
+    center.removeAllDeliveredNotifications()
+    
     super.viewDidLoad()
     self.tableView.delegate = self
     self.tableView.dataSource = self
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    
-    
-    UNUserNotificationCenter.current().getPendingNotificationRequests { (myRequests) in
+    center.getPendingNotificationRequests { (myRequests) in
       self.myAlarms = myRequests
-//      print(self.myAlarms.count)
+      //      print(self.myAlarms.count)
       if self.myAlarms.count > 0 {
-//        print("here")
-        
+        //        print("here")
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
@@ -75,23 +75,18 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     let identifierString = myAlarms[indexPath.row].identifier
     
-//    myAlarms[0].content
+    //    myAlarms[0].content
     
     if editingStyle == .delete {
       self.myAlarms.remove(at: indexPath.row)
-      UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifierString])
+      center.removePendingNotificationRequests(withIdentifiers: [identifierString])
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
   }
   
   // MARK: Button Actions
-  @IBAction func saveButtonSegue(_ sender: UIButton) {
-    
-  }
-  
   @IBAction func doneButtonPressed(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
-    
   }
   
   /*

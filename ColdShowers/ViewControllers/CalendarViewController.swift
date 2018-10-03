@@ -19,7 +19,6 @@ enum weekDay:Int {
   Saturday
   
   func toString() -> String {
-    
     switch self {
     case .Sunday:
       return "Sunday"
@@ -63,17 +62,15 @@ class CalendarViewController: UIViewController {
   let timeManager = ActivityTimeManager()
   
   
+  let center = UNUserNotificationCenter.current()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Do any additional setup after loading the view.
     //        UNUserNotificationCenter.current().delegate = self
     daysOfTheWeek.removeAll()
-//    print("when is this called")
-    
-    
-    
+    //    print("when is this called")
     self.timePicker.setValue(UIColor.outerSpace, forKeyPath: "textColor")
-    
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
@@ -84,7 +81,7 @@ class CalendarViewController: UIViewController {
   // MARK: - Notification date setting
   func requestUserPermission(completionHandler: @escaping (_ success :Bool) -> ()) {
     
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+    center.requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
       if let error = error {
         print("Request Authorization Failed (\(error)")
       }
@@ -92,7 +89,7 @@ class CalendarViewController: UIViewController {
     }
   }
   func checkUserPermission(request: @escaping (Bool) -> Void) {
-    UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
+    center.getNotificationSettings { (notificationSettings) in
       switch notificationSettings.authorizationStatus {
       case .notDetermined:
         self.requestUserPermission(completionHandler: { _ in
@@ -135,16 +132,15 @@ class CalendarViewController: UIViewController {
           
           notificationContent.userInfo = ["Day": dayString, "Time": timeString, "Duration": durationString]
           //          notificationContent.userInfo = ["Day" : "TEST"] // doesn't change the 'daystring' output at all
-          
           let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: alarmComponents.1)
           let request = UNNotificationRequest(identifier: "\(dateComponents)", content: notificationContent, trigger: trigger)
-          UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+          self.center.add(request, withCompletionHandler: { (error) in
             if let error = error {
               print(error)
             }
           })
-          UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (request) in
-//            print("\(notificationContent.userInfo)")
+          self.center.getPendingNotificationRequests(completionHandler: { (request) in
+            //            print("\(notificationContent.userInfo)")
           })
           
         }
@@ -159,14 +155,8 @@ class CalendarViewController: UIViewController {
     // create category with the action
     let category = UNNotificationCategory(identifier: "Actions", actions: [actionShowDetails, notActionShowDetails], intentIdentifiers: [], options: [])
     
-    UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
+    center.setNotificationCategories(Set([category]))
   }
-  
-  
-  
-  
-  
-  
   
   // MARK: - Button operation
   @IBAction func scheduleCancelButtonAction(_ sender: UIButton) {
@@ -252,6 +242,7 @@ class CalendarViewController: UIViewController {
   }
   
   @IBAction func saveButton(_ sender: UIButton) {
+    
     let myTimePicker = DateFormatter()
     myTimePicker.dateFormat = "HH:mm"
     
@@ -265,14 +256,6 @@ class CalendarViewController: UIViewController {
     var adjustedTimeString = String()
     
     
-    // example for time formatting
-    //    func timeString(time:TimeInterval) -> String {
-    //      let hours = Int(time) / 3600
-    //      let minutes = Int(time) / 60 % 60
-    //      let timeString = String(format: "%02d:%02d:%02d", hours, minutes)
-    //      return timeString
-    //    }
-    
     switch hour {
     case 0:
       adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
@@ -285,18 +268,6 @@ class CalendarViewController: UIViewController {
     default:
       adjustedTimeString = "Invalid Time"
     }
-    
-    //    switch hour {
-    //    case 0:
-    //      adjustedTimeString = "12:\(minute) AM"
-    //    case ..<12:
-    //      adjustedTimeString = "\(hour):\(minute) AM"
-    //    case ..<24:
-    //      adjustedTimeString = "\(hour - 12):\(minute) PM"
-    //    default:
-    //      adjustedTimeString = "Invalid Time"
-    //    }
-    
     
     
     var input: ([DateComponents], Bool, String, Int)
@@ -316,30 +287,11 @@ class CalendarViewController: UIViewController {
       
     }
     setActivity(alarmComponents: input)
-    //    self.navigationController?.popViewController(animated: true)
     dismiss(animated: true, completion: nil)
   }
 }
 
 extension CalendarViewController: UNUserNotificationCenterDelegate {
-  
-  
-//  // currently does not get called at all, should be where notification is set to delivered.
-//  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//    
-//    switch response.notification.request.content.categoryIdentifier {
-//    case "accept":
-//      print("accpeted")
-//    default:
-//      //      fatalError(response.notification.request.content.categoryIdentifier)
-//      print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
-//      break
-//    }
-//    
-//  }
-  
-  
-  
   
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert])

@@ -25,14 +25,10 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var activityCurrentTimerLabel: UILabel!
   @IBOutlet weak var activityInstructionLabel: UILabel!
   
-  
   @IBOutlet weak var activityInstructionButton: UIButton!
   @IBOutlet weak var activityInstructionTextView: UITextView!
   
-  
   @IBOutlet weak var currentActivitySetCountLabel: UILabel!
-  
-  
   
   var instructionSetting = true
   
