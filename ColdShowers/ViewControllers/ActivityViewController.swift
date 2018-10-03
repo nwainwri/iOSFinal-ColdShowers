@@ -32,7 +32,6 @@ class ActivityViewController: UIViewController {
   
   var instructionSetting = true
   
-  
   //MARK: Varible Properties
   var currentActivity:Int = 0
   var activityList = Array<CoreActivity>()

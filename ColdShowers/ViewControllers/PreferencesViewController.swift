@@ -28,7 +28,9 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     preferencesTableView.dataSource = self
     
     preferencesTableView.rowHeight = UITableViewAutomaticDimension
-    preferencesTableView.estimatedRowHeight = 140
+//    preferencesTableView.estimatedRowHeight = 140
+    
+        self.preferencesTableView.rowHeight = 44.0
     
   }
   
@@ -84,12 +86,17 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     return UITableViewAutomaticDimension
   }
   
+  
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = preferencesTableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! ActivityPreferencesTableViewCell
     
     let cell2 = preferencesTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! ActivityTimePreferenceTableViewCell
     
     cell.delegate = self // needed for UISwitch, do not remove
+    
+    
+    
     
     switch indexPath.section {
     case 0:
