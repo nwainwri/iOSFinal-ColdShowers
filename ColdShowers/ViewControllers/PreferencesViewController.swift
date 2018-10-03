@@ -41,7 +41,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "Average Activity Intensity"
+      return ""
     case 1:
       return "Strength"
     case 2:
