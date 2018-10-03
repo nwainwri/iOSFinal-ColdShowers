@@ -89,7 +89,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="gsq-C6-Vb3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <state key="normal" title="Setup Schedule">
                                     <color key="titleColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -459,7 +459,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="c1T-oS-jPv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.82352941180000006" green="0.29411764709999999" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
