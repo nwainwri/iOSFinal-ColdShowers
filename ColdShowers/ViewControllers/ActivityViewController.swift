@@ -71,10 +71,9 @@ class ActivityViewController: UIViewController {
     super.viewDidLoad()
     activityInstructionTextView.isHidden = true
     activityList = activityManager.getNewList()
-    
+//    activityList = activityManager.getList(10) // DO NOT CHANGE FROM 10, AS IT'S DEPENDANT ON HARDCODED DATA
+
     currentActivitySetCountLabel.text = "Current Set: \(currentActivity + 1) of \(activityList.count)"
-    
-    
     timerOverlaylabel.text = timeString(time: TimeInterval(timePerActivity))
 //    timeStrengthValue = 60 * timeManager.getTime("Strength")
 //    timeMindfulValue = 60 * timeManager.getTime("Mindful")
@@ -285,18 +284,10 @@ class ActivityViewController: UIViewController {
   
   //MARK: Load Data for Labels
   func loadData() {
-    
-    
     activityNameLabel.text = activityList[currentActivity].name
     activityInstructionImage.image = UIImage(named: activityList[currentActivity].photo!)
-    //    activityInstructionLabel.text = activityList[currentActivity].instructions
     activityInstructionTextView.text = activityList[currentActivity].instructions
-    
     activityCurrentTimerLabel.text = timeString(time: TimeInterval(timePerActivity))
-    
-    
-    
-    
   }
   
   //MARK: TIMER FUNCTIONS
