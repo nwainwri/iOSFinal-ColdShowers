@@ -71,10 +71,23 @@ class ActivityViewController: UIViewController {
     timeMindfulValue = 60 * timeManager.getTime("Mindful")
     timeYogaValue = 60 * timeManager.getTime("Yoga")
     
+    activityList = activityManager.getNewList()
+    //MARK: get all times for all activities
+    // as all activities are 1.5 mins long now
+    // MARK: NON DYNAMIC DATA
+    // 15 mins is being used for ALL total workouts, * 60 gets total seconds
+    // each activity is 1.5 mins long
+    estimatedTimeAmount.text = timeString(time: TimeInterval(15 * 60))
+    
+//    estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
+    
+    
     //    // user default methods
     //    timeStrengthValue = 60 * defaults.integer(forKey: "timeStrengthValue")
     //    timeMindfulValue = 60 * defaults.integer(forKey: "timeMindfulValue")
     //    timeYogaValue = 60 * defaults.integer(forKey: "timeYogaValue")
+    
+    
     
     switch self.currentActivity {
     case 0:
@@ -102,8 +115,7 @@ class ActivityViewController: UIViewController {
     timerOverlayView.isHidden = true
     timerOverlayView.alpha = 0.0
     
-    activityList = activityManager.getNewList()
-    estimatedTimeAmount.text = timeString(time: TimeInterval(timeMindfulValue + timeYogaValue + timeStrengthValue))
+    
     
     //    MakeBorder.addTopBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)
     //    MakeBorder.addBottomBorder(inpView: activityInstructionImage, withColor: UIColor.offWhite)

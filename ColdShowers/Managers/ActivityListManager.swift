@@ -20,6 +20,8 @@ class ActivityListManager: NSObject {
   var currentStrength: [CoreActivity] = []
   var currentMindful: [CoreActivity] = []
   
+  let list: [CoreActivity] = []
+  
   override init() {
     guard let appDelegate =
       UIApplication.shared.delegate as? AppDelegate else {
@@ -158,8 +160,22 @@ class ActivityListManager: NSObject {
   
   // MARK: activity list function
   func getNewList() -> [CoreActivity] {
-    return [currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)],
-            currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)],
-            currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]]
+    let actOne = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    let actTwo = currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
+    let actThree = currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
+    let actFour = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    let actFive = currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
+    let actSix = currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
+    let actSeven = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    let actEight = currentMindful[Int(arc4random_uniform(UInt32(currentMindful.count)) + 0)]
+    let actNine = currentYoga[Int(arc4random_uniform(UInt32(currentYoga.count)) + 0)]
+    let actTen = currentStrength[Int(arc4random_uniform(UInt32(currentStrength.count)) + 0)]
+    
+    
+
+    
+    
+//    list: = [actOne, actTwo, actThree, actFour, actFive, actSix, actSeven, actEight, actNine, actTen]
+    return [actOne, actTwo, actThree, actFour, actFive, actSix, actSeven, actEight, actNine, actTen]
   }
 }
