@@ -59,12 +59,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     let durationString = "\(durationInt ?? 15) Minutes"
     
     
-    cell.dateLabel.text = timeString
-    cell.timeLabel.text = dayString
+    var repeatDayString = ""
+    if (request.trigger?.repeats) == true {
+      repeatDayString = "Every \(dayString!)"
+    } else {
+      repeatDayString = dayString!
+    }
+    
+    cell.dateLabel.text = repeatDayString
+    cell.timeLabel.text = timeString
     cell.durationLabel.text = durationString
-    
-    
-    print(request.content.userInfo)
     
     return cell
   }
@@ -74,6 +78,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     // currently deletes from screen, but not actually from notification center items.
     
     let identifierString = myAlarms[indexPath.row].identifier
+    
+//    myAlarms[0].content
     
     if editingStyle == .delete {
       self.myAlarms.remove(at: indexPath.row)

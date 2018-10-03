@@ -17,26 +17,26 @@ enum weekDay:Int {
   Thursday,
   Friday,
   Saturday
-
-    func toString() -> String {
-        
-        switch self {
-        case .Sunday:
-            return "Sunday"
-        case .Monday:
-            return "Monday"
-        case .Tuesday:
-            return "Tuesday"
-        case .Wednesday:
-            return "Wednesday"
-        case .Thursday:
-            return "Thursday"
-        case .Friday:
-            return "Friday"
-        case .Saturday:
-            return "Saturday"
-        }
+  
+  func toString() -> String {
+    
+    switch self {
+    case .Sunday:
+      return "Sunday"
+    case .Monday:
+      return "Monday"
+    case .Tuesday:
+      return "Tuesday"
+    case .Wednesday:
+      return "Wednesday"
+    case .Thursday:
+      return "Thursday"
+    case .Friday:
+      return "Friday"
+    case .Saturday:
+      return "Saturday"
     }
+  }
 }
 
 
@@ -111,7 +111,7 @@ class CalendarViewController: UIViewController {
   }
   func setActivity(alarmComponents: ([DateComponents], Bool, String, Int)) {
     //For testing only
-//    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    //    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     
     checkUserPermission { (res) in
       if res {
@@ -121,15 +121,15 @@ class CalendarViewController: UIViewController {
           notificationContent.title = "Wake up?"
           notificationContent.subtitle = ""
           notificationContent.categoryIdentifier = "Actions"
-
-            guard let dayNumber = dateComponents.weekday else { fatalError("invalid day")}
-            
-            guard let day = weekDay.init(rawValue: dayNumber - 1) else { fatalError("invalide date")}
-            let dayString = day.toString()
-            let timeString = alarmComponents.2
-            let durationString = alarmComponents.3
-            
-            notificationContent.userInfo = ["Day": dayString, "Time": timeString, "Duration": durationString]
+          
+          guard let dayNumber = dateComponents.weekday else { fatalError("invalid day")}
+          
+          guard let day = weekDay.init(rawValue: dayNumber - 1) else { fatalError("invalide date")}
+          let dayString = day.toString()
+          let timeString = alarmComponents.2
+          let durationString = alarmComponents.3
+          
+          notificationContent.userInfo = ["Day": dayString, "Time": timeString, "Duration": durationString]
           //          notificationContent.userInfo = ["Day" : "TEST"] // doesn't change the 'daystring' output at all
           
           let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: alarmComponents.1)
@@ -159,7 +159,7 @@ class CalendarViewController: UIViewController {
   }
   
   
-
+  
   
   
   
@@ -262,36 +262,36 @@ class CalendarViewController: UIViewController {
     
     
     // example for time formatting
-//    func timeString(time:TimeInterval) -> String {
-//      let hours = Int(time) / 3600
-//      let minutes = Int(time) / 60 % 60
-//      let timeString = String(format: "%02d:%02d:%02d", hours, minutes)
-//      return timeString
-//    }
+    //    func timeString(time:TimeInterval) -> String {
+    //      let hours = Int(time) / 3600
+    //      let minutes = Int(time) / 60 % 60
+    //      let timeString = String(format: "%02d:%02d:%02d", hours, minutes)
+    //      return timeString
+    //    }
     
     switch hour {
     case 0:
-        adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
+      adjustedTimeString = String(format: "12:%02d AM", minute) // String(format: "12:%02d", minute)
     case 12:
       adjustedTimeString = String(format: "12:%02d PM", minute) // String(format: "12:%02d", minute)
     case ..<12:
-        adjustedTimeString = String(format: "%2d:%02d AM", hour, minute) // String(format: "%02d:%02d", hour, minute)
+      adjustedTimeString = String(format: "%2d:%02d AM", hour, minute) // String(format: "%02d:%02d", hour, minute)
     case ..<24:
-        adjustedTimeString = String(format: "%2d:%02d PM", hour - 12, minute) // String(format: "%02d:%02d", hour - 12, minute)
+      adjustedTimeString = String(format: "%2d:%02d PM", hour - 12, minute) // String(format: "%02d:%02d", hour - 12, minute)
     default:
-        adjustedTimeString = "Invalid Time"
+      adjustedTimeString = "Invalid Time"
     }
     
-//    switch hour {
-//    case 0:
-//      adjustedTimeString = "12:\(minute) AM"
-//    case ..<12:
-//      adjustedTimeString = "\(hour):\(minute) AM"
-//    case ..<24:
-//      adjustedTimeString = "\(hour - 12):\(minute) PM"
-//    default:
-//      adjustedTimeString = "Invalid Time"
-//    }
+    //    switch hour {
+    //    case 0:
+    //      adjustedTimeString = "12:\(minute) AM"
+    //    case ..<12:
+    //      adjustedTimeString = "\(hour):\(minute) AM"
+    //    case ..<24:
+    //      adjustedTimeString = "\(hour - 12):\(minute) PM"
+    //    default:
+    //      adjustedTimeString = "Invalid Time"
+    //    }
     
     
     
@@ -300,7 +300,7 @@ class CalendarViewController: UIViewController {
     input.1 = repeatSwitch.isOn
     input.2 = adjustedTimeString
     input.3 = 15 // MARK: -- where time for notification is set.
-
+    
     for day in daysOfTheWeek {
       
       var newDate = DateComponents()
@@ -331,7 +331,7 @@ extension CalendarViewController: UNUserNotificationCenterDelegate {
       print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
       break
     }
-
+    
   }
   
   
