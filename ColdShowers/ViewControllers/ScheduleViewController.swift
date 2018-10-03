@@ -15,12 +15,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   
   var myAlarms = [UNNotificationRequest]()
   override func viewDidLoad() {
-    
-    UNUserNotificationCenter.current().removeAllDeliveredNotifications() //  notifications arent being marked delivered
-    
-    //    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["localNotification"])
-    //    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    
+    UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+
     super.viewDidLoad()
     self.tableView.delegate = self
     self.tableView.dataSource = self
@@ -31,9 +27,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     UNUserNotificationCenter.current().getPendingNotificationRequests { (myRequests) in
       self.myAlarms = myRequests
-      print(self.myAlarms.count)
+//      print(self.myAlarms.count)
       if self.myAlarms.count > 0 {
-        print("here")
+//        print("here")
         
         DispatchQueue.main.async {
           self.tableView.reloadData()

@@ -67,7 +67,11 @@ class CalendarViewController: UIViewController {
     super.viewDidLoad()
     //        UNUserNotificationCenter.current().delegate = self
     daysOfTheWeek.removeAll()
-    print("when is this called")
+//    print("when is this called")
+    
+    
+    
+    self.timePicker.setValue(UIColor.outerSpace, forKeyPath: "textColor")
     
     // Do any additional setup after loading the view.
   }
@@ -140,7 +144,7 @@ class CalendarViewController: UIViewController {
             }
           })
           UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (request) in
-            print("\(notificationContent.userInfo)")
+//            print("\(notificationContent.userInfo)")
           })
           
         }
@@ -320,19 +324,19 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: UNUserNotificationCenterDelegate {
   
   
-  // currently does not get called at all, should be where notification is set to delivered.
-  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    
-    switch response.notification.request.content.categoryIdentifier {
-    case "accept":
-      print("accpeted")
-    default:
-      //      fatalError(response.notification.request.content.categoryIdentifier)
-      print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
-      break
-    }
-    
-  }
+//  // currently does not get called at all, should be where notification is set to delivered.
+//  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//    
+//    switch response.notification.request.content.categoryIdentifier {
+//    case "accept":
+//      print("accpeted")
+//    default:
+//      //      fatalError(response.notification.request.content.categoryIdentifier)
+//      print("DEFAULTED \(response.notification.request.content.categoryIdentifier)")
+//      break
+//    }
+//    
+//  }
   
   
   
