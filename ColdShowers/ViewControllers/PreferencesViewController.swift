@@ -94,11 +94,11 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     switch indexPath.section {
     case 0:
       
-      let nameLabel = "Average Activity Intensity"
+      let nameLabel = "Average Intensity"
       
       
-      cell2.activityCategoryNameLabel.text = "Average Intensity"
-      cell2.activityTimeSliderLabel.text = "\(timeManager.getTime("Average Intensity"))"
+      cell2.activityCategoryNameLabel.text = "Average Activity Intensity"
+      cell2.activityTimeSliderLabel.text = "\(timeManager.getTime(nameLabel))"
       cell2.activityCategoryTimeSlider.value = timeManager.getTime(nameLabel)
 
       return cell2
