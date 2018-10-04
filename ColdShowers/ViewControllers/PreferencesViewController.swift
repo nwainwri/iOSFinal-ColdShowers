@@ -152,7 +152,7 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
       activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
       
     case 2:
-      activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
+      activityManager.yoga[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
       
     default:
       fatalError("why is this trying to do outside of sections")
