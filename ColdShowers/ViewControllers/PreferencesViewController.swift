@@ -145,13 +145,13 @@ class PreferencesViewController: UIViewController, UITableViewDelegate, UITableV
     guard let tappedIndexPath = preferencesTableView.indexPath(for: sender) else { return }
     
     switch tappedIndexPath.section {
-    case 0:
+    case 1:
       activityManager.strength[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
       
-    case 1:
+    case 2:
       activityManager.mindful[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
       
-    case 2:
+    case 3:
       activityManager.yoga[tappedIndexPath.row].settings = sender.preferenceSettingSwitch.isOn
       
     default:
