@@ -10,18 +10,16 @@ import UIKit
 class PostActivityViewController: UIViewController {
   
   //MARK: Storyboard Properties
-  @IBOutlet weak var intensityLabel: UILabel!
-  @IBOutlet weak var intensityButtonLow: UIButton!
-  @IBOutlet weak var intensityButtonMiddle: UIButton!
-  @IBOutlet weak var intensityButtonHigh: UIButton!
+  
+  
   
   @IBOutlet weak var enjoymentLabel: UILabel!
-  @IBOutlet weak var enjoymentButtonYes: UIButton!
-  @IBOutlet weak var enjoymentButtonNo: UIButton!
   
   @IBOutlet weak var activityButtonFinish: UIButton!
   
-  //MARK: properties
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    //MARK: properties
   let defaults = UserDefaults.standard
   
   override func viewDidLoad() {
@@ -45,10 +43,15 @@ class PostActivityViewController: UIViewController {
    */
   
   // MARK: Button Actions
-  @IBAction func activityButtonFinishPressed(_ sender: UIButton) {
-    addNewDashDate()
-    performSegue(withIdentifier: "backHomeSegue", sender: self)
-  }
+    @IBAction func yesButtonPressed(_ sender: UIButton) {
+        addNewDashDate()
+        performSegue(withIdentifier: "backHomeSegue", sender: self)
+    }
+    @IBAction func noButtonPressed(_ sender: UIButton) {
+        addNewDashDate()
+        performSegue(withIdentifier: "backHomeSegue", sender: self)
+    }
+    
   
   //MARK: Dash Handling
   func addNewDashDate() {
